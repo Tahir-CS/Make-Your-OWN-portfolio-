@@ -232,34 +232,9 @@ npm i -g vercel
 # Deploy
 vercel
 ```
-
-### Deploy to Netlify
-```bash
-# Build the project
-npm run build
-
-# Upload the 'dist' folder to Netlify
+=
 ```
 
-### Deploy to GitHub Pages
-```bash
-# Install gh-pages
-npm install --save-dev gh-pages
-
-# Add to package.json scripts:
-"deploy": "gh-pages -d dist"
-
-# Deploy
-npm run build && npm run deploy
-```
-
-## ⚡ Performance Features
-
-- 🚀 **Optimized CSS**: Reduced from 2500+ to ~1000 lines
-- 🎨 **CSS Custom Properties**: Consistent theming system
-- 📱 **Mobile-First Design**: Responsive on all devices  
-- ⚡ **Fast Loading**: Lazy loading and optimized assets
-- 🎭 **Smooth Animations**: 60fps Framer Motion animations
 
 ## � Development Commands
 
@@ -317,4 +292,4 @@ This project is licensed under the MIT License - feel free to use it for persona
 
 ⭐ **Star this repository if you found it helpful!**
 
-**Built with ❤️ by [Tahir Butt](https://github.com/Tahir-CS)**
+**Built  by [Tahir Butt](https://github.com/Tahir-CS)**
