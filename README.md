@@ -290,10 +290,10 @@ Want to improve this template? Here's how:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## � Support & Questions
+## � Support 
 
 - 🐛 **Report Issues**: [GitHub Issues](https://github.com/Tahir-CS/react-portfolio/issues)
-- 💬 **Get Help**: Contact at tahirhussain.cs@gmail.com  
+- 💬 **Get Help**: Contact at  mtahirbutt1005@gmail.com  
 - 📚 **Documentation**: Check this README
 - ⭐ **Show Support**: Star this repository if it helped you!
 
@@ -317,4 +317,4 @@ This project is licensed under the MIT License - feel free to use it for persona
 
 ⭐ **Star this repository if you found it helpful!**
 
-**Built with ❤️ by [Tahir Hussain](https://github.com/Tahir-CS)**
+**Built with ❤️ by [Tahir Butt](https://github.com/Tahir-CS)**
