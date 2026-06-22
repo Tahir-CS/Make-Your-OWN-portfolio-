@@ -73,16 +73,6 @@ vercel
 1. Build: `npm run build`
 2. Upload the `dist` folder to Netlify
 
-#### Deploy to GitHub Pages
-```bash
-npm install --save-dev gh-pages
-
-# Add to package.json scripts:
-"deploy": "gh-pages -d dist"
-
-# Deploy
-npm run build && npm run deploy
-```
 
 ## 🎨 Full Customization Options
 
@@ -202,4 +192,3 @@ Found a bug or want to add a feature? Contributions are welcome!
 
 ⭐ **Star this repository if it helped you!**
 
-Made with ❤️ by [Tahir Hussain](https://github.com/Tahir-CS)
