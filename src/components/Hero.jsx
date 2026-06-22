@@ -19,9 +19,13 @@ export default function Hero() {
           animate="visible"
           variants={heroVariants}
         >
-          <h1 className="section-title text-center">
-            <span className="text-gradient">{personal.name}</span>
-          </h1>
+          <motion.h1 
+            className="section-title text-center"
+            animate={{ y: [0, -10, 0] }}
+            transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+          >
+            <span className="text-gradient">M. TAHIR</span>
+          </motion.h1>
           <h2 className="text-white text-center mb-4">{personal.title}</h2>
           <p className="text-white text-center mb-8">
             {personal.tagline}
