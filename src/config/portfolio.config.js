@@ -4,18 +4,18 @@
 export const portfolioConfig = {
   // Personal Information
   personal: {
-    name: "M. me",
+    name: "Muhammad Tahir",
     fullName: "Muhammad Tahir",
-    title: "Full Stack Developer",
-    tagline: "Building modern web experiences with React, Node.js, and more.",
-    email: "tahirhussain.cs@gmail.com",
-    phone: "+92 304 1234567",
+    title: "Full Stack Engineer",
+    tagline: "👋 Passionate about building fast, scalable web applications and solving complex problems.",
+    email: "mtahirbutt1005@gmail.com",
+    phone: "+923299712924",
     location: "Lahore, Pakistan",
     
     // Social Links
     social: {
       github: "https://github.com/Tahir-CS",
-      linkedin: "https://www.linkedin.com/in/tahir-hussain-dev/",
+      linkedin: "https://linkedin.com/in/tahir-butt-8345a5329",
       twitter: "", // Optional
       instagram: "", // Optional
     }
@@ -23,38 +23,90 @@ export const portfolioConfig = {
 
   // About Section
   about: {
-    description: `I'm a passionate Full Stack Developer with expertise in modern web technologies. 
-    I love creating elegant solutions to complex problems and building applications that make a difference. 
-    Currently pursuing Computer Science at University of Engineering and Technology, Lahore, 
-    while working on exciting projects that push the boundaries of web development.`,
+    description: `I'm a Backend Developer specializing in Node.js and Express.js to build scalable microservices and production-grade APIs. I have hands-on experience with PostgreSQL, Redis, and Docker to develop event-driven systems and secure, high-performance infrastructure.`,
     
     // Education
     education: {
-      degree: "Bachelor of Science in Computer Science",
+      degree: "B.S. Computer Science (CGPA: 3.3)",
       institution: "University of Engineering and Technology, Lahore",
-      graduationDate: "June 2028",
+      graduationDate: "Expected June 2028",
       coursework: "Data Structures, Algorithms, Web Development, Database Systems, Software Engineering"
     },
 
     // Stats
     stats: [
-      { number: "20+", label: "Projects Completed" },
-      { number: "2+", label: "Years Experience" },
+      { number: "10+", label: "Projects Completed" },
+      { number: "1+", label: "Years Experience" },
       { number: "100%", label: "Client Satisfaction" }
     ]
   },
 
+  // Certifications Section
+  certifications: [
+    {
+      title: "MERN Stack Developer Certificate",
+      issuer: "Certificate",
+      image: "/certificates/mern.png",
+      verifyUrl: "#"
+    },
+    {
+      title: "IBM Backend Development",
+      issuer: "IBM",
+      image: "/certificates/ibm-backend.png",
+      verifyUrl: "#"
+    },
+    {
+      title: "Advanced React",
+      issuer: "META",
+      image: "/certificates/meta-react.png",
+      verifyUrl: "#"
+    },
+    {
+      title: "AWS Cloud Practitioner Essentials",
+      issuer: "AWS",
+      image: "/certificates/aws.png",
+      verifyUrl: "#"
+    },
+    {
+      title: "IBM Applied DevOps Engineering",
+      issuer: "IBM",
+      image: "/certificates/ibm-devops.png",
+      verifyUrl: "#"
+    }
+  ],
+
   // Skills Section
   skills: {
-    "Languages": ["JavaScript", "C++", "HTML5", "CSS3", "Python"],
-    "Frontend": ["React.js", "Responsive Design", "Framer Motion", "Modern CSS"],
-    "Backend": ["Node.js", "Express.js", "RESTful APIs", "JWT Authentication"],
-    "Databases": ["MongoDB", "SQLite", "SQL Server"],
-    "Tools & Technologies": ["Git", "GitHub", "NPM", "AWS", "Postman"]
+    "Languages": ["C++", "JavaScript", "TypeScript", "SQL"],
+    "Frontend": ["React.js", "Framer Motion", "Modern CSS"],
+    "Backend": ["Node.js", "Express.js", "RESTful APIs", "BullMQ"],
+    "Databases": ["PostgreSQL", "MongoDB", "Redis", "TimescaleDB"],
+    "Devops & Tools": ["Git", "Postman", "Docker", "CI/CD", "AWS EC2"]
   },
 
   // Projects Section
   projects: [
+    {
+      title: "Career OS",
+      description: "Event-driven microservice system returning job responses in under 50ms using BullMQ & Redis. Engineered semantic job matching with Gemini Embeddings and pgvector. Containerized infrastructure with Docker Compose.",
+      techStack: ["React.js", "Node.js", "Redis", "Docker", "Supabase", "Gemini API", "PostgreSQL", "pgvector", "BullMQ"],
+      githubUrl: "https://github.com/Tahir-CS/CAREER-OS-",
+      liveUrl: null
+    },
+    {
+      title: "YT Analysis Engine",
+      description: "Multi-platform data ingestion layer for YouTube and Reddit. Distributed Redis rate limiter enforcing API quotas. Time-series metrics store using TimescaleDB and AI-driven comment clustering via Gemini API.",
+      techStack: ["React.js", "Node.js", "PostgreSQL", "Redis", "Docker", "TimescaleDB", "Gemini API", "pgvector"],
+      githubUrl: "https://github.com/Tahir-CS/Yt-Analysis-Engine",
+      liveUrl: null
+    },
+    {
+      title: "Subscription Guardian",
+      description: "AI-powered browser extension that detects and manages subscriptions in real-time. Evaluates dark patterns, identifies hidden cancellation links, and provides smart renewal reminders locally for complete privacy.",
+      techStack: ["TypeScript", "React.js", "Webpack", "Chrome MV3 API", "Chrome Alarms API", "Local Storage"],
+      githubUrl: "https://github.com/Tahir-CS/Subscription-manager",
+      liveUrl: "https://tahir-cs.github.io/Subscription-manager/"
+    },
     {
       title: "E-Commerce Store",
       description: "A modern e-commerce platform with user authentication, shopping cart, and payment integration. Features responsive design and real-time inventory management.",
@@ -62,54 +114,17 @@ export const portfolioConfig = {
       githubUrl: "https://github.com/Tahir-CS/E-commerse-store",
       liveUrl: "https://e-commerse-store-eta.vercel.app/",
       thumbnail: "../assets/ecommerse store thumbnail .png"
-    },
-    {
-      title: "AI Resume Analyzer",
-      description: "An intelligent resume analysis tool that provides feedback on resume content, format, and ATS compatibility using machine learning algorithms.",
-      techStack: ["React.js", "Node.js", "MongoDB", "Express.js", "AI/ML"],
-      githubUrl: "https://github.com/Tahir-CS/Ai-RESUME-ANALYZER",
-      liveUrl: "https://ai-resume-analyzer-chi-six.vercel.app",
-      thumbnail: "../assets/ai resume analyzer.png"
-    },
-    {
-      title: "TrendVision Dashboard",
-      description: "A comprehensive analytics dashboard for tracking market trends and data visualization with interactive charts and real-time updates.",
-      techStack: ["Node.js", "Chart.js", "Express.js", "MongoDB"],
-      githubUrl: "https://github.com/Tahir-CS/Youtube-Tracker-and-Cost-estimator",
-      liveUrl: "https://youtube-tracker-cost-estimator-supa-base-version-6w3sia5rd.vercel.app/",
-      thumbnail: "../assets/trendvision thumbnail.png"
-    },
-    {
-      title: "VoteChain Voting System",
-      description: "A secure digital voting system with blockchain-inspired security features and real-time result tracking.",
-      techStack: ["C++", "SQLite", "Cryptography"],
-      githubUrl: "https://github.com/Tahir-CS/2nd-Sem-Project-OOP",
-      liveUrl: null
-    },
-    {
-      title: "LMS & Quiz System",
-      description: "A learning management system with interactive quizzes, progress tracking, and file management capabilities.",
-      techStack: ["C++", "File Handling", "Data Structures"],
-      githubUrl: "https://github.com/Tahir-CS/1st-Sem-Project",
-      liveUrl: null
-    },
-    {
-      title: "Cyber Security Database Management System",
-      description: "A robust database system to track, manage, and report cybersecurity incidents, enabling efficient response and secure data handling for enterprise-level environments.",
-      techStack: ["SQL", "Microsoft SQL Server", "Database Design"],
-      githubUrl: "https://github.com/Tahir-CS/Cyber-security-management-system-database",
-      liveUrl: null
     }
   ],
 
   // Experience Section
   experience: [
     {
-      title: "Full Stack Developer",
-      company: "Codealpha",
-      duration: "June 2025 - July 2025",
-      description: "Developing web applications using React.js, Node.js, and modern web technologies. Building responsive, user-friendly interfaces and robust backend systems.",
-      skills: ["React.js", "Node.js", "MongoDB", "Express.js", "JavaScript"]
+      title: "Backend Development Intern",
+      company: "Neutrawise",
+      duration: "June 2025 - July 2025 (Remote)",
+      description: "Built full-stack modules using Node.js and React, leveraging TypeScript to ensure end-to-end type safety and code reliability. Optimized application logic by integrating third-party APIs, streamlining data flow and expanding core platform functionality. Containerized application services using Docker, streamlining local development workflows and ensuring environment consistency across the team. Integrated environmental APIs to transform user consumption data into real-time impact metrics.",
+      skills: ["Node.js", "React.js", "TypeScript", "Docker", "APIs"]
     }
   ],
 
