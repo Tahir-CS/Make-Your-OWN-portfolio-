@@ -1,6 +1,6 @@
 import React from 'react';
 import Navigation from './components/Navigation';
-import { Hero, AboutMe, Experience, Skills, Projects, Contact, Footer } from './sections';
+import { Hero, AboutMe, Experience, Certifications, Skills, Projects, Contact, Footer } from './sections';
 import './App.css';
 
 function App() {
@@ -11,6 +11,7 @@ function App() {
       <AboutMe />
       <Experience />
       <Skills />
+      <Certifications />
       <Projects />
       <Contact />
       <Footer />
