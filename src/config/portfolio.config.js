@@ -120,11 +120,18 @@ export const portfolioConfig = {
   // Experience Section
   experience: [
     {
-      title: "Backend Development Intern",
-      company: "Neutrawise",
-      duration: "June 2025 - July 2025 (Remote)",
-      description: "Built full-stack modules using Node.js and React, leveraging TypeScript to ensure end-to-end type safety and code reliability. Optimized application logic by integrating third-party APIs, streamlining data flow and expanding core platform functionality. Containerized application services using Docker, streamlining local development workflows and ensuring environment consistency across the team. Integrated environmental APIs to transform user consumption data into real-time impact metrics.",
-      skills: ["Node.js", "React.js", "TypeScript", "Docker", "APIs"]
+      title: "Full Stack Intern",
+      company: "KICS",
+      duration: "June 2026 - August 2026",
+      description: "Worked across frontend and backend development to build and improve full-stack web applications, connecting responsive user interfaces with reliable server-side functionality and APIs.",
+      skills: ["React.js", "Node.js", "JavaScript", "APIs", "Full Stack Development"]
+    },
+    {
+      title: "Web Development",
+      company: "Bano Qabil",
+      duration: "June 2025 - July 2025",
+      description: "Developed practical web development skills by building responsive interfaces and functional web experiences with modern frontend technologies and core web fundamentals.",
+      skills: ["HTML", "CSS", "JavaScript", "Responsive Design", "Web Development"]
     }
   ],
 
