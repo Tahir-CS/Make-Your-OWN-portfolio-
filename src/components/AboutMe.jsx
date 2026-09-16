@@ -11,35 +11,18 @@ export default function AboutMe() {
       <div className="container">
         {/* Section Header */}
         <motion.div
-          className="section-index-header"
+          className="deck-section-header"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-index-num">// 01. PHILOSOPHY &amp; PERSPECTIVE</span>
-          <span className="section-index-tag">[ SYSTEM DESIGN ]</span>
+          <span className="apple-label">Philosophy &amp; Perspective</span>
+          <h2 className="apple-monument-h2">System Architecture &amp; Foundations.</h2>
+          <p className="apple-lead-p">
+            Engineering scalable web backends, resilient queue architectures, and mathematical vector retrieval.
+          </p>
         </motion.div>
-
-        <motion.h2
-          className="section-heading-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Architecture Blueprint &amp; Philosophy
-        </motion.h2>
-
-        <motion.p
-          className="section-lead-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          Engineering scalable web backends, resilient queue architectures, and mathematical vector retrieval.
-        </motion.p>
 
         {/* Statement Quote Banner */}
         <motion.div

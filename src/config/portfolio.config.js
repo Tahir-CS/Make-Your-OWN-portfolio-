@@ -116,83 +116,67 @@ export const portfolioConfig = {
   projects: [
     {
       index: "01",
-      title: "Career OS",
-      badge: "Distributed Microservice",
-      category: "Event-Driven System",
-      description: "Distributed job intelligence engine returning responses in <50ms. Combines BullMQ worker threads with pgvector semantic cosine similarity search using Gemini embeddings.",
+      title: "CareerOS",
+      badge: "Distributed Job Intelligence",
+      category: "Vector Retrieval & Queues",
+      description: "Intelligent career discovery platform matching candidates to live roles with <50ms response latency using BullMQ worker pipelines and pgvector semantic cosine similarity.",
       architecture: [
         "Sub-50ms asynchronous queue pipelines running on Redis + BullMQ workers",
-        "High-dimensional vector indexing in PostgreSQL using pgvector",
+        "High-dimensional vector indexing in PostgreSQL using pgvector and Gemini embeddings",
         "Multi-container Docker Compose setup separating gateway, worker cluster, and database"
       ],
-      techStack: ["Node.js", "Redis", "BullMQ", "PostgreSQL", "pgvector", "Docker", "Gemini API"],
+      techStack: ["React.js", "Node.js", "Redis", "BullMQ", "PostgreSQL", "pgvector", "Docker"],
       githubUrl: "https://github.com/Tahir-CS/CAREER-OS-",
       liveUrl: null,
       featured: true
     },
     {
       index: "02",
-      title: "UET OCW & Enterprise AI Engine",
-      badge: "University Platform & AI System",
-      category: "Full-Stack Enterprise Architecture",
-      description: "University-scale academic management platform featuring a ChatGPT-style conversational product with real-time AI token usage metering, custom API key management, and multi-tier role authorization.",
+      title: "CreatorIQ",
+      badge: "Channel Analytics & Valuation",
+      category: "Time-Series & Sentiment AI",
+      description: "High-throughput channel analytics and sponsorship valuation engine projecting 48-hour video reach and calculating fair sponsorship rates via TimescaleDB and Redis rate-limiting.",
       architecture: [
-        "Granular role-based access control (Super Admin, Admin, Student) with course material distribution",
-        "ChatGPT-like AI chatbot engine featuring real-time token/usage telemetry and custom LLM API configuration",
-        "High-performance Next.js client integration communicating with robust Laravel REST API backend"
-      ],
-      techStack: ["Next.js", "React.js", "Laravel", "Node.js", "PostgreSQL", "LLM APIs", "Docker"],
-      githubUrl: "https://github.com/Tahir-CS",
-      liveUrl: null,
-      featured: true
-    },
-    {
-      index: "03",
-      title: "YT Analysis Engine",
-      badge: "Data Ingestion Pipeline",
-      category: "Time-Series Analytics",
-      description: "High-throughput data ingestion pipeline capturing YouTube & Reddit streaming metrics. Uses a distributed Redis token-bucket rate limiter to enforce strict quotas, stored in TimescaleDB hypertables.",
-      architecture: [
-        "Distributed Redis rate limiter preventing external API quota exhaustion under bursts",
-        "TimescaleDB hypertable chunk partitioning for high-speed time-series queries",
+        "Distributed Redis token-bucket rate limiter preventing external API quota exhaustion under bursts",
+        "TimescaleDB hypertable chunk partitioning for high-speed time-series analytics",
         "AI-assisted sentiment clustering via Gemini and pgvector vector search"
       ],
-      techStack: ["Node.js", "TimescaleDB", "PostgreSQL", "Redis", "pgvector", "Docker", "Gemini API"],
+      techStack: ["React.js", "Node.js", "TimescaleDB", "PostgreSQL", "Redis", "Docker", "Gemini API"],
       githubUrl: "https://github.com/Tahir-CS/Yt-Analysis-Engine",
       liveUrl: null,
       featured: true
     },
     {
-      index: "04",
+      index: "03",
       title: "Subscription Guardian",
-      badge: "Chrome MV3 Extension",
-      category: "Privacy & Client Engineering",
+      badge: "Chrome MV3 Privacy Extension",
+      category: "Client Engineering & Security",
       description: "Zero-telemetry browser extension that inspects checkout DOMs in real-time to detect dark patterns, hidden recurring subscriptions, and deceptive cancellation links.",
       architecture: [
         "DOM mutation observers and pattern matching algorithms detecting dark checkout flows",
         "100% client-side privacy architecture with zero remote data telemetry",
         "Manifest V3 service worker lifecycle with Chrome Alarms for background renewal alerts"
       ],
-      techStack: ["TypeScript", "Chrome MV3 API", "React.js", "Chrome Alarms", "Webpack", "Local Storage"],
+      techStack: ["TypeScript", "Chrome MV3 API", "React.js", "Chrome Alarms", "Webpack"],
       githubUrl: "https://github.com/Tahir-CS/Subscription-manager",
       liveUrl: "https://tahir-cs.github.io/Subscription-manager/",
       featured: true
     },
     {
-      index: "05",
-      title: "Full-Stack E-Commerce Platform",
-      badge: "Production Platform",
-      category: "Web Application",
+      index: "04",
+      title: "Modern E-Commerce Store",
+      badge: "Transactional Platform",
+      category: "Full-Stack Web Architecture",
       description: "Full-stack transactional web platform with Supabase Row-Level Security, real-time cart state synchronization, and Stripe payment webhook verification.",
       architecture: [
         "Supabase Row-Level Security (RLS) enforcing strict authorization at database level",
         "Stripe checkout sessions with cryptographically signed webhook confirmation",
         "Optimistic UI state transitions for instantaneous user interactions"
       ],
-      techStack: ["React.js", "Supabase", "Stripe API", "Modern CSS", "Vite"],
+      techStack: ["React.js", "Supabase", "Stripe API", "PostgreSQL", "Vite"],
       githubUrl: "https://github.com/Tahir-CS/E-commerse-store",
       liveUrl: "https://e-commerse-store-eta.vercel.app/",
-      featured: false
+      featured: true
     }
   ],
 

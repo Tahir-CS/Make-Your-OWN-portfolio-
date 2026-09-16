@@ -29,35 +29,18 @@ export default function Certifications() {
       <div className="container">
         {/* Section Header */}
         <motion.div
-          className="section-index-header"
+          className="deck-section-header"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-index-num">// 05. ACCREDITATIONS</span>
-          <span className="section-index-tag">[ FORMAL CREDENTIALS ]</span>
+          <span className="apple-label">Accreditations &amp; Credentials</span>
+          <h2 className="apple-monument-h2">Verified Credentials.</h2>
+          <p className="apple-lead-p">
+            Specialized curricula verified across backend architecture, cloud engineering, and operational DevOps pipelines.
+          </p>
         </motion.div>
-
-        <motion.h2
-          className="section-heading-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Industry Credentials
-        </motion.h2>
-
-        <motion.p
-          className="section-lead-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          Specialized curricula verified across backend architecture, cloud engineering, and operational DevOps pipelines.
-        </motion.p>
 
         <div className="certs-grid">
           {certifications.map((cert, index) => (

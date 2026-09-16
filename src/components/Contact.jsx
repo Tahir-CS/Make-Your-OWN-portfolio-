@@ -39,14 +39,17 @@ export default function Contact() {
       <div className="container">
         {/* Section Header */}
         <motion.div
-          className="section-index-header"
+          className="deck-section-header"
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="section-index-num">// 06. INITIATE TRANSMISSION</span>
-          <span className="section-index-tag">[ DIRECT DISPATCH ]</span>
+          <span className="apple-label">Direct Dispatch &amp; Inquiries</span>
+          <h2 className="apple-monument-h2">Initiate Transmission.</h2>
+          <p className="apple-lead-p">
+            Currently entertaining distributed systems roles, backend engineering contracts, and high-throughput architectures.
+          </p>
         </motion.div>
 
         <div className="contact-grid-layout">
@@ -57,12 +60,9 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="section-heading-editorial" style={{ fontSize: 'clamp(2.2rem, 4vw, 3rem)' }}>
-              Let's Build Something <span style={{ color: 'var(--primary)' }}>Resilient.</span>
-            </h2>
-            <p className="section-lead-editorial" style={{ marginBottom: '28px' }}>
-              Currently entertaining distributed systems roles, backend engineering internships, and collaborative architectures.
-            </p>
+            <h3 className="section-heading-editorial" style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)', marginBottom: '20px' }}>
+              Let's Build Something Resilient.
+            </h3>
 
             {/* Primary Interactive Email Card */}
             <motion.div

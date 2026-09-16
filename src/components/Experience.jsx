@@ -64,7 +64,7 @@ export default function Experience() {
                   <div className="apple-kics-grid">
                     <div className="kics-subproject-card">
                       <div className="kics-subproject-head">
-                        <span className="kics-num">SYS-01</span>
+                        <span className="kics-num">SYSTEM 01</span>
                         <h4 className="kics-title">UET OCW (OpenCourseWare)</h4>
                       </div>
                       <p className="kics-body">
@@ -74,7 +74,7 @@ export default function Experience() {
 
                     <div className="kics-subproject-card">
                       <div className="kics-subproject-head">
-                        <span className="kics-num">SYS-02</span>
+                        <span className="kics-num">SYSTEM 02</span>
                         <h4 className="kics-title">Enterprise AI Chatbot Product</h4>
                       </div>
                       <p className="kics-body">
@@ -84,7 +84,7 @@ export default function Experience() {
 
                     <div className="kics-subproject-card">
                       <div className="kics-subproject-head">
-                        <span className="kics-num">SYS-03</span>
+                        <span className="kics-num">SYSTEM 03</span>
                         <h4 className="kics-title">End-to-End Admission Management</h4>
                       </div>
                       <p className="kics-body">
@@ -94,7 +94,7 @@ export default function Experience() {
 
                     <div className="kics-subproject-card">
                       <div className="kics-subproject-head">
-                        <span className="kics-num">SYS-04</span>
+                        <span className="kics-num">SYSTEM 04</span>
                         <h4 className="kics-title">UET Health Sciences Integration</h4>
                       </div>
                       <p className="kics-body">
