@@ -36,9 +36,20 @@ const ProjectShowcaseCard = ({ project, index }) => {
         </div>
 
         {/* Thumbnail preview */}
-        {thumbnail && (
+        {thumbnail ? (
           <div className="project-thumb-frame">
             <img src={thumbnail} alt={`${project.title} Interface`} loading="lazy" />
+          </div>
+        ) : (
+          <div className="project-thumb-frame" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255, 255, 255, 0.02)', border: '1px dashed rgba(255, 255, 255, 0.12)' }}>
+            <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ margin: '0 auto 6px', color: 'var(--primary)', opacity: 0.8 }}>
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+              </svg>
+              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.06em', color: 'var(--text-secondary)' }}>
+                CLIENT &amp; MV3 ARCHITECTURE
+              </span>
+            </div>
           </div>
         )}
 
