@@ -1,8 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { portfolioConfig } from '../config/portfolio.config';
 
 export default function Certifications() {
   const { certifications } = portfolioConfig;
+  const [selectedCert, setSelectedCert] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setSelectedCert(null);
+    };
+    if (selectedCert) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedCert]);
 
   if (!certifications || certifications.length === 0) return null;
 
@@ -33,6 +50,21 @@ export default function Certifications() {
                   )}
                 </div>
                 <h3 className="cert-title-editorial">{cert.title}</h3>
+                {cert.image && (
+                  <div
+                    className="cert-preview-frame"
+                    onClick={() => setSelectedCert(cert)}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSelectedCert(cert)}
+                    title={`Click to preview ${cert.title}`}
+                  >
+                    <img src={cert.image} alt={cert.title} loading="lazy" />
+                    <div className="cert-preview-overlay">
+                      <span className="cert-preview-badge">Inspect Credential</span>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {cert.verifyUrl && cert.verifyUrl !== '#' && cert.verifyUrl !== '' && (
@@ -41,7 +73,7 @@ export default function Certifications() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-link-awwwards"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem' }}
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', marginTop: 'auto' }}
                 >
                   <span>Verify Credential</span>
                   <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,6 +85,38 @@ export default function Certifications() {
           ))}
         </div>
       </div>
+
+      {/* Certificate Lightbox Modal */}
+      {selectedCert && (
+        <div
+          className="cert-modal-backdrop"
+          onClick={() => setSelectedCert(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          <div className="cert-modal-content" onClick={(e) => e.stopPropagation()}>
+            <div className="cert-modal-header">
+              <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <span className="cert-issuer-badge">{selectedCert.issuer}</span>
+                <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: '#fff', fontSize: '0.95rem' }}>
+                  {selectedCert.title}
+                </span>
+              </div>
+              <button
+                type="button"
+                className="cert-modal-close-btn"
+                onClick={() => setSelectedCert(null)}
+                aria-label="Close certificate preview"
+              >
+                ✕
+              </button>
+            </div>
+            <div className="cert-modal-body">
+              <img src={selectedCert.image} alt={selectedCert.title} />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
