@@ -7,25 +7,27 @@ export default function Skills() {
   return (
     <section id="skills" className="section-padding">
       <div className="container">
-        <div className="section-tag">
-          <span className="section-tag-dot"></span>
-          <span>Technical Capabilities</span>
+        {/* Section Header */}
+        <div className="section-index-header">
+          <span className="section-index-num">// 04. CAPABILITIES DIRECTORY</span>
+          <span className="section-index-tag">[ RUNTIME & STORAGE ]</span>
         </div>
-        <h2 className="section-heading">Stack & Architecture Competencies</h2>
-        <p className="section-lead">
-          Pragmatic technologies chosen for low latency, type safety, and resilient data processing.
+
+        <h2 className="section-heading-editorial">Technical Competencies</h2>
+        <p className="section-lead-editorial">
+          Deliberate technology choices optimized for sub-millisecond query execution, asynchronous worker throughput, and type safety.
         </p>
 
-        <div className="skills-category-grid">
-          {Object.entries(skills).map(([category, skillList]) => (
-            <div key={category} className="skill-category-card">
-              <div className="skill-cat-title">
-                <span style={{ color: 'var(--accent)' }}>//</span>
-                <span>{category}</span>
+        <div className="skills-editorial-grid">
+          {Object.entries(skills).map(([category, skillList], idx) => (
+            <div key={category} className="skill-dir-card">
+              <div className="skill-dir-title">
+                <span>0{idx + 1} //</span>
+                <h3>{category}</h3>
               </div>
-              <div className="skill-badges">
+              <div className="skill-pills-wrap">
                 {skillList.map((skill, index) => (
-                  <span key={index} className="skill-badge-item">
+                  <span key={index} className="skill-pill-item">
                     {skill}
                   </span>
                 ))}
@@ -37,4 +39,5 @@ export default function Skills() {
     </section>
   );
 }
+
 

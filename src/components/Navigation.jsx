@@ -8,7 +8,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 40);
+      setIsScrolled(window.scrollY > 30);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -16,25 +16,24 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: 'About', href: '#about' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Certifications', href: '#certifications' },
-    { name: 'Contact', href: '#contact' },
+    { idx: '01', name: 'Works', href: '#projects' },
+    { idx: '02', name: 'About', href: '#about' },
+    { idx: '03', name: 'Experience', href: '#experience' },
+    { idx: '04', name: 'Stack', href: '#skills' },
+    { idx: '05', name: 'Contact', href: '#contact' },
   ];
 
   return (
     <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
       <div className="container nav-content">
-        {/* Brand & Status */}
+        {/* Brand & Availability */}
         <div className="nav-brand-group">
-          <a href="#" className="nav-logo">
-            tahir<span>.cs</span>
+          <a href="#" className="nav-logo-awwwards">
+            TAHIR <span>// ARCHITECT</span>
           </a>
-          <div className="nav-status-badge">
+          <div className="nav-status-pill">
             <span className="status-dot-pulse"></span>
-            <span>Available</span>
+            <span>AVAILABLE</span>
           </div>
         </div>
 
@@ -42,25 +41,29 @@ export default function Navigation() {
         <ul className="nav-links">
           {navItems.map((item) => (
             <li key={item.name}>
-              <a href={item.href}>
-                {item.name}
+              <a href={item.href} className="nav-link-item">
+                <span className="nav-link-idx">{item.idx}</span>
+                <span>{item.name}</span>
               </a>
             </li>
           ))}
           <li>
-            <a href={`mailto:${personal.email}`} className="nav-cta">
-              Resume / Contact
+            <a href={`mailto:${personal.email}`} className="nav-cta-pill">
+              <span>Initiate Contact</span>
+              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
             </a>
           </li>
         </ul>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Toggle */}
         <button
           className="mobile-menu-btn"
           aria-label="Toggle Navigation Menu"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             {isMobileMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
             ) : (
@@ -70,7 +73,7 @@ export default function Navigation() {
         </button>
       </div>
 
-      {/* Mobile Navigation Drawer */}
+      {/* Mobile Drawer */}
       {isMobileMenuOpen && (
         <div className="mobile-menu">
           {navItems.map((item) => (
@@ -79,20 +82,24 @@ export default function Navigation() {
               href={item.href}
               onClick={() => setIsMobileMenuOpen(false)}
             >
+              <span style={{ color: 'var(--accent)', marginRight: '8px', fontFamily: 'var(--font-mono)' }}>
+                {item.idx}
+              </span>
               {item.name}
             </a>
           ))}
           <a
             href={`mailto:${personal.email}`}
-            className="nav-cta"
-            style={{ textAlign: 'center', marginTop: '8px' }}
+            className="nav-cta-pill"
+            style={{ textAlign: 'center', justifyContent: 'center', marginTop: '12px' }}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Email Muhammad
+            Email Muhammad ↗
           </a>
         </div>
       )}
     </header>
   );
 }
+
 

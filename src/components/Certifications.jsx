@@ -9,24 +9,30 @@ export default function Certifications() {
   return (
     <section id="certifications" className="section-padding">
       <div className="container">
-        <div className="section-tag">
-          <span className="section-tag-dot"></span>
-          <span>Verified Credentials</span>
+        {/* Section Header */}
+        <div className="section-index-header">
+          <span className="section-index-num">// 05. ACCREDITATIONS</span>
+          <span className="section-index-tag">[ FORMAL CREDENTIALS ]</span>
         </div>
-        <h2 className="section-heading">Certifications & Accreditations</h2>
-        <p className="section-lead">
-          Continuous professional training across backend architectures, cloud fundamentals, and DevOps pipelines.
+
+        <h2 className="section-heading-editorial">Industry Credentials</h2>
+        <p className="section-lead-editorial">
+          Specialized curricula verified across backend architecture, cloud engineering, and operational DevOps pipelines.
         </p>
 
-        <div className="certs-grid-modern">
+        <div className="certs-editorial-grid">
           {certifications.map((cert, index) => (
-            <div key={index} className="cert-card-modern">
+            <div key={index} className="cert-editorial-card">
               <div>
-                <div className="cert-top">
-                  <span className="cert-issuer-tag">{cert.issuer}</span>
-                  {cert.date && <span className="cert-date-tag">{cert.date}</span>}
+                <div className="cert-top-bar">
+                  <span className="cert-issuer-badge">{cert.issuer}</span>
+                  {cert.date && (
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                      {cert.date}
+                    </span>
+                  )}
                 </div>
-                <h3 className="cert-title-text">{cert.title}</h3>
+                <h3 className="cert-title-editorial">{cert.title}</h3>
               </div>
 
               {cert.verifyUrl && cert.verifyUrl !== '#' && cert.verifyUrl !== '' && (
@@ -34,11 +40,12 @@ export default function Certifications() {
                   href={cert.verifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cert-verify-link"
+                  className="footer-link-awwwards"
+                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem' }}
                 >
                   <span>Verify Credential</span>
                   <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
                   </svg>
                 </a>
               )}
@@ -49,4 +56,5 @@ export default function Certifications() {
     </section>
   );
 }
+
 

@@ -7,43 +7,45 @@ export default function Experience() {
   return (
     <section id="experience" className="section-padding">
       <div className="container">
-        <div className="section-tag">
-          <span className="section-tag-dot"></span>
-          <span>Professional History</span>
+        {/* Section Header */}
+        <div className="section-index-header">
+          <span className="section-index-num">// 03. INDUSTRY RECORD</span>
+          <span className="section-index-tag">[ PROFESSIONAL TENURE ]</span>
         </div>
-        <h2 className="section-heading">Engineering Experience</h2>
-        <p className="section-lead">
-          Production contributions spanning backend architecture, microservices containerization, and type-safe APIs.
+
+        <h2 className="section-heading-editorial">Commercial Experience</h2>
+        <p className="section-lead-editorial">
+          Hands-on backend systems contributions spanning API type-safety contracts, containerization, and data normalization.
         </p>
 
-        <div className="timeline-container">
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
           {experience.map((exp, index) => (
-            <div key={index} className="exp-card-single">
-              <div className="exp-header">
+            <div key={index} className="experience-editorial-row">
+              <div className="exp-header-row">
                 <div>
-                  <h3 className="exp-role-title">{exp.title}</h3>
-                  <div className="exp-company-name">
-                    {exp.company} • <span style={{ color: 'var(--text-muted)' }}>{exp.location}</span>
+                  <h3 className="exp-role-editorial">{exp.title}</h3>
+                  <div className="exp-company-editorial">
+                    {exp.company} — <span style={{ color: 'var(--text-muted)' }}>{exp.location}</span>
                   </div>
                 </div>
-                <span className="exp-period">{exp.duration}</span>
+                <span className="exp-duration-badge">{exp.duration}</span>
               </div>
 
-              <p style={{ color: 'var(--text-primary)', marginBottom: '16px', fontSize: '0.96rem' }}>
+              <p style={{ color: 'var(--text-primary)', marginBottom: '20px', fontSize: '1.02rem', lineHeight: '1.7' }}>
                 {exp.description}
               </p>
 
               {exp.highlights && (
-                <ul className="exp-bullets">
+                <ul className="exp-points-editorial">
                   {exp.highlights.map((highlight, hIdx) => (
                     <li key={hIdx}>{highlight}</li>
                   ))}
                 </ul>
               )}
 
-              <div className="exp-tags-row">
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', paddingTop: '16px', borderTop: '1px solid var(--border)' }}>
                 {exp.skills.map((skill, i) => (
-                  <span key={i} className="tech-tag">
+                  <span key={i} className="tech-pill">
                     {skill}
                   </span>
                 ))}
@@ -55,4 +57,5 @@ export default function Experience() {
     </section>
   );
 }
+
 

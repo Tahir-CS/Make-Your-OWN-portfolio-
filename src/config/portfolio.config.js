@@ -1,15 +1,16 @@
-// Portfolio Configuration - High-Signal Software Engineering Portfolio
+// Portfolio Configuration - Editorial & Systems Architecture Portfolio
 
 export const portfolioConfig = {
   // Personal Information
   personal: {
     name: "Muhammad Tahir",
     fullName: "Muhammad Tahir",
-    title: "Backend & Systems Engineer",
-    status: "Available for Backend / Full-Stack Roles",
+    title: "Systems & Backend Architect",
+    roleSubtitle: "Distributed Services • Asynchronous Queues • Vector Search",
+    status: "Available for Worldwide Roles",
     location: "Lahore, Pakistan (UTC+5)",
-    tagline: "Building resilient distributed microservices, event-driven queues, and intelligent web applications.",
-    bio: "Computer Science undergraduate at UET Lahore specializing in Node.js, TypeScript, PostgreSQL, Redis, and BullMQ. Experienced in architecting event-driven systems, pgvector similarity search, and containerized Docker infrastructure.",
+    tagline: "Engineering sub-50ms distributed pipelines, event-driven queues, and vector search engines.",
+    bio: "Computer Science scholar at UET Lahore building resilient backend microservices. Obsessed with distributed queues, database indexing, pgvector similarity search, and containerized systems that perform effortlessly under load.",
     email: "mtahirbutt1005@gmail.com",
     phone: "+92 329 9712924",
     
@@ -23,128 +24,138 @@ export const portfolioConfig = {
 
   // About Section & Engineering Highlights
   about: {
-    overview: `I focus on the engineering backbone of modern software: asynchronous job queues, resilient APIs, and data infrastructure that doesn't fall over under load. My hands-on work centers around building event-driven microservices with Node.js and BullMQ, caching and rate limiting with Redis, and vector search using PostgreSQL and pgvector.`,
+    statement: "Most software fails when traffic spikes. I engineer the distributed backends that ensure it doesn't.",
+    overview: `Specializing in asynchronous worker pipelines (BullMQ + Redis), high-dimensional vector search (PostgreSQL + pgvector), and streaming data storage (TimescaleDB). I treat systems architecture with an emphasis on determinism, zero data loss, and sub-millisecond efficiency.`,
     
     education: {
       degree: "B.S. in Computer Science",
       institution: "University of Engineering and Technology (UET), Lahore",
-      cgpa: "CGPA: 3.3 / 4.0",
-      graduationDate: "Expected June 2028",
+      cgpa: "CGPA 3.3 / 4.0",
+      graduationDate: "Expected 2028",
       coursework: [
+        "Distributed Computing",
         "Data Structures & Algorithms",
-        "Database Systems",
-        "Object-Oriented Programming (C++)",
-        "Operating Systems",
-        "Software Engineering"
+        "Advanced Database Systems",
+        "Systems Programming (C++)",
+        "Operating Systems"
       ]
     },
 
-    // Concrete Technical Impact (Replaces generic vanity stats)
+    // Awwwards-style architectural metrics
     milestones: [
       {
+        index: "01",
         metric: "<50ms",
-        label: "Response Latency",
-        detail: "Event-driven async queue via BullMQ & Redis in Career OS"
+        label: "Job Queue Latency",
+        detail: "Asynchronous background processing via BullMQ & Redis"
       },
       {
-        metric: "Vector DB",
+        index: "02",
+        metric: "pgvector",
         label: "Semantic Matching",
-        detail: "PostgreSQL + pgvector with Gemini text embeddings"
+        detail: "Cosine distance vector embeddings powered by Gemini"
       },
       {
-        metric: "Time-Series",
-        label: "Metrics Storage",
-        detail: "TimescaleDB hypertable ingestion for high-throughput streaming"
+        index: "03",
+        metric: "Timescale",
+        label: "Time-Series Ingestion",
+        detail: "Hypertables partitioned for high-throughput temporal data"
       },
       {
+        index: "04",
         metric: "Dockerized",
-        label: "Reproducible Infra",
-        detail: "Multi-container orchestration for microservices & databases"
+        label: "Zero-Drift Infra",
+        detail: "Containerized microservice boundaries & orchestration"
       }
     ]
   },
 
   // Skills Matrix
   skills: {
-    "Backend & Systems": [
+    "Distributed & Queues": [
+      "BullMQ",
+      "Redis",
+      "Event-Driven Architecture",
+      "Token-Bucket Rate Limiting",
+      "Job Worker Pools"
+    ],
+    "Backend Core": [
       "Node.js",
-      "Express.js",
       "TypeScript",
-      "JavaScript (ES6+)",
+      "Express.js",
       "C++",
-      "RESTful APIs",
+      "RESTful API Design",
       "Microservices"
     ],
-    "Distributed & Caching": [
-      "Redis",
-      "BullMQ (Queues)",
-      "Distributed Rate Limiting",
-      "Event-Driven Architecture"
-    ],
-    "Databases & Storage": [
+    "Databases & Vectors": [
       "PostgreSQL",
       "pgvector",
       "TimescaleDB",
       "MongoDB",
-      "Supabase",
-      "Prisma / SQL"
+      "Supabase (RLS)",
+      "SQL Optimization"
     ],
-    "Infrastructure & Tools": [
+    "Infrastructure": [
       "Docker",
       "Docker Compose",
       "AWS EC2",
-      "CI/CD Pipelines",
-      "Git & GitHub",
-      "Postman",
-      "Linux / Bash"
+      "CI/CD Workflows",
+      "Linux / Bash",
+      "Git Architecture"
     ],
-    "Frontend & Extensions": [
+    "Client & Extensions": [
       "React.js",
-      "Chrome MV3 Extensions",
-      "Tailwind CSS",
-      "Framer Motion",
-      "Webpack / Vite"
+      "Chrome MV3 APIs",
+      "Modern CSS / Tailwind",
+      "Vite",
+      "Framer Motion"
     ]
   },
 
   // Featured Engineering Projects
   projects: [
     {
+      index: "01",
       title: "Career OS",
       badge: "Distributed Microservice",
-      description: "Event-driven career intelligence microservice architecture returning job pipeline responses in under 50ms using BullMQ & Redis queues. Engineered high-dimensional semantic resume-to-job matching via Gemini Embeddings and pgvector in PostgreSQL.",
+      category: "Event-Driven System",
+      description: "Distributed job intelligence engine returning responses in <50ms. Combines BullMQ worker threads with pgvector semantic cosine similarity search using Gemini embeddings.",
       architecture: [
-        "Sub-50ms asynchronous job execution using BullMQ worker threads",
-        "High-dimensional vector similarity search with pgvector (cosine distance)",
-        "Docker Compose orchestration separating API gateway, worker pool, and database services"
+        "Sub-50ms asynchronous queue pipelines running on Redis + BullMQ workers",
+        "High-dimensional vector indexing in PostgreSQL using pgvector",
+        "Multi-container Docker Compose setup separating gateway, worker cluster, and database"
       ],
-      techStack: ["Node.js", "Redis", "BullMQ", "PostgreSQL", "pgvector", "Docker", "Gemini API", "React.js"],
+      techStack: ["Node.js", "Redis", "BullMQ", "PostgreSQL", "pgvector", "Docker", "Gemini API"],
       githubUrl: "https://github.com/Tahir-CS/CAREER-OS-",
       liveUrl: null,
       featured: true
     },
     {
+      index: "02",
       title: "YT Analysis Engine",
       badge: "Data Ingestion Pipeline",
-      description: "High-throughput data ingestion pipeline capturing and analyzing video analytics from YouTube and Reddit. Features a distributed Redis token-bucket rate limiter to strictly enforce external API quotas, paired with TimescaleDB hypertables for time-series aggregation.",
+      category: "Time-Series Analytics",
+      description: "High-throughput data ingestion pipeline capturing YouTube & Reddit streaming metrics. Uses a distributed Redis token-bucket rate limiter to enforce strict quotas, stored in TimescaleDB hypertables.",
       architecture: [
-        "Distributed Redis rate limiter preventing API quota exhaustion under burst traffic",
-        "TimescaleDB hypertable partitioning for optimized temporal queries",
-        "AI-driven comment clustering and sentiment scoring using Gemini & pgvector"
+        "Distributed Redis rate limiter preventing external API quota exhaustion under bursts",
+        "TimescaleDB hypertable chunk partitioning for high-speed time-series queries",
+        "AI-assisted sentiment clustering via Gemini and pgvector vector search"
       ],
-      techStack: ["Node.js", "TimescaleDB", "PostgreSQL", "Redis", "pgvector", "Docker", "Gemini API", "React.js"],
+      techStack: ["Node.js", "TimescaleDB", "PostgreSQL", "Redis", "pgvector", "Docker", "Gemini API"],
       githubUrl: "https://github.com/Tahir-CS/Yt-Analysis-Engine",
       liveUrl: null,
       featured: true
     },
     {
+      index: "03",
       title: "Subscription Guardian",
       badge: "Chrome MV3 Extension",
-      description: "Privacy-first Chrome Extension (Manifest V3) that actively analyzes web pages to detect dark cancellation patterns and recurring subscription traps. Operates entirely locally using Chrome Alarms and Local Storage to safeguard user privacy without external telemetry.",
+      category: "Privacy & Client Engineering",
+      description: "Zero-telemetry browser extension that inspects checkout DOMs in real-time to detect dark patterns, hidden recurring subscriptions, and deceptive cancellation links.",
       architecture: [
         "DOM mutation observers and pattern matching algorithms detecting dark checkout flows",
-        "100% client-side privacy architecture with zero remote data collection",
-        "Chrome MV3 service worker lifecycle with Chrome Alarms for background renewal alerts"
+        "100% client-side privacy architecture with zero remote data telemetry",
+        "Manifest V3 service worker lifecycle with Chrome Alarms for background renewal alerts"
       ],
       techStack: ["TypeScript", "Chrome MV3 API", "React.js", "Chrome Alarms", "Webpack", "Local Storage"],
       githubUrl: "https://github.com/Tahir-CS/Subscription-manager",
@@ -152,13 +163,15 @@ export const portfolioConfig = {
       featured: true
     },
     {
+      index: "04",
       title: "Full-Stack E-Commerce Platform",
-      badge: "Production Web App",
-      description: "Modern, responsive e-commerce web application featuring secure Supabase authentication, real-time inventory management, cart synchronization, and Stripe payment gateway checkout.",
+      badge: "Production Platform",
+      category: "Web Application",
+      description: "Full-stack transactional web platform with Supabase Row-Level Security, real-time cart state synchronization, and Stripe payment webhook verification.",
       architecture: [
-        "Supabase Row-Level Security (RLS) policies protecting user transaction records",
-        "Stripe checkout sessions with webhook verification for payment confirmation",
-        "Optimistic UI updates for responsive shopping cart state management"
+        "Supabase Row-Level Security (RLS) enforcing strict authorization at database level",
+        "Stripe checkout sessions with cryptographically signed webhook confirmation",
+        "Optimistic UI state transitions for instantaneous user interactions"
       ],
       techStack: ["React.js", "Supabase", "Stripe API", "Modern CSS", "Vite"],
       githubUrl: "https://github.com/Tahir-CS/E-commerse-store",
@@ -170,17 +183,18 @@ export const portfolioConfig = {
   // Experience Section
   experience: [
     {
+      index: "01",
       title: "Backend Development Intern",
       company: "Neutrawise",
       location: "Remote",
-      duration: "June 2025 - July 2025",
-      type: "Internship",
-      description: "Contributed to core platform backend architecture, focusing on type-safe API integrations, service containerization, and data processing pipelines.",
+      duration: "June 2025 — July 2025",
+      type: "Engineering Internship",
+      description: "Contributed to platform backend architecture with an emphasis on type-safe API contracts, service containerization, and data transformation.",
       highlights: [
-        "Architected full-stack modules using Node.js and TypeScript, enforcing strict end-to-end type safety across client-server boundaries.",
-        "Integrated third-party environmental APIs to ingest and transform raw consumption data into normalized real-time impact metrics.",
-        "Dockerized platform microservices with Docker Compose, standardizing local developer environments and accelerating CI validation.",
-        "Optimized asynchronous database queries and API response handlers, reducing endpoint turnaround times."
+        "Engineered backend modules with Node.js and TypeScript, eliminating runtime boundary type errors.",
+        "Integrated third-party environmental APIs, transforming raw consumption streams into normalized metrics.",
+        "Containerized platform services using Docker Compose, creating reproducible developer environments.",
+        "Refactored database access layers to reduce query latencies and improve throughput."
       ],
       skills: ["Node.js", "TypeScript", "Docker", "REST APIs", "React.js", "Git"]
     }

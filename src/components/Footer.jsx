@@ -6,27 +6,27 @@ export default function Footer() {
   const { personal } = portfolioConfig;
 
   return (
-    <footer className="site-footer">
-      <div className="container footer-content">
-        <div className="footer-left">
-          <div className="footer-name">
-            © {currentYear} {personal.fullName} • Systems & Backend Engineer
+    <footer className="site-footer-awwwards">
+      <div className="container footer-awwwards-inner">
+        <div>
+          <div className="footer-brand-title">
+            © {currentYear} {personal.fullName} — ARCHITECT
           </div>
-          <div className="footer-time">
-            Lahore, Pakistan (PKT / UTC+5) • Built with React & Vite
+          <div className="footer-timezone-spec">
+            LAHORE, PAKISTAN • PKT (UTC+5) • DETERMINISTIC BACKENDS
           </div>
         </div>
 
-        <div className="footer-social-links">
+        <div className="footer-links-row">
           {personal.social.github && (
             <a
               href={personal.social.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-social-link"
+              className="footer-link-awwwards"
               aria-label="GitHub"
             >
-              GitHub
+              GitHub ↗
             </a>
           )}
           {personal.social.linkedin && (
@@ -34,19 +34,19 @@ export default function Footer() {
               href={personal.social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="footer-social-link"
+              className="footer-link-awwwards"
               aria-label="LinkedIn"
             >
-              LinkedIn
+              LinkedIn ↗
             </a>
           )}
           {personal.email && (
             <a
               href={`mailto:${personal.email}`}
-              className="footer-social-link"
+              className="footer-link-awwwards"
               aria-label="Email"
             >
-              Email
+              Email ↗
             </a>
           )}
         </div>
@@ -54,4 +54,5 @@ export default function Footer() {
     </footer>
   );
 }
+
 

@@ -8,40 +8,43 @@ export default function AboutMe() {
   return (
     <section id="about" className="section-padding">
       <div className="container">
-        {/* Section Heading */}
-        <div className="section-tag">
-          <span className="section-tag-dot"></span>
-          <span>Background</span>
+        {/* Numbered Section Index */}
+        <div className="section-index-header">
+          <span className="section-index-num">// 01. PHILOSOPHY & PERSPECTIVE</span>
+          <span className="section-index-tag">[ SYSTEM DESIGN ]</span>
         </div>
-        <h2 className="section-heading">Systems & Engineering Focus</h2>
-        <p className="section-lead">
-          Building resilient services, asynchronous worker queues, and observable backend infrastructure.
-        </p>
 
-        <div className="about-grid">
-          {/* Narrative & Education */}
-          <div className="about-left-col">
-            <p className="about-bio-text">
+        {/* Statement Banner */}
+        <div className="about-statement-banner">
+          "{about.statement}"
+        </div>
+
+        <div className="about-editorial-grid">
+          {/* Narrative & Academic Credentials */}
+          <div>
+            <p className="about-editorial-p">
               {about.overview}
             </p>
-            <p className="about-bio-text">
-              I treat software systems with an emphasis on determinism, data integrity, and strict boundaries. 
-              Whether tuning Redis connection pools, evaluating pgvector indexing methods for vector similarity, 
-              or enforcing TypeScript typing across microservices, I prioritize correctness and production-grade reliability.
+            <p className="about-editorial-p">
+              From configuring BullMQ backpressure mechanisms and managing Redis cluster memory footprints 
+              to fine-tuning pgvector cosine distance metrics in PostgreSQL, I believe reliability is not an afterthought—it 
+              must be designed into the foundational architecture.
             </p>
 
-            {/* Education Box */}
-            <div className="education-box">
-              <div className="education-box-header">
-                <span className="education-degree">{about.education.degree}</span>
-                <span className="education-cgpa">{about.education.cgpa}</span>
+            {/* Academic Panel */}
+            <div className="academic-panel">
+              <div className="academic-badge-row">
+                <span className="academic-degree">{about.education.degree}</span>
+                <span className="academic-cgpa">{about.education.cgpa}</span>
               </div>
-              <p className="education-institution">{about.education.institution}</p>
+              <p className="academic-inst">{about.education.institution}</p>
               
-              <div className="coursework-title">Key Coursework</div>
-              <div className="coursework-tags">
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '10px' }}>
+                Foundational Coursework
+              </div>
+              <div className="coursework-chips">
                 {about.education.coursework.map((course, idx) => (
-                  <span key={idx} className="course-tag">
+                  <span key={idx} className="coursework-chip">
                     {course}
                   </span>
                 ))}
@@ -49,10 +52,10 @@ export default function AboutMe() {
             </div>
           </div>
 
-          {/* Profile & Metadata Column */}
-          <div className="about-right-col">
-            <div className="profile-card-clean">
-              <div className="profile-img-wrap">
+          {/* Portrait & Meta Table */}
+          <div>
+            <div className="portrait-panel-clean">
+              <div className="portrait-image-frame">
                 <img
                   src={profileImage}
                   alt={`${personal.fullName} - ${personal.title}`}
@@ -60,26 +63,26 @@ export default function AboutMe() {
                 />
               </div>
 
-              <div className="profile-meta-list">
-                <div className="profile-meta-row">
-                  <span className="profile-meta-label">Location</span>
-                  <span className="profile-meta-val">{personal.location}</span>
+              <div className="portrait-meta-table">
+                <div className="portrait-meta-entry">
+                  <span className="portrait-meta-lbl">LOCATION</span>
+                  <span className="portrait-meta-val">{personal.location}</span>
                 </div>
-                <div className="profile-meta-row">
-                  <span className="profile-meta-label">Specialization</span>
-                  <span className="profile-meta-val">Distributed Systems</span>
+                <div className="portrait-meta-entry">
+                  <span className="portrait-meta-lbl">SPECIALTY</span>
+                  <span className="portrait-meta-val">Distributed Queues</span>
                 </div>
-                <div className="profile-meta-row">
-                  <span className="profile-meta-label">University</span>
-                  <span className="profile-meta-val">UET Lahore</span>
+                <div className="portrait-meta-entry">
+                  <span className="portrait-meta-lbl">ACADEMIA</span>
+                  <span className="portrait-meta-val">UET Lahore (BS CS)</span>
                 </div>
-                <div className="profile-meta-row">
-                  <span className="profile-meta-label">Key Stack</span>
-                  <span className="profile-meta-val">Node • Redis • Postgres</span>
+                <div className="portrait-meta-entry">
+                  <span className="portrait-meta-lbl">CORE RUNTIME</span>
+                  <span className="portrait-meta-val">Node • Redis • Postgres</span>
                 </div>
-                <div className="profile-meta-row" style={{ borderBottom: 'none' }}>
-                  <span className="profile-meta-label">Open For</span>
-                  <span className="profile-meta-val" style={{ color: 'var(--accent)' }}>Internships & Roles</span>
+                <div className="portrait-meta-entry" style={{ borderBottom: 'none' }}>
+                  <span className="portrait-meta-lbl">STATUS</span>
+                  <span className="portrait-meta-val" style={{ color: 'var(--accent)' }}>Open for Global Roles</span>
                 </div>
               </div>
             </div>
@@ -89,4 +92,5 @@ export default function AboutMe() {
     </section>
   );
 }
+
 
