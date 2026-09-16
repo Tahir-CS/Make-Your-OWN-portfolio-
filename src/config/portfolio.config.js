@@ -132,6 +132,22 @@ export const portfolioConfig = {
     },
     {
       index: "02",
+      title: "UET OCW & Enterprise AI Engine",
+      badge: "University Platform & AI System",
+      category: "Full-Stack Enterprise Architecture",
+      description: "University-scale academic management platform featuring a ChatGPT-style conversational product with real-time AI token usage metering, custom API key management, and multi-tier role authorization.",
+      architecture: [
+        "Granular role-based access control (Super Admin, Admin, Student) with course material distribution",
+        "ChatGPT-like AI chatbot engine featuring real-time token/usage telemetry and custom LLM API configuration",
+        "High-performance Next.js client integration communicating with robust Laravel REST API backend"
+      ],
+      techStack: ["Next.js", "React.js", "Laravel", "Node.js", "PostgreSQL", "LLM APIs", "Docker"],
+      githubUrl: "https://github.com/Tahir-CS",
+      liveUrl: null,
+      featured: true
+    },
+    {
+      index: "03",
       title: "YT Analysis Engine",
       badge: "Data Ingestion Pipeline",
       category: "Time-Series Analytics",
@@ -147,7 +163,7 @@ export const portfolioConfig = {
       featured: true
     },
     {
-      index: "03",
+      index: "04",
       title: "Subscription Guardian",
       badge: "Chrome MV3 Extension",
       category: "Privacy & Client Engineering",
@@ -163,7 +179,7 @@ export const portfolioConfig = {
       featured: true
     },
     {
-      index: "04",
+      index: "05",
       title: "Full-Stack E-Commerce Platform",
       badge: "Production Platform",
       category: "Web Application",
@@ -184,19 +200,34 @@ export const portfolioConfig = {
   experience: [
     {
       index: "01",
-      title: "Backend Development Intern",
-      company: "Neutrawise",
-      location: "Remote",
-      duration: "June 2025 — July 2025",
-      type: "Engineering Internship",
-      description: "Contributed to platform backend architecture with an emphasis on type-safe API contracts, service containerization, and data transformation.",
+      title: "Full Stack Engineering Intern",
+      company: "KICS (Al-Khwarizmi Institute of Computer Science)",
+      location: "UET Lahore, Pakistan",
+      duration: "June 28, 2026 — September 4, 2026",
+      type: "Full-Stack Internship (2 Months)",
+      description: "Completed intensive 2-month full-stack engineering internship at KICS, architecting enterprise university systems, ChatGPT-style AI products, and API integrations across four major initiatives.",
       highlights: [
-        "Engineered backend modules with Node.js and TypeScript, eliminating runtime boundary type errors.",
-        "Integrated third-party environmental APIs, transforming raw consumption streams into normalized metrics.",
-        "Containerized platform services using Docker Compose, creating reproducible developer environments.",
-        "Refactored database access layers to reduce query latencies and improve throughput."
+        "Architected UET OCW (OpenCourseWare) full-stack portal with comprehensive role-based access control (Super Admin, Instructor, Student) and secure course delivery pipelines.",
+        "Engineered enterprise AI Chatbot product featuring Super Admin, Admin, and User tiering, real-time AI token/usage metering, and dynamic custom LLM API key setter.",
+        "Developed end-to-end University Admission Management System automating candidate intake, multi-step document verification, and applicant status tracking.",
+        "Integrated UET Health Sciences platform connecting high-performance Next.js client frontend to robust Laravel RESTful backend services."
       ],
-      skills: ["Node.js", "TypeScript", "Docker", "REST APIs", "React.js", "Git"]
+      skills: ["Next.js", "React.js", "Laravel", "Node.js", "PostgreSQL", "REST APIs", "LLM APIs", "Docker", "Git"]
+    },
+    {
+      index: "02",
+      title: "Web Development Intern",
+      company: "Bano Qabil",
+      location: "Remote",
+      duration: "2025",
+      type: "Web Engineering Internship",
+      description: "Developed responsive, accessible web interfaces and modular component systems using modern JavaScript and React.",
+      highlights: [
+        "Built responsive single-page web applications with React.js, modern CSS, and component-driven architecture.",
+        "Implemented client-side routing, state management, and asynchronous API integrations.",
+        "Collaborated in code reviews and adopted modular, reusable component design systems."
+      ],
+      skills: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5/CSS3", "Git"]
     }
   ],
 
