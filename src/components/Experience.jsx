@@ -1,93 +1,87 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
-
-const processSteps = [
-  {
-    num: '01',
-    title: 'Diagnose',
-    desc: 'Map concurrency constraints, database queries, and potential system bottlenecks.'
-  },
-  {
-    num: '02',
-    title: 'Design',
-    desc: 'Decide where async queues win, where pgvector similarity executes, and rate limits protect APIs.'
-  },
-  {
-    num: '03',
-    title: 'Build',
-    desc: 'Containerize with Docker, enforce type-safe API contracts, and establish telemetry logging.'
-  },
-  {
-    num: '04',
-    title: 'Optimize',
-    desc: 'Benchmark P99 latencies under load, optimize database indexes, and tune concurrency.'
-  }
-];
 
 export default function Experience() {
   const { experience } = portfolioConfig;
 
   return (
-    <section id="experience" className="section section-muted">
-      <div className="shell">
-        <span className="eyebrow" style={{ marginBottom: '18px' }}>
-          Industry Engineering Experience
-        </span>
-        <div style={{ maxWidth: '800px', marginBottom: '40px' }}>
-          <h2>Professional Work &amp; Engineering Lifecycle.</h2>
-          <p style={{ marginTop: '14px', fontSize: '1.02rem' }}>
-            Delivering deterministic backend systems. From architectural discovery to production containerization and query optimization.
-          </p>
-        </div>
+    <section id="experience" className="section-padding">
+      <div className="container">
+        {/* Section Header */}
+        <motion.div
+          className="section-index-header"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="section-index-num">// 03. INDUSTRY RECORD</span>
+          <span className="section-index-tag">[ PROFESSIONAL TENURE ]</span>
+        </motion.div>
 
-        {/* Timeline Architecture */}
-        <div className="timeline">
-          {experience.map((exp, idx) => (
-            <div className="timeline-row" key={idx}>
-              <div className="timeline-meta">
-                <span>{exp.duration}</span>
-                <strong>{exp.company}</strong>
-                <span style={{ marginTop: '4px' }}>{exp.location} · {exp.type}</span>
+        <motion.h2
+          className="section-heading-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Commercial Experience
+        </motion.h2>
+
+        <motion.p
+          className="section-lead-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Hands-on backend systems contributions spanning API type-safety contracts, containerization, and data normalization.
+        </motion.p>
+
+        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+          {experience.map((exp, index) => (
+            <motion.div
+              key={index}
+              className="experience-glass-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              whileHover={{ y: -4 }}
+            >
+              <div className="exp-header">
+                <div>
+                  <h3 className="exp-role">{exp.title}</h3>
+                  <div className="exp-company">
+                    {exp.company} — <span style={{ color: 'var(--text-muted)' }}>{exp.location}</span>
+                  </div>
+                </div>
+                <span className="exp-duration">{exp.duration}</span>
               </div>
 
-              <div className="timeline-body">
-                <h2>
-                  {exp.title} <span>@ {exp.company}</span>
-                </h2>
-                <p>{exp.description}</p>
+              <p style={{ color: 'var(--text-secondary)', marginBottom: '18px', fontSize: '1rem', lineHeight: '1.7' }}>
+                {exp.description}
+              </p>
 
-                <ul className="timeline-bullets">
-                  {exp.highlights.map((h, i) => (
-                    <li key={i}>{h}</li>
+              {exp.highlights && (
+                <ul className="exp-points-list">
+                  {exp.highlights.map((highlight, hIdx) => (
+                    <li key={hIdx}>{highlight}</li>
                   ))}
                 </ul>
+              )}
 
-                <div className="proof-meta">
-                  {exp.skills.map((s) => (
-                    <span className="tag" key={s}>
-                      {s}
-                    </span>
-                  ))}
-                </div>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', paddingTop: '18px', borderTop: '1px solid var(--border)' }}>
+                {exp.skills.map((skill, i) => (
+                  <span key={i} className="tech-chip-dark">
+                    {skill}
+                  </span>
+                ))}
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
-
-        {/* 4-Step Engineering Lifecycle */}
-        <div style={{ marginTop: '54px' }}>
-          <span className="eyebrow" style={{ marginBottom: '20px' }}>
-            Methodology &amp; Standards
-          </span>
-          <div className="process-mini">
-            {processSteps.map((step) => (
-              <div className="process-step" key={step.num}>
-                <span>{step.num} // LIFECYCLE</span>
-                <h3>{step.title}</h3>
-                <p>{step.desc}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </div>
     </section>

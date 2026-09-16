@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 import profileImage from '../assets/me.jpg';
 
@@ -6,96 +7,136 @@ export default function AboutMe() {
   const { about, personal } = portfolioConfig;
 
   return (
-    <section id="about" className="section">
-      <div className="shell">
-        <span className="eyebrow" style={{ marginBottom: '18px' }}>
-          Engineering Profile &amp; Foundation
-        </span>
-        <div style={{ maxWidth: '800px', marginBottom: '40px' }}>
-          <h2>Systems Architect &amp; Computer Science Scholar.</h2>
-          <p style={{ marginTop: '14px', fontSize: '1.02rem' }}>
-            {about.overview}
-          </p>
-        </div>
+    <section id="about" className="section-padding">
+      <div className="container">
+        {/* Section Header */}
+        <motion.div
+          className="section-index-header"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="section-index-num">// 01. PHILOSOPHY &amp; PERSPECTIVE</span>
+          <span className="section-index-tag">[ SYSTEM DESIGN ]</span>
+        </motion.div>
 
-        <div className="about-grid">
-          <div className="academic-card">
-            <span className="eyebrow" style={{ marginBottom: '16px' }}>
-              Academic Foundation
-            </span>
-            <h3 style={{ fontSize: '1.8rem', marginTop: '12px' }}>
-              {about.education.degree}
-            </h3>
-            <p style={{ color: 'var(--muted)', margin: '8px 0 20px', fontFamily: 'var(--font-mono)', fontSize: '0.88rem' }}>
-              {about.education.institution} · <strong style={{ color: 'var(--acid)' }}>{about.education.cgpa}</strong> · {about.education.graduationDate}
-            </p>
+        <motion.h2
+          className="section-heading-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Architecture Blueprint &amp; Philosophy
+        </motion.h2>
 
-            <div style={{ marginTop: '24px' }}>
-              <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--dim)', display: 'block', marginBottom: '12px', fontFamily: 'var(--font-mono)' }}>
-                Core Technical Coursework
-              </span>
-              <div className="skill-chips">
-                {about.education.coursework.map((c, i) => (
-                  <span key={i} className="skill-chip">
-                    {c}
+        <motion.p
+          className="section-lead-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Engineering scalable web backends, resilient queue architectures, and mathematical vector retrieval.
+        </motion.p>
+
+        {/* Statement Quote Banner */}
+        <motion.div
+          className="about-quote-box"
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="about-quote-text">
+            "{about.statement}"
+          </div>
+        </motion.div>
+
+        {/* Two-Column Editorial Split */}
+        <div className="about-editorial-split">
+          {/* Left: Narrative & Academic Foundations */}
+          <motion.div
+            className="about-narrative-card"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div>
+              <p className="about-p">
+                {about.overview}
+              </p>
+              <p className="about-p">
+                From configuring BullMQ backpressure mechanisms and managing Redis cluster memory footprints 
+                to fine-tuning pgvector cosine distance metrics in PostgreSQL, I believe reliability is not an afterthought—it 
+                must be designed into the foundational architecture.
+              </p>
+            </div>
+
+            {/* Academic Panel */}
+            <div className="academic-panel-dark">
+              <div className="academic-header-flex">
+                <span className="academic-degree-title">{about.education.degree}</span>
+                <span className="academic-cgpa-badge">{about.education.cgpa}</span>
+              </div>
+              <p className="academic-institution">{about.education.institution}</p>
+              
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '10px', fontWeight: 700 }}>
+                Core Foundational Coursework
+              </div>
+              <div className="coursework-wrap">
+                {about.education.coursework.map((course, idx) => (
+                  <span key={idx} className="coursework-tag">
+                    {course}
                   </span>
                 ))}
               </div>
             </div>
+          </motion.div>
 
-            <div style={{ marginTop: '32px', paddingTop: '24px', borderTop: '1px solid var(--line)' }}>
-              <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--acid)', display: 'block', marginBottom: '8px', fontFamily: 'var(--font-mono)' }}>
-                Core Philosophy
-              </span>
-              <p style={{ fontSize: '0.94rem', fontStyle: 'italic', color: 'var(--text)' }}>
-                "{about.statement}"
-              </p>
-            </div>
-          </div>
-
-          <div className="profile-card">
-            <div className="profile-header">
+          {/* Right: Portrait & Quick System Specs */}
+          <motion.div
+            className="portrait-glass-card"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="portrait-photo-container">
               <img
                 src={profileImage}
-                alt="Muhammad Tahir"
-                className="profile-photo"
+                alt={`${personal.fullName} - ${personal.title}`}
+                loading="lazy"
               />
-              <div>
-                <span className="eyebrow" style={{ marginBottom: '6px' }}>
-                  {personal.status}
+            </div>
+
+            <div className="portrait-specs-table">
+              <div className="specs-row">
+                <span className="specs-label">LOCATION</span>
+                <span className="specs-value">{personal.location}</span>
+              </div>
+              <div className="specs-row">
+                <span className="specs-label">SPECIALTY</span>
+                <span className="specs-value">Distributed Queues &amp; RAG</span>
+              </div>
+              <div className="specs-row">
+                <span className="specs-label">ACADEMIA</span>
+                <span className="specs-value">UET Lahore (BS CS)</span>
+              </div>
+              <div className="specs-row">
+                <span className="specs-label">CORE RUNTIME</span>
+                <span className="specs-value">Node • Redis • PostgreSQL</span>
+              </div>
+              <div className="specs-row">
+                <span className="specs-label">STATUS</span>
+                <span className="glow-badge glow-badge-emerald" style={{ fontSize: '0.72rem', padding: '3px 10px' }}>
+                  Available for Global Roles
                 </span>
-                <h3 style={{ fontSize: '1.45rem', marginTop: '4px' }}>
-                  {personal.fullName}
-                </h3>
-                <p style={{ fontSize: '0.82rem', color: 'var(--muted)', marginTop: '4px', fontFamily: 'var(--font-mono)' }}>
-                  📍 {personal.location}
-                </p>
               </div>
             </div>
-
-            <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid var(--line)' }}>
-              <span style={{ fontSize: '0.74rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--dim)', display: 'block', marginBottom: '8px', fontFamily: 'var(--font-mono)' }}>
-                Specialized In
-              </span>
-              <p style={{ fontSize: '0.9rem', lineHeight: '1.6', color: 'var(--muted)' }}>
-                {personal.roleSubtitle}. Treating backend architecture with an emphasis on determinism, sub-millisecond efficiency, and zero data loss under load.
-              </p>
-            </div>
-
-            <div style={{ marginTop: '24px', display: 'flex', gap: '12px' }}>
-              {personal.social.github && (
-                <a
-                  href={personal.social.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button button-small button-ghost"
-                  style={{ width: '100%', justifyContent: 'center' }}
-                >
-                  GitHub Profile <span>↗</span>
-                </a>
-              )}
-            </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

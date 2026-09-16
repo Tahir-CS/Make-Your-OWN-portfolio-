@@ -1,132 +1,150 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
-const telemetryMocks = {
-  "Career OS": [
-    { label: "Job Queue Pipeline", value: "BullMQ Worker Pool (Sub-50ms)", accent: true },
-    { label: "Vector Search Index", value: "pgvector Cosine Similarity", accent: false },
-    { label: "Container Boundary", value: "Docker Compose (Gateway + Workers)", accent: false },
-    { label: "Cluster State", value: "0 Dropped Jobs · Active", accent: true }
-  ],
-  "YT Analysis Engine": [
-    { label: "Burst Protection", value: "Redis Token-Bucket Limiter", accent: true },
-    { label: "Time-Series Ingestion", value: "TimescaleDB Hypertables", accent: false },
-    { label: "Semantic Clustering", value: "Gemini Vector Embeddings", accent: false },
-    { label: "Throughput Status", value: "Quota Enforced · Operational", accent: true }
-  ],
-  "Subscription Guardian": [
-    { label: "DOM Mutation Engine", value: "Real-time Checkout Pattern Scanner", accent: true },
-    { label: "Privacy Architecture", value: "Zero-Telemetry Client Execution", accent: false },
-    { label: "Background Lifecycle", value: "Manifest V3 Alarms Scheduler", accent: false },
-    { label: "Detection Engine", value: "Dark Pattern Heuristics Active", accent: true }
-  ],
-  "Full-Stack E-Commerce Platform": [
-    { label: "Access Control Layer", value: "Supabase Row-Level Security (RLS)", accent: true },
-    { label: "Payment Verification", value: "Stripe Cryptographic Webhooks", accent: false },
-    { label: "UI State Management", value: "Optimistic Cart Synchronizer", accent: false },
-    { label: "Checkout Pipeline", value: "Idempotent Transaction Core", accent: true }
-  ]
+// Import project thumbnails
+import ecommerceThumb from '../assets/ecommerse store thumbnail .png';
+import aiResumeThumb from '../assets/ai resume analyzer.png';
+import trendvisionThumb from '../assets/trendvision thumbnail.png';
+import careerOsThumb from '../assets/careeros.png';
+
+const getThumbnail = (title) => {
+  if (title.includes("Career")) return careerOsThumb;
+  if (title.includes("E-Commerce")) return ecommerceThumb;
+  if (title.includes("Resume")) return aiResumeThumb;
+  if (title.includes("YT") || title.includes("TrendVision")) return trendvisionThumb;
+  return null;
+};
+
+const ProjectShowcaseCard = ({ project, index }) => {
+  const thumbnail = getThumbnail(project.title);
+
+  return (
+    <motion.article
+      className="project-card"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ y: -6 }}
+    >
+      <div>
+        {/* Meta Header */}
+        <div className="project-card-meta">
+          <span className="chip-mono glow-badge glow-badge-cyan">[ {project.index} // SPEC ]</span>
+          <span className="glow-badge glow-badge-purple">{project.category || project.badge}</span>
+        </div>
+
+        {/* Thumbnail preview */}
+        {thumbnail && (
+          <div className="project-thumb-frame">
+            <img src={thumbnail} alt={`${project.title} Interface`} loading="lazy" />
+          </div>
+        )}
+
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
+
+        {/* Architectural Specs */}
+        {project.architecture && project.architecture.length > 0 && (
+          <div className="project-specs-box">
+            <div className="project-specs-title">System Specs &amp; Execution</div>
+            <ul className="project-specs-list">
+              {project.architecture.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+
+      {/* Footer / Tech stack & Links */}
+      <div>
+        <div className="project-tech-chips-wrap">
+          {project.techStack.map((tech, i) => (
+            <span key={i} className="tech-chip-dark">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="project-card-footer">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-secondary-glass"
+              style={{ padding: '8px 16px', fontSize: '0.82rem' }}
+            >
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/>
+              </svg>
+              <span>Repository</span>
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary-glow"
+              style={{ padding: '8px 16px', fontSize: '0.82rem' }}
+            >
+              <span>Live Deployment</span>
+              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.article>
+  );
 };
 
 export default function Projects() {
   const { projects } = portfolioConfig;
 
   return (
-    <section id="projects" className="section">
-      <div className="shell">
-        <span className="eyebrow" style={{ marginBottom: '18px' }}>
-          Production Systems &amp; Engineering Builds
-        </span>
-        <div style={{ maxWidth: '800px', marginBottom: '40px' }}>
-          <h2>Featured Systems Architecture.</h2>
-          <p style={{ marginTop: '14px', fontSize: '1.02rem' }}>
-            Production-grade backends built with verifiable benchmarks. Engineered for high concurrency, low latency, and zero data corruption.
-          </p>
-        </div>
+    <section id="projects" className="section-padding">
+      <div className="container">
+        {/* Section Header */}
+        <motion.div
+          className="section-index-header"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="section-index-num">// 02. SELECTED WORKS</span>
+          <span className="section-index-tag">[ PRODUCTION SYSTEMS ]</span>
+        </motion.div>
 
-        <div className="portfolio-list">
-          {projects.map((project) => {
-            const telemetry = telemetryMocks[project.title] || [];
+        <motion.h2
+          className="section-heading-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Engineered Architectures
+        </motion.h2>
 
-            return (
-              <article className="portfolio-card" key={project.title}>
-                <div className="portfolio-copy">
-                  <div>
-                    <span className="eyebrow">
-                      System {project.index} · {project.badge}
-                    </span>
-                    <h2>{project.title}</h2>
-                    <p>{project.description}</p>
+        <motion.p
+          className="section-lead-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          High-performance production systems designed for determinism, sub-50ms queue throughput, and high-dimensional semantic search.
+        </motion.p>
 
-                    {project.architecture && (
-                      <ul className="portfolio-architecture-bullets">
-                        {project.architecture.map((item, idx) => (
-                          <li key={idx}>{item}</li>
-                        ))}
-                      </ul>
-                    )}
-                  </div>
-
-                  <div>
-                    <div className="proof-meta">
-                      {project.techStack.map((tech) => (
-                        <span className="tag" key={tech}>
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="project-links">
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="button button-small"
-                        >
-                          Repository <span>↗</span>
-                        </a>
-                      )}
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-link"
-                        >
-                          Live System <span>↗</span>
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                </div>
-
-                <div className="portfolio-visual" aria-label={`${project.title} Architectural Telemetry`}>
-                  <div className="mini-window">
-                    <div className="mini-window-bar">
-                      <div className="window-dots">
-                        <i />
-                        <i />
-                        <i />
-                      </div>
-                      <span className="window-title">{project.title.toLowerCase().replace(/\s+/g, '-')}.sys</span>
-                    </div>
-                    <div className="mini-window-body">
-                      {telemetry.map((row, idx) => (
-                        <div
-                          className={`terminal-row ${row.accent ? 'accent' : ''}`}
-                          key={idx}
-                        >
-                          <span>{row.label}</span>
-                          <strong>{row.value}</strong>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </article>
-            );
-          })}
+        <div className="projects-grid">
+          {projects.map((project, index) => (
+            <ProjectShowcaseCard key={project.title || index} project={project} index={index} />
+          ))}
         </div>
       </div>
     </section>

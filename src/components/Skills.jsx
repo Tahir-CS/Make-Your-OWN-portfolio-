@@ -1,41 +1,73 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
 export default function Skills() {
   const { skills } = portfolioConfig;
-  const categories = Object.entries(skills);
 
   return (
-    <section id="skills" className="section section-muted">
-      <div className="shell">
-        <span className="eyebrow" style={{ marginBottom: '18px' }}>
-          Core Technical Competencies
-        </span>
-        <div style={{ maxWidth: '780px', marginBottom: '40px' }}>
-          <h2>Architectural Stacks &amp; Systems.</h2>
-          <p style={{ marginTop: '14px', fontSize: '1.02rem' }}>
-            Engineering resilient backends capable of absorbing burst traffic. Specialized in asynchronous workers, cosine distance vector search, and containerized microservice boundaries.
-          </p>
-        </div>
+    <section id="skills" className="section-padding">
+      <div className="container">
+        {/* Section Header */}
+        <motion.div
+          className="section-index-header"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <span className="section-index-num">// 04. CAPABILITIES DIRECTORY</span>
+          <span className="section-index-tag">[ RUNTIME &amp; STORAGE ]</span>
+        </motion.div>
+
+        <motion.h2
+          className="section-heading-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Technical Competencies
+        </motion.h2>
+
+        <motion.p
+          className="section-lead-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Deliberate technology choices optimized for sub-millisecond query execution, asynchronous worker throughput, and type safety.
+        </motion.p>
 
         <div className="skills-grid">
-          {categories.map(([categoryName, skillList], idx) => (
-            <div className="skill-card" key={categoryName}>
-              <div className="skill-card-head">
-                <span>0{idx + 1} // DOMAIN</span>
-                <span style={{ fontSize: '0.68rem', color: 'var(--dim)' }}>
-                  {skillList.length} Technologies
-                </span>
+          {Object.entries(skills).map(([category, skillList], idx) => (
+            <motion.div
+              key={category}
+              className="skill-card"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -4 }}
+            >
+              <div className="skill-title-bar">
+                <span className="skill-idx">0{idx + 1} //</span>
+                <h3 className="skill-heading">{category}</h3>
               </div>
-              <h3>{categoryName}</h3>
-              <div className="skill-chips">
-                {skillList.map((skill) => (
-                  <span className="skill-chip" key={skill}>
+              <div className="skill-chips-wrap">
+                {skillList.map((skill, index) => (
+                  <motion.span
+                    key={index}
+                    className="skill-badge-item"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.15 }}
+                  >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
