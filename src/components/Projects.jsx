@@ -6,10 +6,12 @@ import './Projects.css';
 import ecommerceThumb from '../assets/ecommerse store thumbnail .png';
 import aiResumeThumb from '../assets/ai resume analyzer.png';
 import trendvisionThumb from '../assets/trendvision thumbnail.png';
+import careerOsThumb from '../assets/careeros.png';
 
 const getThumbnail = (title) => {
+  if (title.includes("Career")) return careerOsThumb;
   if (title.includes("E-Commerce")) return ecommerceThumb;
-  if (title.includes("Career") || title.includes("Resume")) return aiResumeThumb;
+  if (title.includes("Resume")) return aiResumeThumb;
   if (title.includes("YT") || title.includes("TrendVision")) return trendvisionThumb;
   return null;
 };
