@@ -5,30 +5,33 @@
    ========================================================================== */
 
 :root {
-  --bg: #09090e;
-  --bg-subtle: #0f0f17;
-  --bg-card: rgba(18, 18, 26, 0.72);
-  --bg-card-hover: rgba(24, 24, 36, 0.85);
+  --bg: #0a0a0a;
+  --bg-subtle: #121212;
+  --bg-cream: #f4f0ec;
+  --bg-card: rgba(18, 18, 20, 0.72);
+  --bg-card-hover: rgba(24, 24, 28, 0.85);
   
-  --border: rgba(255, 255, 255, 0.08);
-  --border-hover: rgba(56, 189, 248, 0.35);
-  --border-glow: rgba(56, 189, 248, 0.15);
+  --border: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(251, 86, 7, 0.35);
+  --border-glow: rgba(251, 86, 7, 0.15);
   
   --text-primary: #ffffff;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
+  --text-cream: #f4f0ec;
+  --text-secondary: #a3a3a3;
+  --text-muted: #737373;
+  --text-dark: #0a0a0a;
   
-  --primary: #38bdf8;
-  --primary-glow: rgba(56, 189, 248, 0.25);
-  --primary-gradient: linear-gradient(135deg, #0284c7 0%, #38bdf8 100%);
+  --primary: #fb5607;
+  --primary-glow: rgba(251, 86, 7, 0.25);
+  --primary-gradient: linear-gradient(135deg, #ff7b00 0%, #fb5607 100%);
   
   --accent-emerald: #34d399;
   --accent-purple: #c084fc;
-  --accent-orange: #fb923c;
+  --accent-orange: #fb5607;
   
-  --radius: 20px;
-  --radius-md: 14px;
-  --radius-sm: 8px;
+  --radius: 0px; /* Brutalist usually uses sharper corners, let's try 4px or 0, but user prompt says 'pill-shaped CTA' so maybe mix. Let's keep 0 for cards. */
+  --radius-md: 0px;
+  --radius-sm: 0px;
   --radius-full: 9999px;
   
   --font-display: 'Inter', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
@@ -67,13 +70,15 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  letter-spacing: -0.025em;
-  font-weight: 700;
+  letter-spacing: -0.04em;
+  font-weight: 800;
   color: var(--text-primary);
+  text-transform: none;
 }
 
 p {
   color: var(--text-secondary);
+  font-weight: 400;
 }
 
 a {
@@ -137,30 +142,29 @@ a {
   transform: translateY(-4px);
 }
 
-/* Primary Glowing Button */
-.btn-primary-glow {
+/* Brutalist Pill Button */
+.btn-brutalist {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--primary-gradient);
-  color: #040914 !important;
+  background: var(--text-primary);
+  color: var(--bg) !important;
   font-family: var(--font-display);
   font-size: 0.92rem;
   font-weight: 700;
   border-radius: var(--radius-full);
   border: none;
   padding: 12px 24px;
-  box-shadow: 0 2px 20px rgba(56, 189, 248, 0.4);
   transition: all 250ms ease;
   cursor: pointer;
   text-decoration: none;
 }
 
-.btn-primary-glow:hover {
-  box-shadow: 0 4px 28px rgba(56, 189, 248, 0.65);
+.btn-brutalist:hover {
+  background: var(--primary);
+  color: #ffffff !important;
   transform: translateY(-2px);
-  color: #040914 !important;
 }
 
 /* Secondary Glass Button */
@@ -748,53 +752,120 @@ a {
 /* ==========================================================================
    Selected Works / Projects
    ========================================================================== */
-.projects-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
+.projects-stack-container {
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  position: relative;
+  padding-bottom: 60px;
 }
 
-@media (min-width: 860px) {
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.project-card {
+.project-card-sticky {
+  position: sticky;
+  top: 100px; /* Offset for navbar */
   background: var(--bg-card);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--border);
-  border-radius: 20px;
-  padding: 28px;
-  box-shadow: 0 12px 40px -10px rgba(0, 0, 0, 0.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  transition: all 350ms cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  transition: all 0.3s ease;
+  height: max-content;
+  max-height: calc(100vh - 120px);
+  overflow-y: auto;
 }
 
-.project-card:hover {
-  border-color: var(--border-hover);
-  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.7), 0 0 35px -10px var(--border-glow);
-  transform: translateY(-4px);
+@media (min-width: 900px) {
+  .project-card-sticky {
+    grid-template-columns: 1.2fr 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 60px;
+  }
+}
+
+/* Theme Alternation */
+.project-card-sticky.theme-light {
+  background: var(--bg-cream);
+  color: var(--text-dark);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+.project-card-sticky.theme-light .project-title {
+  color: var(--text-dark);
+}
+
+.project-card-sticky.theme-light .project-desc,
+.project-card-sticky.theme-light .project-specs-title {
+  color: #333333;
+}
+
+.project-card-sticky.theme-light .chip-mono,
+.project-card-sticky.theme-light .glow-badge {
+  border-color: rgba(0, 0, 0, 0.2);
+  color: var(--text-dark);
+}
+
+.project-card-sticky.theme-light .tech-chip-dark {
+  background: rgba(0, 0, 0, 0.05);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: var(--text-dark);
 }
 
 .project-card-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 16px;
+  margin-bottom: 24px;
+  grid-column: 1 / -1;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 16px;
+}
+
+.project-card-sticky.theme-light .project-card-meta {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+}
+
+.project-card-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-right {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.project-desc {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
 }
 
 .project-thumb-frame {
   width: 100%;
-  height: 200px;
-  border-radius: 12px;
+  aspect-ratio: 16/9;
+  border-radius: 0;
   overflow: hidden;
-  margin-bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  margin-bottom: 24px;
+  border: 1px solid var(--border);
   background: #08080c;
+}
+
+.project-card-sticky.theme-light .project-thumb-frame {
+  border-color: rgba(0, 0, 0, 0.1);
 }
 
 .project-thumb-frame img {
@@ -807,6 +878,90 @@ a {
 
 .project-card:hover .project-thumb-frame img {
   transform: scale(1.04);
+}
+
+/* ==========================================================================
+   Process / Stage-Gate Roadmap
+   ========================================================================== */
+.stage-gate-module {
+  border-top: 1px solid var(--primary);
+  padding: 40px 0 60px;
+  position: relative;
+}
+
+.stage-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.stage-index {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+}
+
+.stage-duration {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.stage-content {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stage-objective {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1.1;
+  max-width: 800px;
+}
+
+.stage-description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.stage-split {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin-top: 24px;
+  border-top: 1px solid var(--border);
+  padding-top: 32px;
+}
+
+@media (min-width: 768px) {
+  .stage-split {
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+  }
+}
+
+.stage-column h4 {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.stage-column-content {
+  font-size: 0.95rem;
+  line-height: 1.6;
 }
 
 .project-title {

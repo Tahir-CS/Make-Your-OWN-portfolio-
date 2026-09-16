@@ -3,12 +3,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
 const NAV_ITEMS = [
-  { id: 'projects', name: 'Works', href: '#projects' },
-  { id: 'about', name: 'Philosophy', href: '#about' },
-  { id: 'experience', name: 'Experience', href: '#experience' },
-  { id: 'skills', name: 'Directory', href: '#skills' },
-  { id: 'certifications', name: 'Credentials', href: '#certifications' },
-  { id: 'contact', name: 'Contact', href: '#contact' },
+  { id: 'skills', name: 'Services', href: '#skills' },
+  { id: 'projects', name: 'Work', href: '#projects' },
+  { id: 'experience', name: 'Process', href: '#experience' },
+  { id: 'about', name: 'About', href: '#about' },
 ];
 
 export default function Navigation() {
@@ -46,14 +44,8 @@ export default function Navigation() {
       <nav className="navbar-frosted">
         {/* Brand Group */}
         <a href="#" className="navbar-brand-link">
-          <div className="navbar-logo-icon">
-            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-          </div>
-          <div>
-            <div className="navbar-brand-subtitle">SYSTEMS &amp; BACKEND ARCHITECT</div>
-            <div className="navbar-brand-name">Muhammad Tahir</div>
+          <div className="navbar-brand-name" style={{ fontSize: '1.2rem', letterSpacing: '-0.05em' }}>
+            Muhammad Tahir
           </div>
         </a>
 
@@ -72,13 +64,8 @@ export default function Navigation() {
 
         {/* Right CTA Actions */}
         <div className="navbar-actions">
-          <div className="glow-badge glow-badge-emerald" style={{ display: 'none', md: 'inline-flex' }}>
-            <span className="status-dot-pulse"></span>
-            <span>Available</span>
-          </div>
-
-          <a href="#contact" className="btn-primary-glow" style={{ padding: '8px 18px', fontSize: '0.82rem' }}>
-            Get in Touch
+          <a href="#contact" className="btn-brutalist" style={{ padding: '8px 18px', fontSize: '0.82rem' }}>
+            Start a project ↗
           </a>
 
           {/* Mobile Menu Button */}
@@ -120,7 +107,7 @@ export default function Navigation() {
             ))}
             <a
               href={`mailto:${personal.email}`}
-              className="btn-primary-glow"
+              className="btn-brutalist"
               style={{ width: '100%', textAlign: 'center', marginTop: '8px' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >

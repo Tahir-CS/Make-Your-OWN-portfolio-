@@ -40,45 +40,48 @@ export default function Experience() {
           Hands-on backend systems contributions spanning API type-safety contracts, containerization, and data normalization.
         </motion.p>
 
-        <div style={{ maxWidth: '960px', margin: '0 auto' }}>
+        <div style={{ maxWidth: '1040px', margin: '0 auto', marginTop: '60px' }}>
           {experience.map((exp, index) => (
             <motion.div
               key={index}
-              className="experience-glass-card"
+              className="stage-gate-module"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              whileHover={{ y: -4 }}
             >
-              <div className="exp-header">
-                <div>
-                  <h3 className="exp-role">{exp.title}</h3>
-                  <div className="exp-company">
-                    {exp.company} — <span style={{ color: 'var(--text-muted)' }}>{exp.location}</span>
-                  </div>
-                </div>
-                <span className="exp-duration">{exp.duration}</span>
+              <div className="stage-header">
+                <div className="stage-index">{index + 1 < 10 ? `0${index + 1}` : index + 1} // {exp.company}</div>
+                <div className="stage-duration">{exp.duration}</div>
               </div>
 
-              <p style={{ color: 'var(--text-secondary)', marginBottom: '18px', fontSize: '1rem', lineHeight: '1.7' }}>
-                {exp.description}
-              </p>
-
-              {exp.highlights && (
-                <ul className="exp-points-list">
-                  {exp.highlights.map((highlight, hIdx) => (
-                    <li key={hIdx}>{highlight}</li>
-                  ))}
-                </ul>
-              )}
-
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', paddingTop: '18px', borderTop: '1px solid var(--border)' }}>
-                {exp.skills.map((skill, i) => (
-                  <span key={i} className="tech-chip-dark">
-                    {skill}
-                  </span>
-                ))}
+              <div className="stage-content">
+                <h3 className="stage-objective">{exp.title}</h3>
+                <p className="stage-description">{exp.description}</p>
+                
+                <div className="stage-split">
+                  <div className="stage-column">
+                    <h4>You Get</h4>
+                    <div className="stage-column-content">
+                      <ul style={{ paddingLeft: '20px', listStyleType: 'square' }}>
+                        {exp.highlights ? exp.highlights.slice(0, 2).map((h, i) => <li key={i} style={{ marginBottom: '8px' }}>{h}</li>) : <li>Scalable systems architecture and optimized API throughput.</li>}
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="stage-column">
+                    <h4>Your Part</h4>
+                    <div className="stage-column-content">
+                      <p>Provide domain context, system access, and iterative feedback during the deployment phase.</p>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
+                        {exp.skills.map((skill, i) => (
+                          <span key={i} className="tech-chip-dark" style={{ background: 'transparent', border: '1px solid var(--border)', padding: '4px 10px', fontSize: '0.7rem' }}>
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
