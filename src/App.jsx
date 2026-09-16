@@ -14,7 +14,7 @@ function App() {
     <>
       <div className="noise" aria-hidden="true" />
       <Navigation />
-      <main className="editorial-home">
+      <main>
         <Hero />
         <Skills />
         <Projects />

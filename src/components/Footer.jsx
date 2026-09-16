@@ -7,13 +7,13 @@ export default function Footer() {
   return (
     <footer className="site-footer">
       <div className="shell footer-grid">
-        <div className="footer-brand-wrap">
+        <div>
           <a href="#" className="brand" aria-label="Muhammad Tahir">
             <span className="brand-mark"><span /></span>
             <span>{personal.name.split(' ')[0]}<span className="brand-muted"> / CS</span></span>
           </a>
-          <p style={{ marginTop: '14px', maxWidth: '340px', fontSize: '0.88rem', lineHeight: '1.6', color: 'var(--muted)' }}>
-            Engineering sub-50ms distributed pipelines, event-driven worker pools, and pgvector semantic retrieval.
+          <p style={{ marginTop: '16px', maxWidth: '380px', fontSize: '0.88rem', lineHeight: '1.6', color: 'var(--muted)' }}>
+            Engineering sub-50ms distributed pipelines, asynchronous worker pools, and pgvector semantic search systems.
           </p>
         </div>
 
@@ -45,8 +45,8 @@ export default function Footer() {
       </div>
 
       <div className="shell footer-sub">
-        <small>© {new Date().getFullYear()} {personal.fullName}. Built with precision. All rights reserved.</small>
-        <small style={{ color: 'var(--dim)' }}>UET Lahore · Systems &amp; Backend Engineering</small>
+        <span>© {new Date().getFullYear()} {personal.fullName}. Built with precision. All rights reserved.</span>
+        <span>UET Lahore · Systems &amp; Backend Engineering</span>
       </div>
     </footer>
   );

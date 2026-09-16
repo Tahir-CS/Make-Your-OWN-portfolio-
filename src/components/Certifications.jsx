@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
 export default function Certifications() {
@@ -25,15 +25,14 @@ export default function Certifications() {
   if (!certifications || certifications.length === 0) return null;
 
   return (
-    <section id="certifications" className="section" style={{ borderTop: '1px solid var(--line)' }}>
+    <section id="certifications" className="section section-muted">
       <div className="shell">
-        <div className="section-intro-grid" style={{ marginBottom: '40px' }}>
-          <span className="section-number">05</span>
-          <div>
-            <p className="section-kicker">Accreditations</p>
-            <h2>Verified Industry Credentials.</h2>
-          </div>
-          <p className="section-copy">
+        <span className="eyebrow" style={{ marginBottom: '18px' }}>
+          Industry Accreditations
+        </span>
+        <div style={{ maxWidth: '800px', marginBottom: '40px' }}>
+          <h2>Verified Industry Credentials.</h2>
+          <p style={{ marginTop: '14px', fontSize: '1.02rem' }}>
             Rigorous certifications across backend architecture, cloud engineering, and operational DevOps pipelines.
           </p>
         </div>
@@ -50,9 +49,9 @@ export default function Certifications() {
             >
               <div>
                 <div className="cert-top">
-                  <span className="cert-issuer-badge">{cert.issuer}</span>
+                  <span className="cert-badge">{cert.issuer}</span>
                   {cert.date && (
-                    <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--dim)' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.74rem', color: 'var(--dim)' }}>
                       {cert.date}
                     </span>
                   )}
@@ -61,7 +60,7 @@ export default function Certifications() {
               </div>
 
               {cert.image && (
-                <div style={{ marginTop: '16px', borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.3)' }}>
+                <div style={{ marginTop: '16px', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--line)', background: 'rgba(0,0,0,0.4)' }}>
                   <img
                     src={cert.image}
                     alt={cert.title}
@@ -71,7 +70,7 @@ export default function Certifications() {
                 </div>
               )}
 
-              <div className="cert-preview-btn">
+              <div className="cert-preview-trigger">
                 <span>Inspect Credential</span>
                 <span aria-hidden="true">↗</span>
               </div>
@@ -93,10 +92,10 @@ export default function Certifications() {
               className="modal-content"
               onClick={(e) => e.stopPropagation()}
             >
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '14px', borderBottom: '1px solid var(--line)' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span className="cert-issuer-badge">{selectedCert.issuer}</span>
-                  <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: '1.05rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '16px', borderBottom: '1px solid var(--line)' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                  <span className="cert-badge">{selectedCert.issuer}</span>
+                  <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: '1.1rem' }}>
                     {selectedCert.title}
                   </span>
                 </div>
