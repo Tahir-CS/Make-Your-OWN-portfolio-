@@ -1,105 +1,120 @@
 import React, { useState, useEffect } from 'react';
 import { portfolioConfig } from '../config/portfolio.config';
 
+const NAV_ITEMS = [
+  { id: 'projects', name: 'Works', href: '#projects' },
+  { id: 'about', name: 'Philosophy', href: '#about' },
+  { id: 'experience', name: 'Experience', href: '#experience' },
+  { id: 'skills', name: 'Directory', href: '#skills' },
+  { id: 'certifications', name: 'Credentials', href: '#certifications' },
+  { id: 'contact', name: 'Contact', href: '#contact' },
+];
+
 export default function Navigation() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('projects');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { personal } = portfolioConfig;
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      const scrollPosition = window.scrollY + 200;
+      for (const item of NAV_ITEMS) {
+        const section = document.getElementById(item.id);
+        if (section) {
+          const top = section.offsetTop;
+          const height = section.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(item.id);
+            break;
+          }
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems = [
-    { idx: '01', name: 'Works', href: '#projects' },
-    { idx: '02', name: 'About', href: '#about' },
-    { idx: '03', name: 'Experience', href: '#experience' },
-    { idx: '04', name: 'Stack', href: '#skills' },
-    { idx: '05', name: 'Contact', href: '#contact' },
-  ];
-
   return (
-    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
-      <div className="container nav-content">
-        {/* Brand & Availability */}
-        <div className="nav-brand-group">
-          <a href="#" className="nav-logo-awwwards">
-            TAHIR <span>// ARCHITECT</span>
-          </a>
-          <div className="nav-status-pill">
-            <span className="status-dot-pulse"></span>
-            <span>AVAILABLE</span>
+    <header className="navbar-wrapper">
+      <nav className="navbar-apple">
+        {/* Brand Group */}
+        <a href="#" className="navbar-brand-link">
+          <div className="navbar-logo-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
           </div>
+          <div>
+            <div className="navbar-brand-subtitle">SYSTEMS &amp; BACKEND ARCHITECT</div>
+            <div className="navbar-brand-name">Muhammad Tahir</div>
+          </div>
+        </a>
+
+        {/* Center Segmented Nav Pills */}
+        <div className="navbar-pills-group">
+          {NAV_ITEMS.map((item) => (
+            <a
+              key={item.id}
+              href={item.href}
+              className={`navbar-pill-item ${activeSection === item.id ? 'active' : ''}`}
+            >
+              {item.name}
+            </a>
+          ))}
         </div>
 
-        {/* Desktop Navigation */}
-        <ul className="nav-links">
-          {navItems.map((item) => (
-            <li key={item.name}>
-              <a href={item.href} className="nav-link-item">
-                <span className="nav-link-idx">{item.idx}</span>
-                <span>{item.name}</span>
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href={`mailto:${personal.email}`} className="nav-cta-pill">
-              <span>Initiate Contact</span>
-              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </li>
-        </ul>
+        {/* Right CTA Actions */}
+        <div className="navbar-actions">
+          <div className="apple-badge apple-badge-green" style={{ display: 'none', md: 'inline-flex' }}>
+            <span className="status-dot-pulse"></span>
+            <span style={{ fontSize: '0.72rem', letterSpacing: '0.02em' }}>Available</span>
+          </div>
 
-        {/* Mobile Toggle */}
-        <button
-          className="mobile-menu-btn"
-          aria-label="Toggle Navigation Menu"
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-        >
-          <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {isMobileMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
-      </div>
+          <a href="#contact" className="apple-button" style={{ padding: '8px 18px', fontSize: '0.82rem' }}>
+            Get in Touch
+          </a>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="navbar-mobile-toggle"
+            aria-label="Toggle Menu"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              {isMobileMenuOpen ? (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </nav>
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="mobile-menu">
-          {navItems.map((item) => (
+        <div className="navbar-mobile-menu">
+          {NAV_ITEMS.map((item) => (
             <a
-              key={item.name}
+              key={item.id}
               href={item.href}
+              className="navbar-mobile-item"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <span style={{ color: 'var(--accent)', marginRight: '8px', fontFamily: 'var(--font-mono)' }}>
-                {item.idx}
-              </span>
               {item.name}
             </a>
           ))}
           <a
             href={`mailto:${personal.email}`}
-            className="nav-cta-pill"
-            style={{ textAlign: 'center', justifyContent: 'center', marginTop: '12px' }}
+            className="apple-button"
+            style={{ width: '100%', textAlign: 'center', marginTop: '8px' }}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            Email Muhammad ↗
+            Email Directly ↗
           </a>
         </div>
       )}
     </header>
   );
 }
-
-

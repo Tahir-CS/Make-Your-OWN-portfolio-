@@ -8,43 +8,53 @@ export default function AboutMe() {
   return (
     <section id="about" className="section-padding">
       <div className="container">
-        {/* Numbered Section Index */}
+        {/* Section Header */}
         <div className="section-index-header">
-          <span className="section-index-num">// 01. PHILOSOPHY & PERSPECTIVE</span>
+          <span className="section-index-num">// 01. PHILOSOPHY &amp; PERSPECTIVE</span>
           <span className="section-index-tag">[ SYSTEM DESIGN ]</span>
         </div>
 
-        {/* Statement Banner */}
-        <div className="about-statement-banner">
-          "{about.statement}"
+        <h2 className="section-heading-editorial">Architecture Blueprint &amp; Philosophy</h2>
+        <p className="section-lead-editorial">
+          Engineering scalable web backends, resilient queue architectures, and mathematical vector retrieval.
+        </p>
+
+        {/* Statement Quote Banner */}
+        <div className="about-statement-card">
+          <div className="about-statement-quote">
+            "{about.statement}"
+          </div>
         </div>
 
-        <div className="about-editorial-grid">
-          {/* Narrative & Academic Credentials */}
-          <div>
-            <p className="about-editorial-p">
-              {about.overview}
-            </p>
-            <p className="about-editorial-p">
-              From configuring BullMQ backpressure mechanisms and managing Redis cluster memory footprints 
-              to fine-tuning pgvector cosine distance metrics in PostgreSQL, I believe reliability is not an afterthought—it 
-              must be designed into the foundational architecture.
-            </p>
+        {/* Two-Column Apple Grid */}
+        <div className="about-apple-grid">
+          {/* Left: Narrative & Academic Foundations */}
+          <div className="about-content-card">
+            <div>
+              <p className="about-text-p">
+                {about.overview}
+              </p>
+              <p className="about-text-p">
+                From configuring BullMQ backpressure mechanisms and managing Redis cluster memory footprints 
+                to fine-tuning pgvector cosine distance metrics in PostgreSQL, I believe reliability is not an afterthought—it 
+                must be designed into the foundational architecture.
+              </p>
+            </div>
 
             {/* Academic Panel */}
-            <div className="academic-panel">
+            <div className="academic-panel-apple">
               <div className="academic-badge-row">
                 <span className="academic-degree">{about.education.degree}</span>
-                <span className="academic-cgpa">{about.education.cgpa}</span>
+                <span className="academic-cgpa">CGPA {about.education.cgpa}</span>
               </div>
               <p className="academic-inst">{about.education.institution}</p>
               
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', textTransform: 'uppercase', color: 'var(--text-muted)', marginBottom: '10px' }}>
-                Foundational Coursework
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--muted-foreground)', marginBottom: '8px', fontWeight: 700 }}>
+                Core Foundational Coursework
               </div>
-              <div className="coursework-chips">
+              <div className="coursework-chips-wrap">
                 {about.education.coursework.map((course, idx) => (
-                  <span key={idx} className="coursework-chip">
+                  <span key={idx} className="coursework-chip-item">
                     {course}
                   </span>
                 ))}
@@ -52,38 +62,38 @@ export default function AboutMe() {
             </div>
           </div>
 
-          {/* Portrait & Meta Table */}
-          <div>
-            <div className="portrait-panel-clean">
-              <div className="portrait-image-frame">
-                <img
-                  src={profileImage}
-                  alt={`${personal.fullName} - ${personal.title}`}
-                  loading="lazy"
-                />
-              </div>
+          {/* Right: Portrait & Quick System Specs */}
+          <div className="portrait-apple-card">
+            <div className="portrait-image-frame-apple">
+              <img
+                src={profileImage}
+                alt={`${personal.fullName} - ${personal.title}`}
+                loading="lazy"
+              />
+            </div>
 
-              <div className="portrait-meta-table">
-                <div className="portrait-meta-entry">
-                  <span className="portrait-meta-lbl">LOCATION</span>
-                  <span className="portrait-meta-val">{personal.location}</span>
-                </div>
-                <div className="portrait-meta-entry">
-                  <span className="portrait-meta-lbl">SPECIALTY</span>
-                  <span className="portrait-meta-val">Distributed Queues</span>
-                </div>
-                <div className="portrait-meta-entry">
-                  <span className="portrait-meta-lbl">ACADEMIA</span>
-                  <span className="portrait-meta-val">UET Lahore (BS CS)</span>
-                </div>
-                <div className="portrait-meta-entry">
-                  <span className="portrait-meta-lbl">CORE RUNTIME</span>
-                  <span className="portrait-meta-val">Node • Redis • Postgres</span>
-                </div>
-                <div className="portrait-meta-entry" style={{ borderBottom: 'none' }}>
-                  <span className="portrait-meta-lbl">STATUS</span>
-                  <span className="portrait-meta-val" style={{ color: 'var(--accent)' }}>Open for Global Roles</span>
-                </div>
+            <div className="specs-table-apple">
+              <div className="specs-row-apple">
+                <span className="specs-lbl-apple">LOCATION</span>
+                <span className="specs-val-apple">{personal.location}</span>
+              </div>
+              <div className="specs-row-apple">
+                <span className="specs-lbl-apple">SPECIALTY</span>
+                <span className="specs-val-apple">Distributed Queues &amp; RAG</span>
+              </div>
+              <div className="specs-row-apple">
+                <span className="specs-lbl-apple">ACADEMIA</span>
+                <span className="specs-val-apple">UET Lahore (BS CS)</span>
+              </div>
+              <div className="specs-row-apple">
+                <span className="specs-lbl-apple">CORE RUNTIME</span>
+                <span className="specs-val-apple">Node • Redis • PostgreSQL</span>
+              </div>
+              <div className="specs-row-apple">
+                <span className="specs-lbl-apple">STATUS</span>
+                <span className="apple-badge apple-badge-green" style={{ fontSize: '0.7rem' }}>
+                  Available for Global Roles
+                </span>
               </div>
             </div>
           </div>
@@ -92,5 +102,3 @@ export default function AboutMe() {
     </section>
   );
 }
-
-

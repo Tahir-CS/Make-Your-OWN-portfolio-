@@ -10,7 +10,7 @@ export default function Skills() {
         {/* Section Header */}
         <div className="section-index-header">
           <span className="section-index-num">// 04. CAPABILITIES DIRECTORY</span>
-          <span className="section-index-tag">[ RUNTIME & STORAGE ]</span>
+          <span className="section-index-tag">[ RUNTIME &amp; STORAGE ]</span>
         </div>
 
         <h2 className="section-heading-editorial">Technical Competencies</h2>
@@ -18,16 +18,16 @@ export default function Skills() {
           Deliberate technology choices optimized for sub-millisecond query execution, asynchronous worker throughput, and type safety.
         </p>
 
-        <div className="skills-editorial-grid">
+        <div className="skills-apple-grid">
           {Object.entries(skills).map(([category, skillList], idx) => (
-            <div key={category} className="skill-dir-card">
-              <div className="skill-dir-title">
-                <span>0{idx + 1} //</span>
-                <h3>{category}</h3>
+            <div key={category} className="skill-apple-card">
+              <div className="skill-apple-title-bar">
+                <span className="skill-apple-idx">0{idx + 1} //</span>
+                <h3 className="skill-apple-heading">{category}</h3>
               </div>
-              <div className="skill-pills-wrap">
+              <div className="skill-apple-chips">
                 {skillList.map((skill, index) => (
-                  <span key={index} className="skill-pill-item">
+                  <span key={index} className="skill-apple-chip">
                     {skill}
                   </span>
                 ))}
@@ -39,5 +39,3 @@ export default function Skills() {
     </section>
   );
 }
-
-

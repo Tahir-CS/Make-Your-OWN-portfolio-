@@ -37,22 +37,23 @@ export default function Certifications() {
           Specialized curricula verified across backend architecture, cloud engineering, and operational DevOps pipelines.
         </p>
 
-        <div className="certs-editorial-grid">
+        <div className="certs-apple-grid">
           {certifications.map((cert, index) => (
-            <div key={index} className="cert-editorial-card">
+            <div key={index} className="cert-apple-card">
               <div>
-                <div className="cert-top-bar">
-                  <span className="cert-issuer-badge">{cert.issuer}</span>
+                <div className="cert-top-bar-apple">
+                  <span className="apple-badge apple-badge-blue">{cert.issuer}</span>
                   {cert.date && (
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', color: 'var(--muted-foreground)' }}>
                       {cert.date}
                     </span>
                   )}
                 </div>
-                <h3 className="cert-title-editorial">{cert.title}</h3>
+                <h3 className="cert-title-apple">{cert.title}</h3>
+
                 {cert.image && (
                   <div
-                    className="cert-preview-frame"
+                    className="cert-preview-frame-apple"
                     onClick={() => setSelectedCert(cert)}
                     role="button"
                     tabIndex={0}
@@ -60,8 +61,8 @@ export default function Certifications() {
                     title={`Click to preview ${cert.title}`}
                   >
                     <img src={cert.image} alt={cert.title} loading="lazy" />
-                    <div className="cert-preview-overlay">
-                      <span className="cert-preview-badge">Inspect Credential</span>
+                    <div className="cert-preview-overlay-apple">
+                      <span className="cert-preview-badge-apple">Inspect Credential</span>
                     </div>
                   </div>
                 )}
@@ -72,8 +73,8 @@ export default function Certifications() {
                   href={cert.verifyUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="footer-link-awwwards"
-                  style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', fontSize: '0.8rem', marginTop: 'auto' }}
+                  className="apple-button-secondary"
+                  style={{ width: '100%', justifyContent: 'center', fontSize: '0.8rem', padding: '8px 16px', marginTop: 'auto' }}
                 >
                   <span>Verify Credential</span>
                   <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -89,29 +90,29 @@ export default function Certifications() {
       {/* Certificate Lightbox Modal */}
       {selectedCert && (
         <div
-          className="cert-modal-backdrop"
+          className="cert-modal-backdrop-apple"
           onClick={() => setSelectedCert(null)}
           role="dialog"
           aria-modal="true"
         >
-          <div className="cert-modal-content" onClick={(e) => e.stopPropagation()}>
-            <div className="cert-modal-header">
+          <div className="cert-modal-content-apple" onClick={(e) => e.stopPropagation()}>
+            <div className="cert-modal-header-apple">
               <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <span className="cert-issuer-badge">{selectedCert.issuer}</span>
-                <span style={{ fontFamily: 'var(--font-display)', fontWeight: 600, color: '#fff', fontSize: '0.95rem' }}>
+                <span className="apple-badge apple-badge-blue">{selectedCert.issuer}</span>
+                <span style={{ fontWeight: 700, color: '#1d1d1f', fontSize: '0.98rem' }}>
                   {selectedCert.title}
                 </span>
               </div>
               <button
                 type="button"
-                className="cert-modal-close-btn"
+                className="cert-modal-close-apple"
                 onClick={() => setSelectedCert(null)}
                 aria-label="Close certificate preview"
               >
                 ✕
               </button>
             </div>
-            <div className="cert-modal-body">
+            <div className="cert-modal-body-apple">
               <img src={selectedCert.image} alt={selectedCert.title} />
             </div>
           </div>
@@ -120,5 +121,3 @@ export default function Certifications() {
     </section>
   );
 }
-
-
