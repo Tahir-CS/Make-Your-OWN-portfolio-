@@ -1,13 +1,26 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 import { TechIcon } from './TechIcons';
 
 export default function Experience() {
   const { experience } = portfolioConfig;
+  const containerRef = useRef(null);
+
+  // Scroll progress for the central filling red line
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ['start 80%', 'end 70%']
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 120,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   return (
-    <section id="experience" className="section-padding">
+    <section id="experience" className="section-padding" ref={containerRef}>
       <div className="container">
         {/* Apple Minimalist Section Header */}
         <motion.div
@@ -17,116 +30,139 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="apple-label">Professional Tenures &amp; Commercial Impact</span>
-          <h2 className="apple-monument-h2">Industry Record.</h2>
+          <span className="apple-label">Internships &amp; Practical Work</span>
+          <h2 className="apple-monument-h2">Work Experience.</h2>
           <p className="apple-lead-p">
-            Production engineering tenures developing enterprise academic platforms, conversational AI products, and resilient backend systems.
+            Production engineering tenures developing enterprise university portals, conversational assistant products, and modern web applications.
           </p>
         </motion.div>
 
-        <div className="apple-experience-timeline">
-          {experience.map((exp, index) => {
-            const isKics = exp.company.includes('KICS');
+        {/* Central Vertical Timeline with Scroll Fill */}
+        <div className="central-timeline-container">
+          {/* Static Track Line */}
+          <div className="central-timeline-track" />
 
-            return (
-              <motion.div
-                key={index}
-                className="apple-experience-card"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-              >
-                {/* Header Row */}
-                <div className="apple-exp-header">
-                  <div>
-                    <div className="apple-exp-badge-row">
-                      <span className="apple-mono-badge">{exp.type || "Engineering Internship"}</span>
-                      {isKics && <span className="apple-highlight-badge">Flagship 2-Month Tenure</span>}
-                    </div>
-                    <h3 className="apple-exp-role">{exp.title}</h3>
-                    <div className="apple-exp-company">
-                      {exp.company} <span className="company-divider">•</span> <span className="apple-text-muted">{exp.location}</span>
-                    </div>
+          {/* Active Red Fill Line */}
+          <motion.div
+            className="central-timeline-fill"
+            style={{ scaleY }}
+          />
+
+          {/* Alternating Experience Nodes */}
+          <div className="timeline-items-flow">
+            {experience.map((exp, index) => {
+              const isKics = exp.company.includes('KICS');
+              // Alternating: Index 0 (KICS) on LEFT, Index 1 (Bano Qabil) on RIGHT
+              const isLeft = index % 2 === 0;
+
+              return (
+                <div
+                  key={index}
+                  className={`timeline-row-item ${isLeft ? 'timeline-row-left' : 'timeline-row-right'}`}
+                >
+                  {/* Central Timeline Milestone Node */}
+                  <div className="timeline-center-node">
+                    <div className="timeline-node-inner" />
                   </div>
-                  <div className="apple-exp-time-badge">
-                    <span>{exp.duration}</span>
-                  </div>
-                </div>
 
-                {/* Summary */}
-                <p className="apple-exp-desc">
-                  {exp.description}
-                </p>
-
-                {/* KICS 4 Systems Breakdown if KICS */}
-                {isKics ? (
-                  <div className="apple-kics-grid">
-                    <div className="kics-subproject-card">
-                      <div className="kics-subproject-head">
-                        <span className="kics-num">SYSTEM 01</span>
-                        <h4 className="kics-title">UET OCW (OpenCourseWare)</h4>
+                  {/* Experience Card */}
+                  <motion.div
+                    className="timeline-exp-card"
+                    initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-60px" }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {/* Header */}
+                    <div className="exp-card-header">
+                      <div className="exp-badge-line">
+                        <span className="apple-mono-badge">{exp.type || "Engineering Internship"}</span>
+                        {isKics && <span className="apple-highlight-badge">2-Month Full-Stack Tenure</span>}
                       </div>
-                      <p className="kics-body">
-                        Engineered the full-stack portal featuring granular multi-tier role-based access control (Super Admin, Instructor, Student) for centralized courseware and lecture asset delivery.
-                      </p>
+
+                      <h3 className="exp-card-title">{exp.title}</h3>
+                      <div className="exp-company-location">
+                        <span className="exp-company-name">{exp.company}</span>
+                        <span className="exp-dot-separator">•</span>
+                        <span className="exp-location-name">{exp.location}</span>
+                      </div>
+
+                      <div className="exp-date-pill">{exp.duration}</div>
                     </div>
 
-                    <div className="kics-subproject-card">
-                      <div className="kics-subproject-head">
-                        <span className="kics-num">SYSTEM 02</span>
-                        <h4 className="kics-title">Enterprise AI Chatbot Product</h4>
-                      </div>
-                      <p className="kics-body">
-                        Developed a ChatGPT-style conversational assistant featuring multi-tier permissioning (Super Admin, Admin, User), real-time AI token usage metering, and dynamic custom LLM API key configuration.
-                      </p>
-                    </div>
+                    {/* Summary Description */}
+                    <p className="exp-card-desc">{exp.description}</p>
 
-                    <div className="kics-subproject-card">
-                      <div className="kics-subproject-head">
-                        <span className="kics-num">SYSTEM 03</span>
-                        <h4 className="kics-title">End-to-End Admission Management</h4>
-                      </div>
-                      <p className="kics-body">
-                        Built the automated admissions pipeline covering applicant intake, automated document validation workflows, status tracking, and registrar processing dashboards.
-                      </p>
-                    </div>
+                    {/* KICS 4 Systems Sub-Cards */}
+                    {isKics ? (
+                      <div className="kics-systems-stack">
+                        <div className="kics-item-row">
+                          <div className="kics-row-head">
+                            <span className="kics-badge">SYSTEM 01</span>
+                            <span className="kics-item-title">UET OCW (OpenCourseWare)</span>
+                          </div>
+                          <p className="kics-item-text">
+                            Full-stack portal with role-based access for Super Admins, Instructors, and Students to distribute courseware, lecture materials, and academic archives.
+                          </p>
+                        </div>
 
-                    <div className="kics-subproject-card">
-                      <div className="kics-subproject-head">
-                        <span className="kics-num">SYSTEM 04</span>
-                        <h4 className="kics-title">UET Health Sciences Integration</h4>
+                        <div className="kics-item-row">
+                          <div className="kics-row-head">
+                            <span className="kics-badge">SYSTEM 02</span>
+                            <span className="kics-item-title">Enterprise AI Chatbot Product</span>
+                          </div>
+                          <p className="kics-item-text">
+                            ChatGPT-style assistant featuring Super Admin, Admin, and User tiers, live AI token usage meter, and dynamic custom LLM API key configuration.
+                          </p>
+                        </div>
+
+                        <div className="kics-item-row">
+                          <div className="kics-row-head">
+                            <span className="kics-badge">SYSTEM 03</span>
+                            <span className="kics-item-title">Admission Management System</span>
+                          </div>
+                          <p className="kics-item-text">
+                            End-to-end admissions pipeline automating candidate intake, multi-step document verification, and real-time applicant status tracking.
+                          </p>
+                        </div>
+
+                        <div className="kics-item-row">
+                          <div className="kics-row-head">
+                            <span className="kics-badge">SYSTEM 04</span>
+                            <span className="kics-item-title">UET Health Sciences Integration</span>
+                          </div>
+                          <p className="kics-item-text">
+                            Connected the high-performance Next.js client frontend to Laravel REST backend services for synchronized portal records.
+                          </p>
+                        </div>
                       </div>
-                      <p className="kics-body">
-                        Seamlessly integrated the high-performance Next.js client frontend with enterprise Laravel REST API backend services for rapid data synchronization.
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  exp.highlights && (
-                    <ul className="apple-exp-bullets">
-                      {exp.highlights.map((highlight, hIdx) => (
-                        <li key={hIdx}>
-                          <span className="bullet-dash">—</span>
-                          <span>{highlight}</span>
-                        </li>
+                    ) : (
+                      exp.highlights && (
+                        <ul className="exp-bullet-list">
+                          {exp.highlights.map((highlight, hIdx) => (
+                            <li key={hIdx}>
+                              <span className="bullet-mark">—</span>
+                              <span>{highlight}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      )
+                    )}
+
+                    {/* Tech Chips with Real Icons */}
+                    <div className="exp-tech-chips">
+                      {exp.skills.map((skill, sIdx) => (
+                        <span key={sIdx} className="exp-chip">
+                          <TechIcon name={skill} size={14} className="tech-icon-svg" />
+                          <span>{skill}</span>
+                        </span>
                       ))}
-                    </ul>
-                  )
-                )}
-
-                {/* Tech Chips with Real Logos */}
-                <div className="apple-exp-tech-row">
-                  {exp.skills.map((skill, i) => (
-                    <span key={i} className="apple-tech-chip">
-                      <TechIcon name={skill} size={14} className="tech-icon-svg" />
-                      <span>{skill}</span>
-                    </span>
-                  ))}
+                    </div>
+                  </motion.div>
                 </div>
-              </motion.div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

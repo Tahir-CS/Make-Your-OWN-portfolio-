@@ -5,12 +5,12 @@ export const portfolioConfig = {
   personal: {
     name: "Muhammad Tahir",
     fullName: "Muhammad Tahir",
-    title: "Systems & Backend Architect",
-    roleSubtitle: "Distributed Services • Asynchronous Queues • Vector Search",
-    status: "Available for Worldwide Roles",
+    title: "Software & Systems Engineer",
+    roleSubtitle: "Backend Architecture • Distributed Systems • Databases",
+    status: "Available for Software Roles",
     location: "Lahore, Pakistan (UTC+5)",
-    tagline: "Engineering sub-50ms distributed pipelines, event-driven queues, and vector search engines.",
-    bio: "Computer Science scholar at UET Lahore building resilient backend microservices. Obsessed with distributed queues, database indexing, pgvector similarity search, and containerized systems that perform effortlessly under load.",
+    tagline: "Building scalable backend services, clean databases, and modern web applications.",
+    bio: "Computer Science student at UET Lahore building backend services and modern web platforms. Focused on relational databases, background worker queues, and clean API design.",
     email: "mtahirbutt1005@gmail.com",
     phone: "+92 329 9712924",
     
@@ -24,8 +24,8 @@ export const portfolioConfig = {
 
   // About Section & Engineering Highlights
   about: {
-    statement: "Most software fails when traffic spikes. I engineer the distributed backends that ensure it doesn't.",
-    overview: `Specializing in asynchronous worker pipelines (BullMQ + Redis), high-dimensional vector search (PostgreSQL + pgvector), and streaming data storage (TimescaleDB). I treat systems architecture with an emphasis on determinism, zero data loss, and sub-millisecond efficiency.`,
+    statement: "I build software that stays fast, handles high traffic, and never loses data.",
+    overview: `Focused on reliable backend systems using Node.js and TypeScript, relational databases with PostgreSQL, and message queues with BullMQ and Redis. I build web applications with clean structure, automated workflows, and fast responses.`,
     
     education: {
       degree: "B.S. in Computer Science",
@@ -35,37 +35,36 @@ export const portfolioConfig = {
       coursework: [
         "Distributed Computing",
         "Data Structures & Algorithms",
-        "Advanced Database Systems",
+        "Database Systems",
         "Systems Programming (C++)",
         "Operating Systems"
       ]
     },
 
-    // Awwwards-style architectural metrics
     milestones: [
       {
         index: "01",
         metric: "<50ms",
-        label: "Job Queue Latency",
-        detail: "Asynchronous background processing via BullMQ & Redis"
+        label: "Queue Response",
+        detail: "Background job execution with BullMQ & Redis"
       },
       {
         index: "02",
         metric: "pgvector",
-        label: "Semantic Matching",
-        detail: "Cosine distance vector embeddings powered by Gemini"
+        label: "Similarity Search",
+        detail: "Fast cosine distance search in PostgreSQL"
       },
       {
         index: "03",
         metric: "Timescale",
-        label: "Time-Series Ingestion",
-        detail: "Hypertables partitioned for high-throughput temporal data"
+        label: "Time-Series Data",
+        detail: "Partitioned tables for video & metrics tracking"
       },
       {
         index: "04",
-        metric: "Dockerized",
-        label: "Zero-Drift Infra",
-        detail: "Containerized microservice boundaries & orchestration"
+        metric: "Docker",
+        label: "Containerized",
+        detail: "Reliable service boundaries and local setup"
       }
     ]
   },
@@ -117,15 +116,16 @@ export const portfolioConfig = {
     {
       index: "01",
       title: "CareerOS",
-      badge: "Distributed Job Intelligence",
-      category: "Vector Retrieval & Queues",
-      description: "Intelligent career discovery platform matching candidates to live roles with <50ms response latency using BullMQ worker pipelines and pgvector semantic cosine similarity.",
+      badge: "DEPLOYED REFERENCE BUILD",
+      category: "CAREER WORKSPACE",
+      description: "A career workspace with resume parsing, live job matching, and candidate profile tracking designed to find matching roles in seconds.",
+      features: "RESUME PARSER • LIVE JOB SEARCH • QUEUE PIPELINE • PROFILE MATCHING",
       architecture: [
-        "Sub-50ms asynchronous queue pipelines running on Redis + BullMQ workers",
-        "High-dimensional vector indexing in PostgreSQL using pgvector and Gemini embeddings",
-        "Multi-container Docker Compose setup separating gateway, worker cluster, and database"
+        "Fast job queue processing using Redis and BullMQ worker threads",
+        "Semantic candidate matching using PostgreSQL vector indexing",
+        "Docker container setup separating worker, API, and database services"
       ],
-      techStack: ["React.js", "Node.js", "Redis", "BullMQ", "PostgreSQL", "pgvector", "Docker"],
+      techStack: ["React.js", "Node.js", "Redis", "BullMQ", "PostgreSQL", "Docker"],
       githubUrl: "https://github.com/Tahir-CS/CAREER-OS-",
       liveUrl: null,
       featured: true
@@ -133,15 +133,16 @@ export const portfolioConfig = {
     {
       index: "02",
       title: "CreatorIQ",
-      badge: "Channel Analytics & Valuation",
-      category: "Time-Series & Sentiment AI",
-      description: "High-throughput channel analytics and sponsorship valuation engine projecting 48-hour video reach and calculating fair sponsorship rates via TimescaleDB and Redis rate-limiting.",
+      badge: "DEPLOYED REFERENCE BUILD",
+      category: "CREATOR ANALYTICS",
+      description: "A YouTube channel analytics and sponsorship valuation platform built to project 48-hour video views and calculate fair sponsorship rates.",
+      features: "CHANNEL ANALYTICS • SPONSORSHIP CALCULATOR • HOOK ANALYZER • METRICS INGESTION",
       architecture: [
-        "Distributed Redis token-bucket rate limiter preventing external API quota exhaustion under bursts",
-        "TimescaleDB hypertable chunk partitioning for high-speed time-series analytics",
-        "AI-assisted sentiment clustering via Gemini and pgvector vector search"
+        "Distributed Redis rate-limiting to manage external API quotas",
+        "TimescaleDB hypertable storage for fast time-series analytics queries",
+        "Content categorization and sentiment grouping for creator videos"
       ],
-      techStack: ["React.js", "Node.js", "TimescaleDB", "PostgreSQL", "Redis", "Docker", "Gemini API"],
+      techStack: ["React.js", "Node.js", "TimescaleDB", "PostgreSQL", "Redis", "Docker"],
       githubUrl: "https://github.com/Tahir-CS/Yt-Analysis-Engine",
       liveUrl: null,
       featured: true
@@ -149,13 +150,14 @@ export const portfolioConfig = {
     {
       index: "03",
       title: "Subscription Guardian",
-      badge: "Chrome MV3 Privacy Extension",
-      category: "Client Engineering & Security",
-      description: "Zero-telemetry browser extension that inspects checkout DOMs in real-time to detect dark patterns, hidden recurring subscriptions, and deceptive cancellation links.",
+      badge: "DEPLOYED REFERENCE BUILD",
+      category: "BROWSER EXTENSION",
+      description: "A private browser extension that tracks recurring charges, alerts you before free trials renew, and flags hidden fees directly during checkout.",
+      features: "TRIAL ALERTS • RENEWAL REMINDERS • ZERO DATA TELEMETRY • DOM INSPECTOR",
       architecture: [
-        "DOM mutation observers and pattern matching algorithms detecting dark checkout flows",
-        "100% client-side privacy architecture with zero remote data telemetry",
-        "Manifest V3 service worker lifecycle with Chrome Alarms for background renewal alerts"
+        "DOM mutation observers detecting deceptive recurring checkout patterns",
+        "100% client-side privacy architecture with zero external data collection",
+        "Manifest V3 background worker running renewal schedule alarms"
       ],
       techStack: ["TypeScript", "Chrome MV3 API", "React.js", "Chrome Alarms", "Webpack"],
       githubUrl: "https://github.com/Tahir-CS/Subscription-manager",
@@ -165,13 +167,14 @@ export const portfolioConfig = {
     {
       index: "04",
       title: "Modern E-Commerce Store",
-      badge: "Transactional Platform",
-      category: "Full-Stack Web Architecture",
-      description: "Full-stack transactional web platform with Supabase Row-Level Security, real-time cart state synchronization, and Stripe payment webhook verification.",
+      badge: "DEPLOYED REFERENCE BUILD",
+      category: "COMMERCE PLATFORM",
+      description: "A modern online storefront with real-time cart state, secure user authentication, product search, and verified Stripe checkout payments.",
+      features: "PRODUCT CATALOG • REALTIME CART • STRIPE PAYMENTS • ROW-LEVEL SECURITY",
       architecture: [
-        "Supabase Row-Level Security (RLS) enforcing strict authorization at database level",
-        "Stripe checkout sessions with cryptographically signed webhook confirmation",
-        "Optimistic UI state transitions for instantaneous user interactions"
+        "Supabase Row-Level Security ensuring strict database access rules",
+        "Stripe checkout flow with signed webhook payment confirmation",
+        "Optimistic UI updates for immediate cart and checkout feedback"
       ],
       techStack: ["React.js", "Supabase", "Stripe API", "PostgreSQL", "Vite"],
       githubUrl: "https://github.com/Tahir-CS/E-commerse-store",
@@ -189,14 +192,14 @@ export const portfolioConfig = {
       location: "UET Lahore, Pakistan",
       duration: "June 28, 2026 — September 4, 2026",
       type: "Full-Stack Internship (2 Months)",
-      description: "Completed intensive 2-month full-stack engineering internship at KICS, architecting enterprise university systems, ChatGPT-style AI products, and API integrations across four major initiatives.",
+      description: "Completed an intensive 2-month full-stack internship at KICS, building university web portals, conversational products, and backend integrations across 4 major production projects:",
       highlights: [
-        "Architected UET OCW (OpenCourseWare) full-stack portal with comprehensive role-based access control (Super Admin, Instructor, Student) and secure course delivery pipelines.",
-        "Engineered enterprise AI Chatbot product featuring Super Admin, Admin, and User tiering, real-time AI token/usage metering, and dynamic custom LLM API key setter.",
-        "Developed end-to-end University Admission Management System automating candidate intake, multi-step document verification, and applicant status tracking.",
-        "Integrated UET Health Sciences platform connecting high-performance Next.js client frontend to robust Laravel RESTful backend services."
+        "Built the UET OCW (OpenCourseWare) portal with role-based access for Super Admins, Instructors, and Students to distribute courseware and lectures.",
+        "Engineered an AI Chatbot product featuring Super Admin, Admin, and User tiers, live token usage metering, and custom API key configuration.",
+        "Developed an end-to-end University Admission Management System automating applicant intake, document verification, and status tracking.",
+        "Integrated the UET Health Sciences platform connecting a Next.js frontend with Laravel REST backend services."
       ],
-      skills: ["Next.js", "React.js", "Laravel", "Node.js", "PostgreSQL", "REST APIs", "LLM APIs", "Docker", "Git"]
+      skills: ["Next.js", "React.js", "Laravel", "Node.js", "PostgreSQL", "REST APIs", "Docker", "Git"]
     },
     {
       index: "02",
@@ -205,11 +208,11 @@ export const portfolioConfig = {
       location: "Remote",
       duration: "2025",
       type: "Web Engineering Internship",
-      description: "Developed responsive, accessible web interfaces and modular component systems using modern JavaScript and React.",
+      description: "Built responsive single-page web applications, reusable UI components, and API integrations using React and modern JavaScript.",
       highlights: [
-        "Built responsive single-page web applications with React.js, modern CSS, and component-driven architecture.",
-        "Implemented client-side routing, state management, and asynchronous API integrations.",
-        "Collaborated in code reviews and adopted modular, reusable component design systems."
+        "Developed responsive user interfaces with React.js and modern CSS.",
+        "Implemented client-side routing, state management, and asynchronous data fetching.",
+        "Participated in code reviews and built modular, accessible components."
       ],
       skills: ["React.js", "JavaScript (ES6+)", "Tailwind CSS", "HTML5/CSS3", "Git"]
     }

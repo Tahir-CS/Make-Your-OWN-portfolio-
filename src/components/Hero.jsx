@@ -46,7 +46,7 @@ export default function Hero() {
           <motion.div variants={itemVariants} style={{ display: 'inline-block', marginBottom: '8px' }}>
             <div className="glow-badge glow-badge-emerald">
               <span className="status-dot-pulse"></span>
-              <span>Available for Global Engineering Roles</span>
+              <span>Available for Software &amp; Backend Roles</span>
             </div>
           </motion.div>
 

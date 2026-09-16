@@ -20,12 +20,12 @@ export default function Footer() {
               <span className="footer-brand-heading">{personal.fullName}</span>
             </div>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', maxWidth: '380px', lineHeight: '1.65' }}>
-              Systems &amp; Backend Architect. Engineering resilient distributed queues, high-throughput ingestion pipelines, and pgvector semantic intelligence.
+              Software &amp; Backend Engineer. Building reliable backend services, web applications, and database architectures with clean code.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '18px' }}>
               <div className="glow-badge glow-badge-emerald">
                 <span className="status-dot-pulse"></span>
-                <span>All Systems Operational</span>
+                <span>Open for New Roles</span>
               </div>
             </div>
           </div>
@@ -34,17 +34,17 @@ export default function Footer() {
           <div>
             <div className="footer-col-title">Navigation</div>
             <ul className="footer-links-list">
-              <li><a href="#projects" className="footer-link-anchor">Selected Works</a></li>
-              <li><a href="#about" className="footer-link-anchor">System Philosophy</a></li>
-              <li><a href="#experience" className="footer-link-anchor">Commercial Record</a></li>
-              <li><a href="#skills" className="footer-link-anchor">Capabilities Directory</a></li>
-              <li><a href="#certifications" className="footer-link-anchor">Industry Accreditations</a></li>
+              <li><a href="#projects" className="footer-link-anchor">Works</a></li>
+              <li><a href="#about" className="footer-link-anchor">About</a></li>
+              <li><a href="#experience" className="footer-link-anchor">Experience</a></li>
+              <li><a href="#skills" className="footer-link-anchor">Skills</a></li>
+              <li><a href="#certifications" className="footer-link-anchor">Certificates</a></li>
             </ul>
           </div>
 
           {/* Connect & Repos */}
           <div>
-            <div className="footer-col-title">Connect &amp; Trust</div>
+            <div className="footer-col-title">Connect</div>
             <ul className="footer-links-list">
               {personal.social.github && (
                 <li>
@@ -56,33 +56,25 @@ export default function Footer() {
               {personal.social.linkedin && (
                 <li>
                   <a href={personal.social.linkedin} target="_blank" rel="noopener noreferrer" className="footer-link-anchor">
-                    LinkedIn Network ↗
-                  </a>
-                </li>
-              )}
-              {personal.email && (
-                <li>
-                  <a href={`mailto:${personal.email}`} className="footer-link-anchor">
-                    Direct Email ↗
+                    LinkedIn ↗
                   </a>
                 </li>
               )}
               <li>
-                <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>
-                  UET Lahore • BS CS
-                </span>
+                <a href={`mailto:${personal.email}`} className="footer-link-anchor">
+                  {personal.email} ↗
+                </a>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="footer-bottom-flex">
-          <div>
-            © {currentYear} {personal.fullName} — All Rights Reserved.
+        <div className="footer-bottom-row">
+          <div className="footer-copyright">
+            © {currentYear} {personal.fullName}. Built with React, Vite &amp; Framer Motion.
           </div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-            LAHORE, PAKISTAN • PKT (UTC+5) • DETERMINISTIC SERVICES
+          <div className="footer-arch-tag">
+            UET LAHORE • COMPUTER SCIENCE
           </div>
         </div>
       </div>

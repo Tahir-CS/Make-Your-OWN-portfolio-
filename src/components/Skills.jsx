@@ -47,10 +47,10 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="apple-label">Toolchain &amp; Directory</span>
-          <h2 className="apple-monument-h2">Engineering Capabilities.</h2>
+          <span className="apple-label">Skills &amp; Technologies</span>
+          <h2 className="apple-monument-h2">Technical Skills.</h2>
           <p className="apple-lead-p">
-            Interactive technology directory. Hover, drag, and explore the core systems, databases, and runtimes powering our architecture.
+            Interactive skill playground. Hover, drag, and explore the technologies, databases, and frameworks I work with.
           </p>
         </motion.div>
 

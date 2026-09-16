@@ -5,6 +5,7 @@ import { portfolioConfig } from '../config/portfolio.config';
 export default function Certifications() {
   const { certifications } = portfolioConfig;
   const [selectedCert, setSelectedCert] = useState(null);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -24,8 +25,11 @@ export default function Certifications() {
 
   if (!certifications || certifications.length === 0) return null;
 
+  // Quadruple items to ensure a perfectly seamless, infinite marquee loop
+  const marqueeItems = [...certifications, ...certifications, ...certifications, ...certifications];
+
   return (
-    <section id="certifications" className="section-padding">
+    <section id="certifications" className="section-padding certs-section-wrapper">
       <div className="container">
         {/* Section Header */}
         <motion.div
@@ -35,67 +39,52 @@ export default function Certifications() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="apple-label">Accreditations &amp; Credentials</span>
-          <h2 className="apple-monument-h2">Verified Credentials.</h2>
+          <span className="apple-label">Verified Credentials</span>
+          <h2 className="apple-monument-h2">Certifications &amp; Accreditations.</h2>
           <p className="apple-lead-p">
-            Specialized curricula verified across backend architecture, cloud engineering, and operational DevOps pipelines.
+            Continuous moving credentials carousel. Hover to pause, click to inspect in high resolution.
           </p>
         </motion.div>
+      </div>
 
-        <div className="certs-grid">
-          {certifications.map((cert, index) => (
-            <motion.div
+      {/* Full-Bleed Continuous Marquee Carousel (Left to Right) */}
+      <div
+        className="certs-marquee-viewport"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div className={`certs-marquee-track ${isPaused ? 'marquee-paused' : ''}`}>
+          {marqueeItems.map((cert, index) => (
+            <div
               key={index}
-              className="cert-card-dark"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -4 }}
+              className="cert-card-big"
+              onClick={() => setSelectedCert(cert)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSelectedCert(cert)}
+              title={`Click to inspect ${cert.title}`}
             >
-              <div>
-                <div className="cert-top-bar">
-                  <span className="glow-badge glow-badge-cyan">{cert.issuer}</span>
-                  {cert.date && (
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
-                      {cert.date}
-                    </span>
-                  )}
-                </div>
-                <h3 className="cert-title-dark">{cert.title}</h3>
-
-                {cert.image && (
-                  <div
-                    className="cert-preview-frame"
-                    onClick={() => setSelectedCert(cert)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSelectedCert(cert)}
-                    title={`Click to preview ${cert.title}`}
-                  >
-                    <img src={cert.image} alt={cert.title} loading="lazy" />
-                    <div className="cert-preview-overlay">
-                      <span className="cert-preview-badge">Inspect Credential</span>
-                    </div>
-                  </div>
-                )}
+              <div className="cert-big-top-bar">
+                <span className="glow-badge glow-badge-cyan">{cert.issuer}</span>
+                {cert.date && <span className="cert-year-tag">{cert.date}</span>}
               </div>
 
-              {cert.verifyUrl && cert.verifyUrl !== '#' && cert.verifyUrl !== '' && (
-                <a
-                  href={cert.verifyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary-glass"
-                  style={{ width: '100%', justifyContent: 'center', fontSize: '0.82rem', padding: '8px 16px', marginTop: 'auto' }}
-                >
-                  <span>Verify Credential</span>
-                  <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
+              <h3 className="cert-big-title">{cert.title}</h3>
+
+              {cert.image && (
+                <div className="cert-big-image-frame">
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    loading="lazy"
+                    className="cert-big-img"
+                  />
+                  <div className="cert-big-overlay">
+                    <span className="cert-inspect-chip">Click to View Certificate ↗</span>
+                  </div>
+                </div>
               )}
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

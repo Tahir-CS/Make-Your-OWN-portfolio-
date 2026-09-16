@@ -7,116 +7,118 @@ export default function AboutMe() {
   const { about, personal } = portfolioConfig;
 
   return (
-    <section id="about" className="section-padding">
+    <section id="about" className="about-editorial-section">
       <div className="container">
         {/* Section Header */}
         <motion.div
           className="deck-section-header"
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
         >
-          <span className="apple-label">Philosophy &amp; Perspective</span>
-          <h2 className="apple-monument-h2">System Architecture &amp; Foundations.</h2>
+          <span className="apple-label">Profile &amp; Perspective</span>
+          <h2 className="apple-monument-h2">Engineering With Clarity.</h2>
           <p className="apple-lead-p">
-            Engineering scalable web backends, resilient queue architectures, and mathematical vector retrieval.
+            Computer science student at UET Lahore building dependable backend systems, responsive web applications, and practical digital tools.
           </p>
         </motion.div>
 
-        {/* Statement Quote Banner */}
-        <motion.div
-          className="about-quote-box"
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="about-quote-text">
-            "{about.statement}"
-          </div>
-        </motion.div>
-
-        {/* Two-Column Editorial Split */}
-        <div className="about-editorial-split">
-          {/* Left: Narrative & Academic Foundations */}
+        {/* Editorial Split Grid */}
+        <div className="about-custom-grid">
+          {/* Left Column: Framed Portrait Card */}
           <motion.div
-            className="about-narrative-card"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="about-portrait-frame"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div>
-              <p className="about-p">
-                {about.overview}
-              </p>
-              <p className="about-p">
-                From configuring BullMQ backpressure mechanisms and managing Redis cluster memory footprints 
-                to fine-tuning pgvector cosine distance metrics in PostgreSQL, I believe reliability is not an afterthought—it 
-                must be designed into the foundational architecture.
-              </p>
+            <div className="portrait-image-wrapper">
+              <img
+                src={profileImage}
+                alt={`${personal.fullName} - Software Engineer`}
+                loading="lazy"
+                className="portrait-main-photo"
+              />
+              <div className="portrait-status-badge">
+                <span className="status-dot-pulse"></span>
+                <span>Open for Full-Stack &amp; Backend Roles</span>
+              </div>
             </div>
 
-            {/* Academic Panel */}
-            <div className="academic-panel-dark">
-              <div className="academic-header-flex">
-                <span className="academic-degree-title">{about.education.degree}</span>
-                <span className="academic-cgpa-badge">{about.education.cgpa}</span>
+            <div className="portrait-details-box">
+              <div className="portrait-meta-row">
+                <span className="meta-label">NAME</span>
+                <span className="meta-val">{personal.fullName}</span>
               </div>
-              <p className="academic-institution">{about.education.institution}</p>
-              
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '10px', fontWeight: 700 }}>
-                Core Foundational Coursework
+              <div className="portrait-meta-row">
+                <span className="meta-label">DEGREE</span>
+                <span className="meta-val">{about.education.degree}</span>
               </div>
-              <div className="coursework-wrap">
-                {about.education.coursework.map((course, idx) => (
-                  <span key={idx} className="coursework-tag">
-                    {course}
-                  </span>
-                ))}
+              <div className="portrait-meta-row">
+                <span className="meta-label">UNIVERSITY</span>
+                <span className="meta-val">UET Lahore (2024–2028)</span>
+              </div>
+              <div className="portrait-meta-row">
+                <span className="meta-label">ACADEMIC RECORD</span>
+                <span className="meta-val highlight-val">{about.education.cgpa}</span>
+              </div>
+              <div className="portrait-meta-row">
+                <span className="meta-label">LOCATION</span>
+                <span className="meta-val">{personal.location}</span>
               </div>
             </div>
           </motion.div>
 
-          {/* Right: Portrait & Quick System Specs */}
+          {/* Right Column: Natural Narrative & 3 Core Principles */}
           <motion.div
-            className="portrait-glass-card"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            className="about-narrative-column"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <div className="portrait-photo-container">
-              <img
-                src={profileImage}
-                alt={`${personal.fullName} - ${personal.title}`}
-                loading="lazy"
-              />
+            {/* Story Paragraphs */}
+            <div className="about-text-narrative">
+              <p className="narrative-lead">
+                I enjoy building software that solves genuine, practical problems. My core focus is on backend architecture, relational database design, and high-performance web applications using modern JavaScript, TypeScript, React, and Node.js.
+              </p>
+              <p className="narrative-body">
+                Rather than chasing buzzwords or unnecessary complexity, I focus on building reliable systems: database schemas that stay clean as data grows, background queues that execute tasks reliably, and APIs that make frontend integration fast and seamless.
+              </p>
             </div>
 
-            <div className="portrait-specs-table">
-              <div className="specs-row">
-                <span className="specs-label">LOCATION</span>
-                <span className="specs-value">{personal.location}</span>
+            {/* 3 Distinct Engineering Principles */}
+            <div className="about-pillars-stack">
+              <div className="about-pillar-card">
+                <div className="pillar-num">01</div>
+                <div className="pillar-content">
+                  <h4 className="pillar-title">Reliable by Default</h4>
+                  <p className="pillar-desc">
+                    Strict data validation, predictable database migrations, and clean error handling so production services remain dependable.
+                  </p>
+                </div>
               </div>
-              <div className="specs-row">
-                <span className="specs-label">SPECIALTY</span>
-                <span className="specs-value">Distributed Queues &amp; RAG</span>
+
+              <div className="about-pillar-card">
+                <div className="pillar-num">02</div>
+                <div className="pillar-content">
+                  <h4 className="pillar-title">Built for Performance</h4>
+                  <p className="pillar-desc">
+                    Optimized SQL queries, fast asynchronous background worker queues with Redis, and lean client-side component trees.
+                  </p>
+                </div>
               </div>
-              <div className="specs-row">
-                <span className="specs-label">ACADEMIA</span>
-                <span className="specs-value">UET Lahore (BS CS)</span>
-              </div>
-              <div className="specs-row">
-                <span className="specs-label">CORE RUNTIME</span>
-                <span className="specs-value">Node • Redis • PostgreSQL</span>
-              </div>
-              <div className="specs-row">
-                <span className="specs-label">STATUS</span>
-                <span className="glow-badge glow-badge-emerald" style={{ fontSize: '0.72rem', padding: '3px 10px' }}>
-                  Available for Global Roles
-                </span>
+
+              <div className="about-pillar-card">
+                <div className="pillar-num">03</div>
+                <div className="pillar-content">
+                  <h4 className="pillar-title">Human-Centered Craft</h4>
+                  <p className="pillar-desc">
+                    Readable code, well-structured git commits, intuitive user experiences, and systems built to last beyond the initial deployment.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>

@@ -4,10 +4,10 @@ import { portfolioConfig } from '../config/portfolio.config';
 
 const NAV_ITEMS = [
   { id: 'projects', name: 'Works', href: '#projects' },
-  { id: 'about', name: 'Philosophy', href: '#about' },
+  { id: 'about', name: 'About', href: '#about' },
   { id: 'experience', name: 'Experience', href: '#experience' },
-  { id: 'skills', name: 'Directory', href: '#skills' },
-  { id: 'certifications', name: 'Credentials', href: '#certifications' },
+  { id: 'skills', name: 'Skills', href: '#skills' },
+  { id: 'certifications', name: 'Certificates', href: '#certifications' },
   { id: 'contact', name: 'Contact', href: '#contact' },
 ];
 
@@ -52,40 +52,49 @@ export default function Navigation() {
             </svg>
           </div>
           <div>
-            <div className="navbar-brand-subtitle">SYSTEMS &amp; BACKEND ARCHITECT</div>
-            <div className="navbar-brand-name">Muhammad Tahir</div>
+            <div className="navbar-brand-subtitle">SOFTWARE &amp; BACKEND ENGINEER</div>
+            <div className="navbar-brand-name">{personal.fullName}</div>
           </div>
         </a>
 
         {/* Center Segmented Nav Pills */}
-        <div className="navbar-pills-group">
-          {NAV_ITEMS.map((item) => (
-            <a
-              key={item.id}
-              href={item.href}
-              className={`navbar-pill-item ${activeSection === item.id ? 'active' : ''}`}
-            >
-              {item.name}
-            </a>
-          ))}
+        <div className="navbar-links-center">
+          {NAV_ITEMS.map((item) => {
+            const isActive = activeSection === item.id;
+            return (
+              <a
+                key={item.id}
+                href={item.href}
+                className={`nav-pill-item ${isActive ? 'nav-pill-active' : ''}`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="activePill"
+                    className="nav-active-bubble"
+                    transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                  />
+                )}
+                <span className="nav-item-text">{item.name}</span>
+              </a>
+            );
+          })}
         </div>
 
-        {/* Right CTA Actions */}
-        <div className="navbar-actions">
-          <div className="glow-badge glow-badge-emerald" style={{ display: 'none', md: 'inline-flex' }}>
-            <span className="status-dot-pulse"></span>
-            <span>Available</span>
-          </div>
-
-          <a href="#contact" className="btn-primary-glow" style={{ padding: '8px 18px', fontSize: '0.82rem' }}>
-            Get in Touch
+        {/* Right CTA */}
+        <div className="navbar-cta-right">
+          <a href="#contact" className="btn-primary-glow" style={{ padding: '8px 16px', fontSize: '0.82rem' }}>
+            <span>Connect</span>
+            <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
           </a>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Hamburger Toggle */}
           <button
-            className="navbar-mobile-toggle"
-            aria-label="Toggle Menu"
+            type="button"
+            className="navbar-hamburger-btn"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle navigation menu"
           >
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMobileMenuOpen ? (
@@ -98,11 +107,11 @@ export default function Navigation() {
         </div>
       </nav>
 
-      {/* Mobile Drawer */}
+      {/* Mobile Drawer Dropdown */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            className="navbar-mobile-menu"
+            className="navbar-mobile-drawer"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -112,20 +121,15 @@ export default function Navigation() {
               <a
                 key={item.id}
                 href={item.href}
-                className="navbar-mobile-item"
+                className="mobile-nav-link"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                {item.name}
+                <span>{item.name}</span>
+                <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                </svg>
               </a>
             ))}
-            <a
-              href={`mailto:${personal.email}`}
-              className="btn-primary-glow"
-              style={{ width: '100%', textAlign: 'center', marginTop: '8px' }}
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Email Directly ↗
-            </a>
           </motion.div>
         )}
       </AnimatePresence>
