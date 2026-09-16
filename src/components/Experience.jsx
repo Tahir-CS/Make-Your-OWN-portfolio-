@@ -1,71 +1,58 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
-
-const timelineVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.3,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -20 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: {
-      duration: 0.6,
-    },
-  },
-};
 
 export default function Experience() {
   const { experience } = portfolioConfig;
 
   return (
-    <section id="experience" className="experience-section">
+    <section id="experience" className="section-padding">
       <div className="container">
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={timelineVariants}
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-reveal">Work Experience</h2>
-            <p className="text-reveal">My Professional Journey</p>
-          </div>
+        <div className="section-tag">
+          <span className="section-tag-dot"></span>
+          <span>Professional History</span>
+        </div>
+        <h2 className="section-heading">Engineering Experience</h2>
+        <p className="section-lead">
+          Production contributions spanning backend architecture, microservices containerization, and type-safe APIs.
+        </p>
 
-          <div className="timeline">
-            {experience.map((exp, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="timeline-item"
-              >
-                <div className="timeline-dot"></div>
-                <div className="timeline-content">
-                  <h3>{exp.title}</h3>
-                  <h4>{exp.company}</h4>
-                  <p className="date">{exp.duration}</p>
-                  <p>{exp.description}</p>
-                  <div className="timeline-skills">
-                    {exp.skills.map((skill, i) => (
-                      <span key={i} className="timeline-skill">
-                        {skill}
-                      </span>
-                    ))}
+        <div className="timeline-container">
+          {experience.map((exp, index) => (
+            <div key={index} className="exp-card-single">
+              <div className="exp-header">
+                <div>
+                  <h3 className="exp-role-title">{exp.title}</h3>
+                  <div className="exp-company-name">
+                    {exp.company} • <span style={{ color: 'var(--text-muted)' }}>{exp.location}</span>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+                <span className="exp-period">{exp.duration}</span>
+              </div>
+
+              <p style={{ color: 'var(--text-primary)', marginBottom: '16px', fontSize: '0.96rem' }}>
+                {exp.description}
+              </p>
+
+              {exp.highlights && (
+                <ul className="exp-bullets">
+                  {exp.highlights.map((highlight, hIdx) => (
+                    <li key={hIdx}>{highlight}</li>
+                  ))}
+                </ul>
+              )}
+
+              <div className="exp-tags-row">
+                {exp.skills.map((skill, i) => (
+                  <span key={i} className="tech-tag">
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
 }
+

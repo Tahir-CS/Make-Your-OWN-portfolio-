@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
 export default function Navigation() {
@@ -9,7 +8,7 @@ export default function Navigation() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 40);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -17,30 +16,27 @@ export default function Navigation() {
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#' },
     { name: 'About', href: '#about' },
+    { name: 'Projects', href: '#projects' },
     { name: 'Experience', href: '#experience' },
     { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
     { name: 'Certifications', href: '#certifications' },
     { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6 }}
-      className={`navbar ${isScrolled ? 'scrolled' : ''}`}
-    >
-      <div className="nav-content">
-        {/* Logo */}
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          className="nav-logo"
-        >
-          M. TAHIR
-        </motion.div>
+    <header className={`navbar ${isScrolled ? 'scrolled' : ''}`}>
+      <div className="container nav-content">
+        {/* Brand & Status */}
+        <div className="nav-brand-group">
+          <a href="#" className="nav-logo">
+            tahir<span>.cs</span>
+          </a>
+          <div className="nav-status-badge">
+            <span className="status-dot-pulse"></span>
+            <span>Available</span>
+          </div>
+        </div>
 
         {/* Desktop Navigation */}
         <ul className="nav-links">
@@ -51,31 +47,52 @@ export default function Navigation() {
               </a>
             </li>
           ))}
+          <li>
+            <a href={`mailto:${personal.email}`} className="nav-cta">
+              Resume / Contact
+            </a>
+          </li>
         </ul>
 
         {/* Mobile Menu Button */}
         <button
           className="mobile-menu-btn"
+          aria-label="Toggle Navigation Menu"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            {isMobileMenuOpen ? (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+            ) : (
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            )}
           </svg>
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className={`mobile-menu ${isMobileMenuOpen ? 'open' : ''}`}>
-        {navItems.map((item) => (
+      {/* Mobile Navigation Drawer */}
+      {isMobileMenuOpen && (
+        <div className="mobile-menu">
+          {navItems.map((item) => (
+            <a
+              key={item.name}
+              href={item.href}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {item.name}
+            </a>
+          ))}
           <a
-            key={item.name}
-            href={item.href}
+            href={`mailto:${personal.email}`}
+            className="nav-cta"
+            style={{ textAlign: 'center', marginTop: '8px' }}
             onClick={() => setIsMobileMenuOpen(false)}
           >
-            {item.name}
+            Email Muhammad
           </a>
-        ))}
-      </div>
-    </motion.nav>
+        </div>
+      )}
+    </header>
   );
 }
+
