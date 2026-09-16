@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
+import { portfolioConfig } from '../config/portfolio.config';
 
-const links = [
-  { href: '#services', label: 'Services' },
-  { href: '#work', label: 'Work' },
-  { href: '#process', label: 'Process' },
+const navLinks = [
   { href: '#about', label: 'About' },
+  { href: '#skills', label: 'Skills' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#experience', label: 'Experience' },
+  { href: '#certifications', label: 'Certifications' },
   { href: '#contact', label: 'Contact' }
 ];
 
 export default function Navigation() {
   const [open, setOpen] = useState(false);
+  const { personal } = portfolioConfig;
 
   return (
     <header className="site-header">
       <div className="shell nav-shell">
-        <a href="#" className="brand" onClick={() => setOpen(false)} aria-label="Tahir AI home">
+        <a href="#" className="brand" onClick={() => setOpen(false)} aria-label="Muhammad Tahir Portfolio">
           <span className="brand-mark"><span /></span>
-          <span>Tahir<span className="brand-muted">/AI</span></span>
+          <span>{personal.name.split(' ')[0]}<span className="brand-muted"> / CS</span></span>
         </a>
 
         <button
@@ -31,7 +34,7 @@ export default function Navigation() {
         </button>
 
         <nav className={`nav-links ${open ? 'is-open' : ''}`} aria-label="Primary navigation">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
@@ -41,7 +44,7 @@ export default function Navigation() {
             </a>
           ))}
           <a href="#contact" className="button button-small" onClick={() => setOpen(false)}>
-            Start a project <span aria-hidden="true">↗</span>
+            Get in touch <span aria-hidden="true">↗</span>
           </a>
         </nav>
       </div>

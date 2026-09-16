@@ -25,139 +25,97 @@ export default function Certifications() {
   if (!certifications || certifications.length === 0) return null;
 
   return (
-    <section id="certifications" className="section-padding">
-      <div className="container">
-        {/* Section Header */}
-        <motion.div
-          className="section-index-header"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="section-index-num">// 05. ACCREDITATIONS</span>
-          <span className="section-index-tag">[ FORMAL CREDENTIALS ]</span>
-        </motion.div>
-
-        <motion.h2
-          className="section-heading-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Industry Credentials
-        </motion.h2>
-
-        <motion.p
-          className="section-lead-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          Specialized curricula verified across backend architecture, cloud engineering, and operational DevOps pipelines.
-        </motion.p>
+    <section id="certifications" className="section" style={{ borderTop: '1px solid var(--line)' }}>
+      <div className="shell">
+        <div className="section-intro-grid" style={{ marginBottom: '40px' }}>
+          <span className="section-number">05</span>
+          <div>
+            <p className="section-kicker">Accreditations</p>
+            <h2>Verified Industry Credentials.</h2>
+          </div>
+          <p className="section-copy">
+            Rigorous certifications across backend architecture, cloud engineering, and operational DevOps pipelines.
+          </p>
+        </div>
 
         <div className="certs-grid">
           {certifications.map((cert, index) => (
-            <motion.div
+            <div
               key={index}
-              className="cert-card-dark"
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              whileHover={{ y: -4 }}
+              className="cert-card"
+              onClick={() => setSelectedCert(cert)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSelectedCert(cert)}
             >
               <div>
-                <div className="cert-top-bar">
-                  <span className="glow-badge glow-badge-cyan">{cert.issuer}</span>
+                <div className="cert-top">
+                  <span className="cert-issuer-badge">{cert.issuer}</span>
                   {cert.date && (
-                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.78rem', color: 'var(--text-muted)' }}>
+                    <span style={{ fontFamily: 'monospace', fontSize: '0.78rem', color: 'var(--dim)' }}>
                       {cert.date}
                     </span>
                   )}
                 </div>
-                <h3 className="cert-title-dark">{cert.title}</h3>
-
-                {cert.image && (
-                  <div
-                    className="cert-preview-frame"
-                    onClick={() => setSelectedCert(cert)}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && setSelectedCert(cert)}
-                    title={`Click to preview ${cert.title}`}
-                  >
-                    <img src={cert.image} alt={cert.title} loading="lazy" />
-                    <div className="cert-preview-overlay">
-                      <span className="cert-preview-badge">Inspect Credential</span>
-                    </div>
-                  </div>
-                )}
+                <h3>{cert.title}</h3>
               </div>
 
-              {cert.verifyUrl && cert.verifyUrl !== '#' && cert.verifyUrl !== '' && (
-                <a
-                  href={cert.verifyUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-secondary-glass"
-                  style={{ width: '100%', justifyContent: 'center', fontSize: '0.82rem', padding: '8px 16px', marginTop: 'auto' }}
-                >
-                  <span>Verify Credential</span>
-                  <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </a>
+              {cert.image && (
+                <div style={{ marginTop: '16px', borderRadius: '10px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(0,0,0,0.3)' }}>
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    loading="lazy"
+                    style={{ width: '100%', height: '140px', objectFit: 'cover' }}
+                  />
+                </div>
               )}
-            </motion.div>
+
+              <div className="cert-preview-btn">
+                <span>Inspect Credential</span>
+                <span aria-hidden="true">↗</span>
+              </div>
+            </div>
           ))}
         </div>
       </div>
 
-      {/* Certificate Lightbox Modal */}
+      {/* Lightbox Modal */}
       <AnimatePresence>
         {selectedCert && (
-          <motion.div
-            className="cert-modal-backdrop"
+          <div
+            className="modal-backdrop"
             onClick={() => setSelectedCert(null)}
             role="dialog"
             aria-modal="true"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
           >
-            <motion.div
-              className="cert-modal-content"
+            <div
+              className="modal-content"
               onClick={(e) => e.stopPropagation()}
-              initial={{ scale: 0.92, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.92, opacity: 0 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
             >
-              <div className="cert-modal-header">
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBottom: '14px', borderBottom: '1px solid var(--line)' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                  <span className="glow-badge glow-badge-cyan">{selectedCert.issuer}</span>
-                  <span style={{ fontWeight: 700, color: '#ffffff', fontSize: '1rem' }}>
+                  <span className="cert-issuer-badge">{selectedCert.issuer}</span>
+                  <span style={{ fontWeight: 600, color: 'var(--text)', fontSize: '1.05rem' }}>
                     {selectedCert.title}
                   </span>
                 </div>
                 <button
                   type="button"
-                  className="cert-modal-close-btn"
+                  className="modal-close"
                   onClick={() => setSelectedCert(null)}
                   aria-label="Close certificate preview"
                 >
                   ✕
                 </button>
               </div>
-              <div className="cert-modal-body">
-                <img src={selectedCert.image} alt={selectedCert.title} />
-              </div>
-            </motion.div>
-          </motion.div>
+              <img
+                src={selectedCert.image}
+                alt={selectedCert.title}
+                className="modal-image"
+              />
+            </div>
+          </div>
         )}
       </AnimatePresence>
     </section>

@@ -12,50 +12,50 @@ export default function Hero() {
         </div>
         <div className="shell hero-frame">
           <div className="hero-meta-row">
-            <span>Independent Systems &amp; AI Studio</span>
-            <span>Strategy → Build → Architecture</span>
-            <span>Working Worldwide (UTC+5)</span>
+            <span>UET Lahore · Computer Science</span>
+            <span>Distributed Backends &amp; Vector Search</span>
+            <span>{personal.location}</span>
           </div>
 
           <div className="hero-main-grid">
             <div className="hero-copy-stage">
               <div className="hero-title-wrap">
                 <h1>
-                  We make AI
-                  <span>useful enough</span>
-                  to disappear.
+                  Muhammad Tahir
+                  <span>Systems &amp; Backend</span>
+                  Architect.
                 </h1>
                 <div className="hero-stamp" aria-hidden="true">
-                  <span>TAHIR / AI</span>
+                  <span>TAHIR / CS</span>
                   <strong>01</strong>
                 </div>
               </div>
 
               <div className="hero-bottom-grid">
                 <p className="hero-intro">
-                  {personal.bio || "We design automation, event-driven queues and intelligent backend systems around real operational bottlenecks—less admin, sub-50ms latency, clearer decisions."}
+                  {personal.tagline} {personal.bio}
                 </p>
                 <div className="hero-actions">
-                  <a href="#contact" className="editorial-button">
-                    Start a project <span>↗</span>
+                  <a href="#projects" className="editorial-button">
+                    Explore Systems <span>↗</span>
                   </a>
-                  <a href="#projects" className="editorial-link">
-                    View selected work
+                  <a href="#contact" className="editorial-link">
+                    Get in touch
                   </a>
                 </div>
               </div>
             </div>
 
-            <div className="hero-asset-stage" aria-label="Tahir AI systems visual">
+            <div className="hero-asset-stage" aria-label="Distributed backend infrastructure preview">
               <div className="hero-asset-frame">
                 <img
                   src="/assets/ai-operations-studio-hero.png"
-                  alt="AI compute infrastructure with servers and fiber-optic network cabling"
+                  alt="Compute infrastructure with servers and fiber-optic networking"
                   className="hero-collage-image"
                 />
                 <div className="hero-interface-layer" aria-hidden="true">
                   <div className="glass-readout glass-readout-run">
-                    <span>Live system / 00482</span>
+                    <span>Active Telemetry / Node-01</span>
                     <div>
                       <strong>Operational</strong>
                       <i />
@@ -64,19 +64,19 @@ export default function Hero() {
                   </div>
                   <div className="glass-readout glass-readout-metrics">
                     <div>
-                      <span>Decision latency</span>
-                      <strong>42ms</strong>
+                      <span>Queue Latency</span>
+                      <strong>&lt;50ms</strong>
                     </div>
                     <div>
-                      <span>Confidence</span>
-                      <strong>98%</strong>
+                      <span>Availability</span>
+                      <strong>99.99%</strong>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="hero-asset-note">
-                <span>Systems / intelligence / infrastructure</span>
-                <strong>Complexity, made legible.</strong>
+                <span>Distributed Systems / Infrastructure</span>
+                <strong>Sub-millisecond determinism under load.</strong>
               </div>
             </div>
           </div>
@@ -85,11 +85,11 @@ export default function Hero() {
 
       <section className="manifesto-strip">
         <div className="shell manifesto-grid">
-          <div className="manifesto-index">01 / Principle</div>
+          <div className="manifesto-index">01 / Engineering Tenet</div>
           <p>
-            "{about.statement || 'Good AI should feel less like a robot and more like the missing piece of a well-designed operation.'}"
+            "{about.statement}"
           </p>
-          <span>Useful intelligence, quietly embedded.</span>
+          <span>Deterministic throughput. Zero data loss.</span>
         </div>
       </section>
     </>

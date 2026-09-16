@@ -2,67 +2,69 @@ import React from 'react';
 import { portfolioConfig } from '../config/portfolio.config';
 import profileImage from '../assets/me.jpg';
 
-const principles = [
-  { title: 'Useful beats impressive.', body: 'A quiet workflow that saves attention every day is more valuable than a flashy demo nobody trusts after week two.' },
-  { title: 'Systems over prompts.', body: 'Prompt quality matters, but reliable systems also need queue backpressure, data validation, retries, and thoughtful observability.' },
-  { title: 'Human control is a feature.', body: 'Consequential decisions must have explicit review checkpoints. Good automation knows exactly where its authority ends.' },
-  { title: 'Earn more autonomy.', body: 'Start with a bounded task, verify latency and deterministic throughput, and expand boundaries only when warranted.' }
-];
-
 export default function AboutMe() {
-  const { about } = portfolioConfig;
+  const { about, personal } = portfolioConfig;
 
   return (
-    <section id="about" className="section" style={{ borderTop: '1px solid var(--hair)' }}>
+    <section id="about" className="section" style={{ borderTop: '1px solid var(--line)' }}>
       <div className="shell">
-        <span className="eyebrow" style={{ marginBottom: '24px' }}>Studio Positioning</span>
+        <span className="eyebrow" style={{ marginBottom: '24px' }}>Engineering Profile</span>
         <div className="split-heading">
-          <h2>Engineering sub-50ms distributed pipelines &amp; intelligent backends.</h2>
-          <p>
-            Founded by Muhammad Tahir, Computer Science scholar at UET Lahore. We turn messy, high-latency workflows into clean, deterministic backend microservices.
-          </p>
+          <h2>Systems Architect &amp; Computer Science Scholar.</h2>
+          <p>{about.overview}</p>
         </div>
 
-        {/* Operating Principles Grid */}
+        {/* Milestones Grid */}
         <div className="capability-grid" style={{ marginBottom: '64px' }}>
-          {principles.map((p, idx) => (
+          {about.milestones.map((m, idx) => (
             <article className="capability-card" key={idx}>
-              <span className="card-index">0{idx + 1} // PRINCIPLE</span>
-              <h3 style={{ marginTop: '54px' }}>{p.title}</h3>
-              <p>{p.body}</p>
+              <span className="card-index">{m.index} // BENCHMARK</span>
+              <div style={{ fontSize: '2.2rem', fontWeight: 700, color: 'var(--acid)', marginTop: '24px', letterSpacing: '-0.03em' }}>
+                {m.metric}
+              </div>
+              <h3 style={{ marginTop: '8px', fontSize: '1.15rem' }}>{m.label}</h3>
+              <p>{m.detail}</p>
             </article>
           ))}
         </div>
 
-        {/* Academic & Founder Split */}
+        {/* Academic Foundation & Profile Portrait */}
         <div className="about-split-grid">
-          <div className="about-academic-panel">
+          <div className="about-academic-panel" style={{ background: 'var(--panel)', border: '1px solid var(--line)', borderRadius: 'var(--radius)', padding: '32px' }}>
             <span className="eyebrow" style={{ marginBottom: '16px' }}>Academic Foundation</span>
-            <h3 style={{ fontSize: '1.6rem', marginTop: '12px' }}>{about.education.degree}</h3>
-            <p style={{ color: 'var(--dim)', margin: '6px 0 18px', fontFamily: 'var(--font-mono)', fontSize: '0.82rem' }}>
-              {about.education.institution} · <strong style={{ color: 'var(--acid)' }}>{about.education.cgpa}</strong>
+            <h3 style={{ fontSize: '1.6rem', marginTop: '12px', color: 'var(--text)' }}>{about.education.degree}</h3>
+            <p style={{ color: 'var(--muted)', margin: '6px 0 18px', fontFamily: 'monospace', fontSize: '0.88rem' }}>
+              {about.education.institution} · <strong style={{ color: 'var(--acid)' }}>{about.education.cgpa}</strong> · <span>{about.education.graduationDate}</span>
             </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
-              {about.education.coursework.map((c, i) => (
-                <span key={i} className="chip">
-                  {c}
-                </span>
-              ))}
+            <div style={{ marginTop: '20px' }}>
+              <span style={{ fontSize: '0.78rem', textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--dim)', display: 'block', marginBottom: '10px' }}>
+                Key Rigorous Coursework
+              </span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {about.education.coursework.map((c, i) => (
+                  <span key={i} className="skill-chip">
+                    {c}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div style={{ border: '1px solid var(--line)', borderRadius: '20px', padding: '20px', background: 'var(--panel)', display: 'flex', gap: '20px', alignItems: 'center' }}>
+          <div style={{ border: '1px solid var(--line)', borderRadius: 'var(--radius)', padding: '28px', background: 'var(--panel)', display: 'flex', gap: '24px', alignItems: 'center' }}>
             <img
               src={profileImage}
               alt="Muhammad Tahir"
-              style={{ width: '110px', height: '110px', borderRadius: '14px', objectFit: 'cover', objectPosition: 'center 20%' }}
+              style={{ width: '120px', height: '120px', borderRadius: '16px', objectFit: 'cover', objectPosition: 'center 20%', border: '1px solid rgba(255,255,255,0.1)' }}
             />
             <div>
-              <span className="eyebrow" style={{ fontSize: '0.62rem' }}>Founder-Led Studio</span>
-              <h4 style={{ fontSize: '1.25rem', margin: '6px 0 4px', color: 'var(--text)' }}>Muhammad Tahir</h4>
-              <p style={{ fontSize: '0.82rem', color: 'var(--muted)' }}>
-                Direct ownership. No sales handoff layers between workflow diagnosis and engineering.
+              <span className="eyebrow" style={{ marginBottom: '6px' }}>{personal.status}</span>
+              <h3 style={{ fontSize: '1.4rem', margin: '4px 0', color: 'var(--text)' }}>{personal.fullName}</h3>
+              <p style={{ fontSize: '0.84rem', color: 'var(--muted)', lineHeight: '1.5' }}>
+                {personal.roleSubtitle}
               </p>
+              <div style={{ marginTop: '12px', fontSize: '0.8rem', color: 'var(--dim)', fontFamily: 'monospace' }}>
+                📍 {personal.location}
+              </div>
             </div>
           </div>
         </div>
