@@ -59,51 +59,47 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className="work-editorial-grid">
-          {projects.map((project, idx) => (
-            <article
-              className={`work-feature ${idx === 0 ? 'work-feature-primary' : 'work-feature-small'}`}
-              key={project.title}
-            >
+          {/* 01: Career OS - Primary Large Feature Card */}
+          {projects[0] && (
+            <article className="work-feature work-feature-primary">
               <div className="work-label-row">
-                <span>System {project.index}</span>
-                <span>{project.badge}</span>
+                <span>System {projects[0].index}</span>
+                <span>{projects[0].badge}</span>
               </div>
 
-              {idx === 0 && (
-                <div className="work-visual" aria-hidden="true">
-                  <div className="work-sheet sheet-a">
-                    <span>Job Queue</span>
-                    <strong>BullMQ Worker</strong>
-                    <small>latency / &lt;50ms</small>
-                  </div>
-                  <div className="work-sheet sheet-b">
-                    <span>Vector Index</span>
-                    <strong>pgvector Cosine</strong>
-                    <small>Gemini embeddings</small>
-                  </div>
-                  <div className="work-sheet sheet-c">
-                    <span>Container Boundary</span>
-                    <strong>Docker Compose</strong>
-                    <small>isolated worker cluster</small>
-                  </div>
-                  <div className="work-marker">AI</div>
+              <div className="work-visual" aria-hidden="true">
+                <div className="work-sheet sheet-a">
+                  <span>Job Queue</span>
+                  <strong>BullMQ Worker</strong>
+                  <small>latency / &lt;50ms</small>
                 </div>
-              )}
+                <div className="work-sheet sheet-b">
+                  <span>Vector Index</span>
+                  <strong>pgvector Cosine</strong>
+                  <small>Gemini embeddings</small>
+                </div>
+                <div className="work-sheet sheet-c">
+                  <span>Container Boundary</span>
+                  <strong>Docker Compose</strong>
+                  <small>isolated worker cluster</small>
+                </div>
+                <div className="work-marker">AI</div>
+              </div>
 
               <div className="work-copy">
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
+                <h3>{projects[0].title}</h3>
+                <p>{projects[0].description}</p>
 
-                {project.architecture && (
+                {projects[0].architecture && (
                   <ul className="project-architecture-list">
-                    {project.architecture.map((item, i) => (
+                    {projects[0].architecture.map((item, i) => (
                       <li key={i}>{item}</li>
                     ))}
                   </ul>
                 )}
 
                 <div className="project-tag-row">
-                  {project.techStack.map((tech) => (
+                  {projects[0].techStack.map((tech) => (
                     <span className="project-tag" key={tech}>
                       {tech}
                     </span>
@@ -111,9 +107,9 @@ export default function Projects() {
                 </div>
 
                 <div className="project-card-link-group">
-                  {project.githubUrl && (
+                  {projects[0].githubUrl && (
                     <a
-                      href={project.githubUrl}
+                      href={projects[0].githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="editorial-button"
@@ -122,9 +118,9 @@ export default function Projects() {
                       Repository <span>↗</span>
                     </a>
                   )}
-                  {project.liveUrl && (
+                  {projects[0].liveUrl && (
                     <a
-                      href={project.liveUrl}
+                      href={projects[0].liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="editorial-link"
@@ -136,7 +132,161 @@ export default function Projects() {
                 </div>
               </div>
             </article>
-          ))}
+          )}
+
+          {/* 02: YT Analysis Engine */}
+          {projects[1] && (
+            <article className="work-feature work-feature-small">
+              <div className="work-label-row">
+                <span>System {projects[1].index}</span>
+                <span>{projects[1].badge}</span>
+              </div>
+
+              <div className="inbox-stack" aria-hidden="true">
+                <div>
+                  <b>TimescaleDB Hypertables</b>
+                  <span>Chunk Partitioned</span>
+                </div>
+                <div>
+                  <b>Token-Bucket Limiter</b>
+                  <span>Redis In-Memory</span>
+                </div>
+                <div>
+                  <b>Gemini Embeddings</b>
+                  <span>Semantic Vector Clustered</span>
+                </div>
+              </div>
+
+              <div className="work-copy">
+                <h3>{projects[1].title}</h3>
+                <p>{projects[1].description}</p>
+
+                <div className="project-tag-row">
+                  {projects[1].techStack.map((tech) => (
+                    <span className="project-tag" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-card-link-group">
+                  {projects[1].githubUrl && (
+                    <a
+                      href={projects[1].githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="editorial-button"
+                      style={{ padding: '8px 16px', fontSize: '0.72rem' }}
+                    >
+                      Repository <span>↗</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* 03: Subscription Guardian - Editorial Paper Style */}
+          {projects[2] && (
+            <article className="work-feature work-feature-small work-feature-paper">
+              <div className="work-label-row">
+                <span>System {projects[2].index}</span>
+                <span>{projects[2].badge}</span>
+              </div>
+
+              <div className="answer-card" aria-hidden="true">
+                <span>Dark Pattern Inspector</span>
+                <strong>Deceptive Checkout Detected</strong>
+                <p>0 Telemetry · 100% Client-Side Privacy</p>
+              </div>
+
+              <div className="work-copy">
+                <h3>{projects[2].title}</h3>
+                <p>{projects[2].description}</p>
+
+                <div className="project-tag-row">
+                  {projects[2].techStack.map((tech) => (
+                    <span className="project-tag" key={tech} style={{ borderColor: 'rgba(21,21,18,0.2)', color: 'var(--ink)' }}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-card-link-group">
+                  {projects[2].githubUrl && (
+                    <a
+                      href={projects[2].githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="editorial-button"
+                      style={{ padding: '8px 16px', fontSize: '0.72rem', background: 'var(--ink)', color: 'var(--paper)' }}
+                    >
+                      Repository <span>↗</span>
+                    </a>
+                  )}
+                  {projects[2].liveUrl && (
+                    <a
+                      href={projects[2].liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="editorial-link"
+                      style={{ fontSize: '0.78rem', color: 'var(--ink)', borderColor: 'var(--ink)' }}
+                    >
+                      Live Extension <span>↗</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          )}
+
+          {/* 04: Full-Stack E-Commerce Platform */}
+          {projects[3] && (
+            <article className="work-feature work-feature-small" style={{ gridColumn: '1 / -1' }}>
+              <div className="work-label-row">
+                <span>System {projects[3].index}</span>
+                <span>{projects[3].badge}</span>
+              </div>
+
+              <div className="work-copy" style={{ position: 'static', marginTop: '24px' }}>
+                <h3>{projects[3].title}</h3>
+                <p>{projects[3].description}</p>
+
+                <div className="project-tag-row">
+                  {projects[3].techStack.map((tech) => (
+                    <span className="project-tag" key={tech}>
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="project-card-link-group">
+                  {projects[3].githubUrl && (
+                    <a
+                      href={projects[3].githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="editorial-button"
+                      style={{ padding: '8px 16px', fontSize: '0.72rem' }}
+                    >
+                      Repository <span>↗</span>
+                    </a>
+                  )}
+                  {projects[3].liveUrl && (
+                    <a
+                      href={projects[3].liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="editorial-link"
+                      style={{ fontSize: '0.78rem' }}
+                    >
+                      Live Store <span>↗</span>
+                    </a>
+                  )}
+                </div>
+              </div>
+            </article>
+          )}
         </div>
       </div>
     </section>
