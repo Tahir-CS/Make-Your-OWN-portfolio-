@@ -1,6 +1,6 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
-import './Projects.css';
 
 // Import project thumbnails
 import ecommerceThumb from '../assets/ecommerse store thumbnail .png';
@@ -16,33 +16,40 @@ const getThumbnail = (title) => {
   return null;
 };
 
-const ProjectShowcaseCard = ({ project }) => {
+const ProjectShowcaseCard = ({ project, index }) => {
   const thumbnail = getThumbnail(project.title);
 
   return (
-    <article className="project-apple-card">
+    <motion.article
+      className="project-card"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      whileHover={{ y: -6 }}
+    >
       <div>
         {/* Meta Header */}
-        <div className="project-apple-meta">
-          <span className="chip-mono apple-badge apple-badge-gray">[ {project.index} // SPEC ]</span>
-          <span className="apple-badge apple-badge-blue">{project.category || project.badge}</span>
+        <div className="project-card-meta">
+          <span className="chip-mono glow-badge glow-badge-cyan">[ {project.index} // SPEC ]</span>
+          <span className="glow-badge glow-badge-purple">{project.category || project.badge}</span>
         </div>
 
-        {/* Thumbnail preview with Apple frame */}
+        {/* Thumbnail preview */}
         {thumbnail && (
-          <div className="project-preview-frame-apple">
+          <div className="project-thumb-frame">
             <img src={thumbnail} alt={`${project.title} Interface`} loading="lazy" />
           </div>
         )}
 
-        <h3 className="project-apple-title">{project.title}</h3>
-        <p className="project-apple-desc">{project.description}</p>
+        <h3 className="project-title">{project.title}</h3>
+        <p className="project-desc">{project.description}</p>
 
         {/* Architectural Specs */}
         {project.architecture && project.architecture.length > 0 && (
-          <div className="project-arch-specs-box">
-            <div className="project-arch-title">System Specs &amp; Execution</div>
-            <ul className="project-arch-list">
+          <div className="project-specs-box">
+            <div className="project-specs-title">System Specs &amp; Execution</div>
+            <ul className="project-specs-list">
               {project.architecture.map((item, idx) => (
                 <li key={idx}>{item}</li>
               ))}
@@ -53,21 +60,21 @@ const ProjectShowcaseCard = ({ project }) => {
 
       {/* Footer / Tech stack & Links */}
       <div>
-        <div className="project-tech-pills-wrap">
+        <div className="project-tech-chips-wrap">
           {project.techStack.map((tech, i) => (
-            <span key={i} className="tech-pill-apple">
+            <span key={i} className="tech-chip-dark">
               {tech}
             </span>
           ))}
         </div>
 
-        <div className="project-actions-row">
+        <div className="project-card-footer">
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="apple-button-secondary"
+              className="btn-secondary-glass"
               style={{ padding: '8px 16px', fontSize: '0.82rem' }}
             >
               <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
@@ -81,10 +88,10 @@ const ProjectShowcaseCard = ({ project }) => {
               href={project.liveUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="apple-button"
+              className="btn-primary-glow"
               style={{ padding: '8px 16px', fontSize: '0.82rem' }}
             >
-              <span>Live App</span>
+              <span>Live Deployment</span>
               <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
@@ -92,7 +99,7 @@ const ProjectShowcaseCard = ({ project }) => {
           )}
         </div>
       </div>
-    </article>
+    </motion.article>
   );
 };
 
@@ -103,19 +110,40 @@ export default function Projects() {
     <section id="projects" className="section-padding">
       <div className="container">
         {/* Section Header */}
-        <div className="section-index-header">
+        <motion.div
+          className="section-index-header"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="section-index-num">// 02. SELECTED WORKS</span>
           <span className="section-index-tag">[ PRODUCTION SYSTEMS ]</span>
-        </div>
+        </motion.div>
 
-        <h2 className="section-heading-editorial">Engineered Architectures</h2>
-        <p className="section-lead-editorial">
+        <motion.h2
+          className="section-heading-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Engineered Architectures
+        </motion.h2>
+
+        <motion.p
+          className="section-lead-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           High-performance production systems designed for determinism, sub-50ms queue throughput, and high-dimensional semantic search.
-        </p>
+        </motion.p>
 
-        <div className="projects-grid-apple">
+        <div className="projects-grid">
           {projects.map((project, index) => (
-            <ProjectShowcaseCard key={project.title || index} project={project} />
+            <ProjectShowcaseCard key={project.title || index} project={project} index={index} />
           ))}
         </div>
       </div>

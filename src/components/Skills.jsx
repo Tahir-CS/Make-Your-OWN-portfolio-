@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
 export default function Skills() {
@@ -8,31 +9,65 @@ export default function Skills() {
     <section id="skills" className="section-padding">
       <div className="container">
         {/* Section Header */}
-        <div className="section-index-header">
+        <motion.div
+          className="section-index-header"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="section-index-num">// 04. CAPABILITIES DIRECTORY</span>
           <span className="section-index-tag">[ RUNTIME &amp; STORAGE ]</span>
-        </div>
+        </motion.div>
 
-        <h2 className="section-heading-editorial">Technical Competencies</h2>
-        <p className="section-lead-editorial">
+        <motion.h2
+          className="section-heading-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Technical Competencies
+        </motion.h2>
+
+        <motion.p
+          className="section-lead-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Deliberate technology choices optimized for sub-millisecond query execution, asynchronous worker throughput, and type safety.
-        </p>
+        </motion.p>
 
-        <div className="skills-apple-grid">
+        <div className="skills-grid">
           {Object.entries(skills).map(([category, skillList], idx) => (
-            <div key={category} className="skill-apple-card">
-              <div className="skill-apple-title-bar">
-                <span className="skill-apple-idx">0{idx + 1} //</span>
-                <h3 className="skill-apple-heading">{category}</h3>
+            <motion.div
+              key={category}
+              className="skill-card"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
+              whileHover={{ y: -4 }}
+            >
+              <div className="skill-title-bar">
+                <span className="skill-idx">0{idx + 1} //</span>
+                <h3 className="skill-heading">{category}</h3>
               </div>
-              <div className="skill-apple-chips">
+              <div className="skill-chips-wrap">
                 {skillList.map((skill, index) => (
-                  <span key={index} className="skill-apple-chip">
+                  <motion.span
+                    key={index}
+                    className="skill-badge-item"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.15 }}
+                  >
                     {skill}
-                  </span>
+                  </motion.span>
                 ))}
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

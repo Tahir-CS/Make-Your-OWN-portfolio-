@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 import profileImage from '../assets/me.jpg';
 
@@ -9,32 +10,65 @@ export default function AboutMe() {
     <section id="about" className="section-padding">
       <div className="container">
         {/* Section Header */}
-        <div className="section-index-header">
+        <motion.div
+          className="section-index-header"
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <span className="section-index-num">// 01. PHILOSOPHY &amp; PERSPECTIVE</span>
           <span className="section-index-tag">[ SYSTEM DESIGN ]</span>
-        </div>
+        </motion.div>
 
-        <h2 className="section-heading-editorial">Architecture Blueprint &amp; Philosophy</h2>
-        <p className="section-lead-editorial">
+        <motion.h2
+          className="section-heading-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          Architecture Blueprint &amp; Philosophy
+        </motion.h2>
+
+        <motion.p
+          className="section-lead-editorial"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
           Engineering scalable web backends, resilient queue architectures, and mathematical vector retrieval.
-        </p>
+        </motion.p>
 
         {/* Statement Quote Banner */}
-        <div className="about-statement-card">
-          <div className="about-statement-quote">
+        <motion.div
+          className="about-quote-box"
+          initial={{ opacity: 0, scale: 0.98 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="about-quote-text">
             "{about.statement}"
           </div>
-        </div>
+        </motion.div>
 
-        {/* Two-Column Apple Grid */}
-        <div className="about-apple-grid">
+        {/* Two-Column Editorial Split */}
+        <div className="about-editorial-split">
           {/* Left: Narrative & Academic Foundations */}
-          <div className="about-content-card">
+          <motion.div
+            className="about-narrative-card"
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <div>
-              <p className="about-text-p">
+              <p className="about-p">
                 {about.overview}
               </p>
-              <p className="about-text-p">
+              <p className="about-p">
                 From configuring BullMQ backpressure mechanisms and managing Redis cluster memory footprints 
                 to fine-tuning pgvector cosine distance metrics in PostgreSQL, I believe reliability is not an afterthought—it 
                 must be designed into the foundational architecture.
@@ -42,29 +76,35 @@ export default function AboutMe() {
             </div>
 
             {/* Academic Panel */}
-            <div className="academic-panel-apple">
-              <div className="academic-badge-row">
-                <span className="academic-degree">{about.education.degree}</span>
-                <span className="academic-cgpa">CGPA {about.education.cgpa}</span>
+            <div className="academic-panel-dark">
+              <div className="academic-header-flex">
+                <span className="academic-degree-title">{about.education.degree}</span>
+                <span className="academic-cgpa-badge">{about.education.cgpa}</span>
               </div>
-              <p className="academic-inst">{about.education.institution}</p>
+              <p className="academic-institution">{about.education.institution}</p>
               
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--muted-foreground)', marginBottom: '8px', fontWeight: 700 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '10px', fontWeight: 700 }}>
                 Core Foundational Coursework
               </div>
-              <div className="coursework-chips-wrap">
+              <div className="coursework-wrap">
                 {about.education.coursework.map((course, idx) => (
-                  <span key={idx} className="coursework-chip-item">
+                  <span key={idx} className="coursework-tag">
                     {course}
                   </span>
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right: Portrait & Quick System Specs */}
-          <div className="portrait-apple-card">
-            <div className="portrait-image-frame-apple">
+          <motion.div
+            className="portrait-glass-card"
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="portrait-photo-container">
               <img
                 src={profileImage}
                 alt={`${personal.fullName} - ${personal.title}`}
@@ -72,31 +112,31 @@ export default function AboutMe() {
               />
             </div>
 
-            <div className="specs-table-apple">
-              <div className="specs-row-apple">
-                <span className="specs-lbl-apple">LOCATION</span>
-                <span className="specs-val-apple">{personal.location}</span>
+            <div className="portrait-specs-table">
+              <div className="specs-row">
+                <span className="specs-label">LOCATION</span>
+                <span className="specs-value">{personal.location}</span>
               </div>
-              <div className="specs-row-apple">
-                <span className="specs-lbl-apple">SPECIALTY</span>
-                <span className="specs-val-apple">Distributed Queues &amp; RAG</span>
+              <div className="specs-row">
+                <span className="specs-label">SPECIALTY</span>
+                <span className="specs-value">Distributed Queues &amp; RAG</span>
               </div>
-              <div className="specs-row-apple">
-                <span className="specs-lbl-apple">ACADEMIA</span>
-                <span className="specs-val-apple">UET Lahore (BS CS)</span>
+              <div className="specs-row">
+                <span className="specs-label">ACADEMIA</span>
+                <span className="specs-value">UET Lahore (BS CS)</span>
               </div>
-              <div className="specs-row-apple">
-                <span className="specs-lbl-apple">CORE RUNTIME</span>
-                <span className="specs-val-apple">Node • Redis • PostgreSQL</span>
+              <div className="specs-row">
+                <span className="specs-label">CORE RUNTIME</span>
+                <span className="specs-value">Node • Redis • PostgreSQL</span>
               </div>
-              <div className="specs-row-apple">
-                <span className="specs-lbl-apple">STATUS</span>
-                <span className="apple-badge apple-badge-green" style={{ fontSize: '0.7rem' }}>
+              <div className="specs-row">
+                <span className="specs-label">STATUS</span>
+                <span className="glow-badge glow-badge-emerald" style={{ fontSize: '0.72rem', padding: '3px 10px' }}>
                   Available for Global Roles
                 </span>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
 const NAV_ITEMS = [
@@ -36,12 +37,17 @@ export default function Navigation() {
   }, []);
 
   return (
-    <header className="navbar-wrapper">
-      <nav className="navbar-apple">
+    <motion.header
+      className="navbar-wrapper"
+      initial={{ y: -30, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+    >
+      <nav className="navbar-frosted">
         {/* Brand Group */}
         <a href="#" className="navbar-brand-link">
           <div className="navbar-logo-icon">
-            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
           </div>
@@ -66,12 +72,12 @@ export default function Navigation() {
 
         {/* Right CTA Actions */}
         <div className="navbar-actions">
-          <div className="apple-badge apple-badge-green" style={{ display: 'none', md: 'inline-flex' }}>
+          <div className="glow-badge glow-badge-emerald" style={{ display: 'none', md: 'inline-flex' }}>
             <span className="status-dot-pulse"></span>
-            <span style={{ fontSize: '0.72rem', letterSpacing: '0.02em' }}>Available</span>
+            <span>Available</span>
           </div>
 
-          <a href="#contact" className="apple-button" style={{ padding: '8px 18px', fontSize: '0.82rem' }}>
+          <a href="#contact" className="btn-primary-glow" style={{ padding: '8px 18px', fontSize: '0.82rem' }}>
             Get in Touch
           </a>
 
@@ -93,28 +99,36 @@ export default function Navigation() {
       </nav>
 
       {/* Mobile Drawer */}
-      {isMobileMenuOpen && (
-        <div className="navbar-mobile-menu">
-          {NAV_ITEMS.map((item) => (
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className="navbar-mobile-menu"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+          >
+            {NAV_ITEMS.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                className="navbar-mobile-item"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item.name}
+              </a>
+            ))}
             <a
-              key={item.id}
-              href={item.href}
-              className="navbar-mobile-item"
+              href={`mailto:${personal.email}`}
+              className="btn-primary-glow"
+              style={{ width: '100%', textAlign: 'center', marginTop: '8px' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              {item.name}
+              Email Directly ↗
             </a>
-          ))}
-          <a
-            href={`mailto:${personal.email}`}
-            className="apple-button"
-            style={{ width: '100%', textAlign: 'center', marginTop: '8px' }}
-            onClick={() => setIsMobileMenuOpen(false)}
-          >
-            Email Directly ↗
-          </a>
-        </div>
-      )}
-    </header>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
