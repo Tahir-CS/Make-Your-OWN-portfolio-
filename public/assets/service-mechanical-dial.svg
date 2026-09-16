@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Mechanical AI service dial">
+<defs><radialGradient id="bg"><stop stop-color="#f7f3eb"/><stop offset="1" stop-color="#d8cbb9"/></radialGradient><linearGradient id="brass"><stop stop-color="#f0d7a0"/><stop offset=".35" stop-color="#8c6730"/><stop offset=".68" stop-color="#d9b877"/><stop offset="1" stop-color="#5e4320"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="24" stdDeviation="26" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="1200" rx="72" fill="url(#bg)"/>
+<g transform="translate(600 600)" filter="url(#s)">
+<circle r="410" fill="#ebe4d8" stroke="#171612" stroke-width="16"/>
+<circle r="350" fill="none" stroke="url(#brass)" stroke-width="44"/>
+<circle r="288" fill="#171612" stroke="#f2eadf" stroke-width="8"/>
+<circle r="220" fill="#f4eee4" stroke="#171612" stroke-width="12"/>
+<circle r="122" fill="#e14831" stroke="#171612" stroke-width="10"/>
+<circle r="62" fill="#efe4d2"/>
+<g fill="#171612" font-family="Arial" font-weight="700" text-anchor="middle">
+<text y="-8" font-size="28">AI</text><text y="28" font-size="15" letter-spacing="4">SYSTEM</text>
+</g>
+<g stroke="#171612" stroke-width="12" stroke-linecap="round">
+<path d="M0-410V-355M290-290L250-250M410 0H355M290 290L250 250M0 410V355M-290 290L-250 250M-410 0H-355M-290-290L-250-250"/>
+</g>
+<g fill="#f7f2e8" font-family="Arial" text-anchor="middle"><text x="0" y="-252" font-size="18" letter-spacing="3">01 DISCOVER</text><text x="248" y="8" font-size="18" letter-spacing="3" transform="rotate(90 248 8)">02 BUILD</text><text x="0" y="270" font-size="18" letter-spacing="3">03 SCALE</text><text x="-248" y="8" font-size="18" letter-spacing="3" transform="rotate(-90 -248 8)">04 IMPROVE</text></g>
+<g fill="#e14831"><circle cy="-350" r="20"/><circle cx="350" r="20"/><circle cy="350" r="20"/><circle cx="-350" r="20"/></g>
+</g>
+<g font-family="Arial" fill="#4e463d"><text x="90" y="108" font-size="18" letter-spacing="5">OPERATING SYSTEM / 00482</text><text x="90" y="1130" font-size="15" letter-spacing="4">INPUT → REASON → ACT → REVIEW</text></g>
+</svg>

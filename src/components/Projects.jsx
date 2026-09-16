@@ -1,140 +1,171 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { portfolioConfig } from '../config/portfolio.config';
-
-// Import project thumbnails
-import ecommerceThumb from '../assets/ecommerse store thumbnail .png';
-import aiResumeThumb from '../assets/ai resume analyzer.png';
-import trendvisionThumb from '../assets/trendvision thumbnail.png';
-import careerOsThumb from '../assets/careeros.png';
-
-const getThumbnail = (title) => {
-  if (title.includes("Career")) return careerOsThumb;
-  if (title.includes("E-Commerce")) return ecommerceThumb;
-  if (title.includes("Resume")) return aiResumeThumb;
-  if (title.includes("YT") || title.includes("TrendVision")) return trendvisionThumb;
-  return null;
-};
-
-const ProjectShowcaseCard = ({ project, index }) => {
-  const thumbnail = getThumbnail(project.title);
-  const themeClass = index % 2 !== 0 ? 'theme-light' : 'theme-dark';
-
-  return (
-    <article
-      className={`project-card-sticky ${themeClass}`}
-      style={{ zIndex: index + 10 }} // Ensure subsequent cards stack on top
-    >
-      {/* Meta Header */}
-      <div className="project-card-meta">
-        <span className="chip-mono glow-badge glow-badge-cyan">[ {project.index} // SPEC ]</span>
-        <span className="glow-badge glow-badge-purple" style={{ border: 'none' }}>{project.category || project.badge}</span>
-      </div>
-
-      {/* Left Column: Huge Title & Thumb */}
-      <div className="project-card-left">
-        <h3 className="project-title">{project.title}</h3>
-        {thumbnail ? (
-          <div className="project-thumb-frame">
-            <img src={thumbnail} alt={`${project.title} Interface`} loading="lazy" />
-          </div>
-        ) : (
-          <div className="project-thumb-frame" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'rgba(255, 255, 255, 0.02)', border: '1px dashed rgba(255, 255, 255, 0.12)' }}>
-            <div style={{ textAlign: 'center', color: 'var(--text-muted)' }}>
-              <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', letterSpacing: '0.06em' }}>
-                ARCHITECTURE DIAGRAM PENDING
-              </span>
-            </div>
-          </div>
-        )}
-      </div>
-
-      {/* Right Column: Context, Specs, Actions */}
-      <div className="project-card-right">
-        <p className="project-desc">{project.description}</p>
-
-        {/* Architectural Specs */}
-        {project.architecture && project.architecture.length > 0 && (
-          <div className="project-specs-box" style={{ marginBottom: '32px' }}>
-            <div className="project-specs-title" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', textTransform: 'uppercase', marginBottom: '12px', fontWeight: 'bold' }}>Architecture</div>
-            <ul className="project-specs-list" style={{ paddingLeft: '20px', fontSize: '0.9rem' }}>
-              {project.architecture.map((item, idx) => (
-                <li key={idx} style={{ marginBottom: '8px' }}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        )}
-
-        {/* Tech stack & Links */}
-        <div style={{ marginTop: 'auto' }}>
-          <div className="project-tech-chips-wrap" style={{ marginBottom: '24px' }}>
-            {project.techStack.map((tech, i) => (
-              <span key={i} className="tech-chip-dark" style={{ fontFamily: 'var(--font-mono)', fontSize: '0.75rem', padding: '6px 12px', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          <div className="project-card-footer" style={{ display: 'flex', gap: '12px' }}>
-            {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="btn-secondary-glass" style={{ padding: '10px 20px', fontSize: '0.82rem', borderRadius: '0' }}>
-                Repository
-              </a>
-            )}
-            {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn-brutalist" style={{ padding: '10px 20px', fontSize: '0.82rem', borderRadius: '0' }}>
-                Live Deployment ↗
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-};
 
 export default function Projects() {
-  const { projects } = portfolioConfig;
 
   return (
-    <section id="projects" className="section-padding">
-      <div className="container">
-        {/* Section Header */}
-        <motion.div
-          className="section-index-header"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="section-index-num">// 02. SELECTED WORKS</span>
-          <span className="section-index-tag">[ PRODUCTION SYSTEMS ]</span>
-        </motion.div>
+    <section id="work" className="editorial-section work-section">
+      <div className="section-art section-art-work" aria-hidden="true">
+        <img src="/assets/workflow-impact-board.svg" alt="" />
+      </div>
 
-        <motion.h2
-          className="section-heading-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Engineered Architectures
-        </motion.h2>
+      <div className="shell">
+        <div className="section-intro-grid dark-intro">
+          <span className="section-number">03</span>
+          <div>
+            <p className="section-kicker">Selected systems</p>
+            <h2>
+              Show the thinking.<br />
+              Skip the theatre.
+            </h2>
+          </div>
+          <p className="section-copy">
+            Our demo work is labelled honestly. The point is to show architecture, interaction and operational thinking—not pretend there is a client logo wall.
+          </p>
+        </div>
 
-        <motion.p
-          className="section-lead-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          High-performance production systems designed for determinism, sub-50ms queue throughput, and high-dimensional semantic search.
-        </motion.p>
+        <div className="work-asset-banner">
+          <div className="work-asset-copy">
+            <span>Reference system / 001</span>
+            <h3>
+              From insight<br />
+              to impact.
+            </h3>
+            <p>
+              Inputs become decisions, decisions become actions, and the workflow stays visible enough for an engineering team to trust it.
+            </p>
+          </div>
 
-        <div className="projects-stack-container">
-          {projects.map((project, index) => (
-            <ProjectShowcaseCard key={project.title || index} project={project} index={index} />
-          ))}
+          <div className="work-asset-image-wrap">
+            <img
+              src="/assets/workflow-impact-board.svg"
+              alt="Layered workflow board showing data sources, AI workflow and results"
+              className="work-dashboard-image"
+            />
+            <div className="work-interface-card work-interface-card-status" aria-hidden="true">
+              <span>System state</span>
+              <strong>Operational</strong>
+              <small>Last decision · 14s ago</small>
+            </div>
+            <div className="work-interface-card work-interface-card-signal" aria-hidden="true">
+              <span>Signals</span>
+              <strong>42</strong>
+              <small>PostgreSQL · BullMQ · Redis · Docker</small>
+            </div>
+          </div>
+        </div>
+
+        <div className="work-editorial-grid">
+          {/* Featured Primary Build: Career OS */}
+          <article className="work-feature work-feature-primary">
+            <div className="work-label-row">
+              <span>Demo 001</span>
+              <span>Distributed Microservice</span>
+            </div>
+
+            <div className="work-visual" aria-hidden="true">
+              <div className="work-sheet sheet-a">
+                <span>Inbound Queue</span>
+                <strong>BullMQ Worker</strong>
+                <small>latency / &lt;50ms</small>
+              </div>
+              <div className="work-sheet sheet-b">
+                <span>Vector Matching</span>
+                <strong>pgvector Cosine</strong>
+                <small>Gemini embeddings</small>
+              </div>
+              <div className="work-sheet sheet-c">
+                <span>Container Boundary</span>
+                <strong>Docker Compose</strong>
+                <small>isolated gateway + db</small>
+              </div>
+              <div className="work-marker">AI</div>
+            </div>
+
+            <div className="work-copy">
+              <h3>Career OS — Distributed Intelligence Engine</h3>
+              <p>
+                Distributed job intelligence engine returning responses in &lt;50ms. Combines BullMQ worker threads with pgvector semantic cosine similarity search.
+              </p>
+              <div style={{ marginTop: '16px' }}>
+                <a
+                  href="https://github.com/Tahir-CS/CAREER-OS-"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="editorial-button"
+                  style={{ padding: '10px 18px', fontSize: '0.72rem' }}
+                >
+                  Inspect Codebase ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          {/* Demo 002: YT Analysis Engine */}
+          <article className="work-feature work-feature-small">
+            <div className="work-label-row">
+              <span>Demo 002</span>
+              <span>Time-Series Streaming</span>
+            </div>
+            <div className="inbox-stack" aria-hidden="true">
+              <div>
+                <b>TimescaleDB</b>
+                <span>partitioned hypertables</span>
+              </div>
+              <div>
+                <b>Redis Token Bucket</b>
+                <span>quota rate limiter</span>
+              </div>
+              <div>
+                <b>Vector Clustering</b>
+                <span>Gemini API sentiment</span>
+              </div>
+            </div>
+            <div className="work-copy">
+              <h3>YT Analysis &amp; Data Ingestion Pipeline</h3>
+              <p>
+                High-throughput data ingestion pipeline capturing streaming metrics with distributed Redis rate limiting.
+              </p>
+              <div style={{ marginTop: '14px' }}>
+                <a
+                  href="https://github.com/Tahir-CS/Yt-Analysis-Engine"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="editorial-link"
+                >
+                  GitHub Repository ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          {/* Demo 003: Subscription Guardian */}
+          <article className="work-feature work-feature-small work-feature-paper">
+            <div className="work-label-row">
+              <span>Demo 003</span>
+              <span>Chrome MV3 Extension</span>
+            </div>
+            <div className="answer-card" aria-hidden="true">
+              <span>DOM Mutation Scanner</span>
+              <strong>Deceptive checkout pattern detected</strong>
+              <p>Zero telemetry · 100% client-side privacy</p>
+            </div>
+            <div className="work-copy">
+              <h3>Subscription Guardian Browser Extension</h3>
+              <p>
+                Client extension inspecting checkout DOMs in real-time to detect deceptive recurring billing and dark patterns.
+              </p>
+              <div style={{ marginTop: '14px' }}>
+                <a
+                  href="https://github.com/Tahir-CS/Subscription-manager"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="editorial-link"
+                >
+                  Inspect Extension ↗
+                </a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>

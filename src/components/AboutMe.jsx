@@ -1,142 +1,70 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 import profileImage from '../assets/me.jpg';
 
+const principles = [
+  { title: 'Useful beats impressive.', body: 'A quiet workflow that saves attention every day is more valuable than a flashy demo nobody trusts after week two.' },
+  { title: 'Systems over prompts.', body: 'Prompt quality matters, but reliable systems also need queue backpressure, data validation, retries, and thoughtful observability.' },
+  { title: 'Human control is a feature.', body: 'Consequential decisions must have explicit review checkpoints. Good automation knows exactly where its authority ends.' },
+  { title: 'Earn more autonomy.', body: 'Start with a bounded task, verify latency and deterministic throughput, and expand boundaries only when warranted.' }
+];
+
 export default function AboutMe() {
-  const { about, personal } = portfolioConfig;
+  const { about } = portfolioConfig;
 
   return (
-    <section id="about" className="section-padding">
-      <div className="container">
-        {/* Section Header */}
-        <motion.div
-          className="section-index-header"
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="section-index-num">// 01. PHILOSOPHY &amp; PERSPECTIVE</span>
-          <span className="section-index-tag">[ SYSTEM DESIGN ]</span>
-        </motion.div>
+    <section id="about" className="section" style={{ borderTop: '1px solid var(--hair)' }}>
+      <div className="shell">
+        <span className="eyebrow" style={{ marginBottom: '24px' }}>Studio Positioning</span>
+        <div className="split-heading">
+          <h2>Engineering sub-50ms distributed pipelines &amp; intelligent backends.</h2>
+          <p>
+            Founded by Muhammad Tahir, Computer Science scholar at UET Lahore. We turn messy, high-latency workflows into clean, deterministic backend microservices.
+          </p>
+        </div>
 
-        <motion.h2
-          className="section-heading-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Architecture Blueprint &amp; Philosophy
-        </motion.h2>
+        {/* Operating Principles Grid */}
+        <div className="capability-grid" style={{ marginBottom: '64px' }}>
+          {principles.map((p, idx) => (
+            <article className="capability-card" key={idx}>
+              <span className="card-index">0{idx + 1} // PRINCIPLE</span>
+              <h3 style={{ marginTop: '54px' }}>{p.title}</h3>
+              <p>{p.body}</p>
+            </article>
+          ))}
+        </div>
 
-        <motion.p
-          className="section-lead-editorial"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          Engineering scalable web backends, resilient queue architectures, and mathematical vector retrieval.
-        </motion.p>
-
-        {/* Statement Quote Banner */}
-        <motion.div
-          className="about-quote-box"
-          initial={{ opacity: 0, scale: 0.98 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <div className="about-quote-text">
-            "{about.statement}"
-          </div>
-        </motion.div>
-
-        {/* Two-Column Editorial Split */}
-        <div className="about-editorial-split">
-          {/* Left: Narrative & Academic Foundations */}
-          <motion.div
-            className="about-narrative-card"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div>
-              <p className="about-p">
-                {about.overview}
-              </p>
-              <p className="about-p">
-                From configuring BullMQ backpressure mechanisms and managing Redis cluster memory footprints 
-                to fine-tuning pgvector cosine distance metrics in PostgreSQL, I believe reliability is not an afterthought—it 
-                must be designed into the foundational architecture.
-              </p>
-            </div>
-
-            {/* Academic Panel */}
-            <div className="academic-panel-dark">
-              <div className="academic-header-flex">
-                <span className="academic-degree-title">{about.education.degree}</span>
-                <span className="academic-cgpa-badge">{about.education.cgpa}</span>
-              </div>
-              <p className="academic-institution">{about.education.institution}</p>
-              
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: '0.72rem', textTransform: 'uppercase', color: 'var(--primary)', marginBottom: '10px', fontWeight: 700 }}>
-                Core Foundational Coursework
-              </div>
-              <div className="coursework-wrap">
-                {about.education.coursework.map((course, idx) => (
-                  <span key={idx} className="coursework-tag">
-                    {course}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-
-          {/* Right: Portrait & Quick System Specs */}
-          <motion.div
-            className="portrait-glass-card"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <div className="portrait-photo-container">
-              <img
-                src={profileImage}
-                alt={`${personal.fullName} - ${personal.title}`}
-                loading="lazy"
-              />
-            </div>
-
-            <div className="portrait-specs-table">
-              <div className="specs-row">
-                <span className="specs-label">LOCATION</span>
-                <span className="specs-value">{personal.location}</span>
-              </div>
-              <div className="specs-row">
-                <span className="specs-label">SPECIALTY</span>
-                <span className="specs-value">Distributed Queues &amp; RAG</span>
-              </div>
-              <div className="specs-row">
-                <span className="specs-label">ACADEMIA</span>
-                <span className="specs-value">UET Lahore (BS CS)</span>
-              </div>
-              <div className="specs-row">
-                <span className="specs-label">CORE RUNTIME</span>
-                <span className="specs-value">Node • Redis • PostgreSQL</span>
-              </div>
-              <div className="specs-row">
-                <span className="specs-label">STATUS</span>
-                <span className="glow-badge glow-badge-emerald" style={{ fontSize: '0.72rem', padding: '3px 10px' }}>
-                  Available for Global Roles
+        {/* Academic & Founder Split */}
+        <div className="about-split-grid">
+          <div className="about-academic-panel">
+            <span className="eyebrow" style={{ marginBottom: '16px' }}>Academic Foundation</span>
+            <h3 style={{ fontSize: '1.6rem', marginTop: '12px' }}>{about.education.degree}</h3>
+            <p style={{ color: 'var(--dim)', margin: '6px 0 18px', fontFamily: 'var(--font-mono)', fontSize: '0.82rem' }}>
+              {about.education.institution} · <strong style={{ color: 'var(--acid)' }}>{about.education.cgpa}</strong>
+            </p>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', marginTop: '16px' }}>
+              {about.education.coursework.map((c, i) => (
+                <span key={i} className="chip">
+                  {c}
                 </span>
-              </div>
+              ))}
             </div>
-          </motion.div>
+          </div>
+
+          <div style={{ border: '1px solid var(--line)', borderRadius: '20px', padding: '20px', background: 'var(--panel)', display: 'flex', gap: '20px', alignItems: 'center' }}>
+            <img
+              src={profileImage}
+              alt="Muhammad Tahir"
+              style={{ width: '110px', height: '110px', borderRadius: '14px', objectFit: 'cover', objectPosition: 'center 20%' }}
+            />
+            <div>
+              <span className="eyebrow" style={{ fontSize: '0.62rem' }}>Founder-Led Studio</span>
+              <h4 style={{ fontSize: '1.25rem', margin: '6px 0 4px', color: 'var(--text)' }}>Muhammad Tahir</h4>
+              <p style={{ fontSize: '0.82rem', color: 'var(--muted)' }}>
+                Direct ownership. No sales handoff layers between workflow diagnosis and engineering.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

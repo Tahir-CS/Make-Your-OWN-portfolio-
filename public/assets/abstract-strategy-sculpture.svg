@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Abstract strategy sculpture">
+<defs><linearGradient id="stone" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fffaf1"/><stop offset="1" stop-color="#cfc1ad"/></linearGradient><linearGradient id="gold"><stop stop-color="#f5dca6"/><stop offset=".42" stop-color="#8e672f"/><stop offset=".72" stop-color="#d5b56f"/><stop offset="1" stop-color="#5e431f"/></linearGradient><filter id="s"><feDropShadow dx="0" dy="28" stdDeviation="30" flood-color="#302317" flood-opacity=".22"/></filter></defs>
+<rect width="1200" height="1200" rx="72" fill="#e7ded0"/>
+<g filter="url(#s)">
+<ellipse cx="603" cy="884" rx="390" ry="112" fill="#cbbcab" opacity=".48"/>
+<path d="M237 755C316 524 430 404 596 365c129-30 234 3 367 105l-64 118c-104-70-188-93-275-72-116 28-197 114-255 291z" fill="url(#stone)"/>
+<circle cx="694" cy="427" r="166" fill="#e14831"/>
+<circle cx="694" cy="427" r="83" fill="#e7ded0"/>
+<rect x="248" y="716" width="554" height="98" rx="49" fill="#171612" transform="rotate(-10 525 765)"/>
+<path d="M401 311C635 167 896 239 981 461" fill="none" stroke="url(#gold)" stroke-width="34" stroke-linecap="round"/>
+<path d="M286 598C492 736 707 780 951 692" fill="none" stroke="#f7f1e7" stroke-width="72" stroke-linecap="round"/>
+<path d="M330 914L862 277" stroke="url(#gold)" stroke-width="22" stroke-linecap="round"/>
+<rect x="789" y="780" width="182" height="124" rx="18" fill="#f5efe5" transform="rotate(7 880 842)"/>
+<text x="820" y="828" font-family="Arial" font-size="13" letter-spacing="3" fill="#71675c">BUILT FOR</text><text x="820" y="863" font-family="Georgia" font-size="30" fill="#171612">what’s next</text>
+</g>
+<text x="84" y="110" font-family="Arial" font-size="17" letter-spacing="5" fill="#6e6357">STRATEGY · DESIGN · AI</text>
+<text x="84" y="1110" font-family="Arial" font-size="15" letter-spacing="4" fill="#756a5e">IDEAS → SYSTEMS → IMPACT</text>
+</svg>

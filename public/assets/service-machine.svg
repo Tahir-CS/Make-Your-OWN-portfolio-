@@ -1,0 +1,34 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" fill="#E6E0D5"/>
+  <g stroke="#151512" stroke-width="2">
+    <circle cx="600" cy="450" r="260"/>
+    <circle cx="600" cy="450" r="180" stroke-dasharray="9 14" opacity="0.55"/>
+    <circle cx="600" cy="450" r="82" fill="#F0EDE5"/>
+    <path d="M600 188V712M338 450H862" opacity="0.22"/>
+    <path d="M414 264L786 636M786 264L414 636" opacity="0.14"/>
+  </g>
+  <g fill="#151512">
+    <rect x="162" y="232" width="210" height="128"/>
+    <rect x="828" y="540" width="210" height="128"/>
+    <rect x="182" y="586" width="198" height="108" fill="#F0EDE5" stroke="#151512" stroke-width="2"/>
+    <rect x="840" y="218" width="180" height="96" fill="#F0EDE5" stroke="#151512" stroke-width="2"/>
+  </g>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="190" y="270" fill="#F0EDE5" font-size="18" letter-spacing="2">INPUT</text>
+    <text x="190" y="315" fill="#F0EDE5" font-size="34" font-weight="700">Operational signal</text>
+    <text x="854" y="575" fill="#F0EDE5" font-size="18" letter-spacing="2">ACTION</text>
+    <text x="854" y="620" fill="#F0EDE5" font-size="34" font-weight="700">Work completed</text>
+    <text x="208" y="622" fill="#151512" font-size="16" letter-spacing="2">SYSTEM RULE</text>
+    <text x="208" y="663" fill="#151512" font-size="30">Human checkpoint</text>
+    <text x="862" y="252" fill="#151512" font-size="16" letter-spacing="2">CONTEXT</text>
+    <text x="862" y="286" fill="#151512" font-size="26">Data + memory</text>
+    <text x="548" y="444" fill="#151512" font-size="18" letter-spacing="2">TAHIR / AI</text>
+    <text x="564" y="482" fill="#151512" font-size="34" font-weight="700">SYSTEM</text>
+  </g>
+  <g stroke="#E0442E" stroke-width="8" stroke-linecap="round">
+    <path d="M372 296C470 296 492 326 520 368"/>
+    <path d="M682 528C725 574 770 604 828 604"/>
+  </g>
+  <circle cx="505" cy="344" r="13" fill="#E0442E"/>
+  <circle cx="708" cy="560" r="13" fill="#E0442E"/>
+</svg>
