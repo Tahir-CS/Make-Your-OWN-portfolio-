@@ -22,7 +22,7 @@ export default function Experience() {
   return (
     <section id="experience" className="section-padding" ref={containerRef}>
       <div className="container">
-        {/* Apple Minimalist Section Header */}
+        {/* Apple Minimalist Section Header - Plain English */}
         <motion.div
           className="deck-section-header"
           initial={{ opacity: 0, y: 20 }}
@@ -30,10 +30,10 @@ export default function Experience() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <span className="apple-label">Internships &amp; Practical Work</span>
+          <span className="apple-label">Experience</span>
           <h2 className="apple-monument-h2">Work Experience.</h2>
           <p className="apple-lead-p">
-            Production engineering tenures developing enterprise university portals, conversational assistant products, and modern web applications.
+            Internships where I built real web portals, conversational products, and backend integrations.
           </p>
         </motion.div>
 
@@ -76,8 +76,8 @@ export default function Experience() {
                     {/* Header */}
                     <div className="exp-card-header">
                       <div className="exp-badge-line">
-                        <span className="apple-mono-badge">{exp.type || "Engineering Internship"}</span>
-                        {isKics && <span className="apple-highlight-badge">2-Month Full-Stack Tenure</span>}
+                        <span className="apple-mono-badge">{exp.type || "Internship"}</span>
+                        {isKics && <span className="apple-highlight-badge">2-Month Internship</span>}
                       </div>
 
                       <h3 className="exp-card-title">{exp.title}</h3>
@@ -98,7 +98,7 @@ export default function Experience() {
                       <div className="kics-systems-stack">
                         <div className="kics-item-row">
                           <div className="kics-row-head">
-                            <span className="kics-badge">SYSTEM 01</span>
+                            <span className="kics-badge">PROJECT 01</span>
                             <span className="kics-item-title">UET OCW (OpenCourseWare)</span>
                           </div>
                           <p className="kics-item-text">
@@ -108,31 +108,31 @@ export default function Experience() {
 
                         <div className="kics-item-row">
                           <div className="kics-row-head">
-                            <span className="kics-badge">SYSTEM 02</span>
-                            <span className="kics-item-title">Enterprise AI Chatbot Product</span>
+                            <span className="kics-badge">PROJECT 02</span>
+                            <span className="kics-item-title">AI Chatbot Product</span>
                           </div>
                           <p className="kics-item-text">
-                            ChatGPT-style assistant featuring Super Admin, Admin, and User tiers, live AI token usage meter, and dynamic custom LLM API key configuration.
+                            Conversational assistant featuring Super Admin, Admin, and User tiers, live AI token usage meter, and dynamic custom API key configuration.
                           </p>
                         </div>
 
                         <div className="kics-item-row">
                           <div className="kics-row-head">
-                            <span className="kics-badge">SYSTEM 03</span>
+                            <span className="kics-badge">PROJECT 03</span>
                             <span className="kics-item-title">Admission Management System</span>
                           </div>
                           <p className="kics-item-text">
-                            End-to-end admissions pipeline automating candidate intake, multi-step document verification, and real-time applicant status tracking.
+                            End-to-end admissions pipeline automating candidate intake, multi-step document verification, and applicant status tracking.
                           </p>
                         </div>
 
                         <div className="kics-item-row">
                           <div className="kics-row-head">
-                            <span className="kics-badge">SYSTEM 04</span>
+                            <span className="kics-badge">PROJECT 04</span>
                             <span className="kics-item-title">UET Health Sciences Integration</span>
                           </div>
                           <p className="kics-item-text">
-                            Connected the high-performance Next.js client frontend to Laravel REST backend services for synchronized portal records.
+                            Connected the Next.js client frontend to Laravel REST backend services for synchronized portal records.
                           </p>
                         </div>
                       </div>

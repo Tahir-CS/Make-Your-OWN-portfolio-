@@ -5,12 +5,12 @@ export const portfolioConfig = {
   personal: {
     name: "Muhammad Tahir",
     fullName: "Muhammad Tahir",
-    title: "Software & Systems Engineer",
-    roleSubtitle: "Backend Architecture • Distributed Systems • Databases",
+    title: "Software & Backend Engineer",
+    roleSubtitle: "Backend Development • Databases • Web Applications",
     status: "Available for Software Roles",
     location: "Lahore, Pakistan (UTC+5)",
-    tagline: "Building scalable backend services, clean databases, and modern web applications.",
-    bio: "Computer Science student at UET Lahore building backend services and modern web platforms. Focused on relational databases, background worker queues, and clean API design.",
+    tagline: "Building reliable backend services, clean databases, and modern web applications.",
+    bio: "Computer Science student at UET Lahore building reliable backend services, database schemas, and modern web applications.",
     email: "mtahirbutt1005@gmail.com",
     phone: "+92 329 9712924",
     

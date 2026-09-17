@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { portfolioConfig } from '../config/portfolio.config';
 
 const NAV_ITEMS = [
-  { id: 'projects', name: 'Works', href: '#projects' },
-  { id: 'about', name: 'About', href: '#about' },
+  { id: 'projects', name: 'Projects', href: '#projects' },
+  { id: 'about', name: 'About Me', href: '#about' },
   { id: 'experience', name: 'Experience', href: '#experience' },
   { id: 'skills', name: 'Skills', href: '#skills' },
   { id: 'certifications', name: 'Certificates', href: '#certifications' },
@@ -83,7 +83,7 @@ export default function Navigation() {
         {/* Right CTA */}
         <div className="navbar-cta-right">
           <a href="#contact" className="btn-primary-glow" style={{ padding: '8px 16px', fontSize: '0.82rem' }}>
-            <span>Connect</span>
+            <span>Contact</span>
             <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </svg>

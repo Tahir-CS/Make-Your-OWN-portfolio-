@@ -37,7 +37,7 @@ export default function Contact() {
   return (
     <section id="contact" className="section-padding">
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header - Plain English */}
         <motion.div
           className="deck-section-header"
           initial={{ opacity: 0, y: 15 }}
@@ -45,10 +45,10 @@ export default function Contact() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="apple-label">Let's Connect</span>
+          <span className="apple-label">Contact</span>
           <h2 className="apple-monument-h2">Get In Touch.</h2>
           <p className="apple-lead-p">
-            Open to software engineering roles, backend internships, and collaborative web development projects.
+            Open to software engineering roles, internships, and collaborative web development projects.
           </p>
         </motion.div>
 
@@ -61,17 +61,17 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h3 className="section-heading-editorial" style={{ fontSize: 'clamp(1.8rem, 3.2vw, 2.5rem)', marginBottom: '20px' }}>
-              Let's Build Something Great.
+              Let's build something together.
             </h3>
 
-            {/* Primary Interactive Email Card */}
+            {/* Email Card */}
             <motion.div
               className="contact-action-card"
               onClick={handleCopyEmail}
               whileHover={{ y: -2 }}
             >
               <div>
-                <div className="contact-action-lbl">DIRECT EMAIL</div>
+                <div className="contact-action-lbl">EMAIL</div>
                 <div className="contact-action-val">{personal.email}</div>
               </div>
               <span className={`glow-badge ${copied ? 'glow-badge-emerald' : 'glow-badge-cyan'}`}>
@@ -86,8 +86,8 @@ export default function Contact() {
               whileHover={{ y: -2 }}
             >
               <div>
-                <div className="contact-action-lbl">EMAIL CLIENT</div>
-                <div className="contact-action-val">Open Default Mail App →</div>
+                <div className="contact-action-lbl">MAIL APP</div>
+                <div className="contact-action-val">Open Default Mail Client →</div>
               </div>
               <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" style={{ color: 'var(--primary)' }}>
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -138,10 +138,10 @@ export default function Contact() {
             transition={{ duration: 0.6 }}
           >
             <h3 style={{ fontSize: '1.35rem', fontWeight: 800, color: '#ffffff', marginBottom: '8px' }}>
-              Send a Direct Message
+              Send a Message
             </h3>
             <p style={{ fontSize: '0.88rem', color: 'var(--text-secondary)', marginBottom: '24px', lineHeight: '1.6' }}>
-              Have an open role, internship opportunity, or project idea? Drop a note below and I will reply promptly.
+              Have an open role, internship opportunity, or project idea? Send a message below and I will reply quickly.
             </p>
 
             <form onSubmit={handleSubmit}>
@@ -182,7 +182,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   rows="4"
-                  placeholder="Share details about the role, project scope, or opportunity..."
+                  placeholder="Share details about the role or project..."
                   className="apple-input-text"
                 ></textarea>
               </div>

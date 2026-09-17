@@ -40,7 +40,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="projects-sheet-section">
-      {/* Reference Stacking Sheets */}
+      {/* Reference Stacking Sheets Deck */}
       <div className="projects-stack-wrapper">
         {projects.map((project, idx) => {
           const thumbnail = getProjectThumbnail(project.title);
@@ -50,16 +50,18 @@ export default function Projects() {
           return (
             <article
               key={project.title}
-              className={`ref-project-sheet ${isDarkTheme ? 'ref-sheet-dark' : 'ref-sheet-light'}`}
+              id={`project-sheet-${idx + 1}`}
+              className={`ref-project-sheet ${isDarkTheme ? 'ref-sheet-dark' : 'ref-sheet-light'} ${idx > 0 ? 'ref-sheet-overlap' : 'ref-sheet-first'}`}
               style={{
                 zIndex: idx + 1,
+                top: 0,
               }}
             >
               <div className="ref-sheet-inner">
                 {/* Top Meta Bar */}
                 <div className="ref-sheet-top-bar">
                   <div className="ref-meta-left">
-                    <span className="ref-index-spec">{project.index} / REFERENCE BUILD • DEPLOYED</span>
+                    <span className="ref-index-spec">{project.index} / PROJECT • DEPLOYED</span>
                   </div>
                   <div className="ref-meta-right">
                     <span className="ref-category-spec">{project.category}</span>
@@ -107,7 +109,7 @@ export default function Projects() {
                   <div className="ref-status-actions">
                     <div className="ref-deploy-indicator">
                       <span className="ref-pulse-dot"></span>
-                      <span className="ref-deploy-text">Deployed reference build</span>
+                      <span className="ref-deploy-text">Deployed Project</span>
                     </div>
 
                     <div className="ref-links-cluster">
@@ -116,7 +118,7 @@ export default function Projects() {
                           type="button"
                           className="ref-action-btn ref-btn-inspect"
                           onClick={() => setActiveInspect({ ...project, thumbnail })}
-                          title="Preview system interface"
+                          title="Preview project screenshot"
                         >
                           <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -132,7 +134,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="ref-action-btn"
-                          title="Inspect Source Repository"
+                          title="Inspect Source Code"
                         >
                           <span>Code ↗</span>
                         </a>
@@ -144,7 +146,7 @@ export default function Projects() {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="ref-action-btn ref-action-btn-accent"
-                          title="Launch Live System"
+                          title="Launch Live Project"
                         >
                           <span>Live ↗</span>
                         </a>

@@ -20,12 +20,12 @@ export default function Footer() {
               <span className="footer-brand-heading">{personal.fullName}</span>
             </div>
             <p style={{ fontSize: '0.92rem', color: 'var(--text-secondary)', maxWidth: '380px', lineHeight: '1.65' }}>
-              Software &amp; Backend Engineer. Building reliable backend services, web applications, and database architectures with clean code.
+              Software &amp; Backend Engineer. Building reliable backend services, database schemas, and clean web applications.
             </p>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '18px' }}>
               <div className="glow-badge glow-badge-emerald">
                 <span className="status-dot-pulse"></span>
-                <span>Open for New Roles</span>
+                <span>Open for Software Roles</span>
               </div>
             </div>
           </div>
@@ -34,11 +34,12 @@ export default function Footer() {
           <div>
             <div className="footer-col-title">Navigation</div>
             <ul className="footer-links-list">
-              <li><a href="#projects" className="footer-link-anchor">Works</a></li>
-              <li><a href="#about" className="footer-link-anchor">About</a></li>
+              <li><a href="#projects" className="footer-link-anchor">Projects</a></li>
+              <li><a href="#about" className="footer-link-anchor">About Me</a></li>
               <li><a href="#experience" className="footer-link-anchor">Experience</a></li>
               <li><a href="#skills" className="footer-link-anchor">Skills</a></li>
               <li><a href="#certifications" className="footer-link-anchor">Certificates</a></li>
+              <li><a href="#contact" className="footer-link-anchor">Contact</a></li>
             </ul>
           </div>
 
@@ -71,7 +72,7 @@ export default function Footer() {
 
         <div className="footer-bottom-row">
           <div className="footer-copyright">
-            © {currentYear} {personal.fullName}. Built with React, Vite &amp; Framer Motion.
+            © {currentYear} {personal.fullName}. Built with React &amp; Vite.
           </div>
           <div className="footer-arch-tag">
             UET LAHORE • COMPUTER SCIENCE

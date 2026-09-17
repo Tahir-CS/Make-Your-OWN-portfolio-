@@ -31,7 +31,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="section-padding certs-section-wrapper">
       <div className="container">
-        {/* Section Header */}
+        {/* Section Header - Plain English */}
         <motion.div
           className="deck-section-header"
           initial={{ opacity: 0, y: 15 }}
@@ -39,10 +39,10 @@ export default function Certifications() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <span className="apple-label">Verified Credentials</span>
-          <h2 className="apple-monument-h2">Certifications &amp; Accreditations.</h2>
+          <span className="apple-label">Certificates</span>
+          <h2 className="apple-monument-h2">Certifications.</h2>
           <p className="apple-lead-p">
-            Continuous moving credentials carousel. Hover to pause, click to inspect in high resolution.
+            Coursework and certifications I've completed. Hover to pause, click to view.
           </p>
         </motion.div>
       </div>
